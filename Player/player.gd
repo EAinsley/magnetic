@@ -1,14 +1,25 @@
 extends CharacterBody3D
 
+@export var mouse_sensitivity := 0.001
+@export var head_x_min_degree := -90.0
+@export var head_x_max_degree := 90.0
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var mouse_motion := Vector2.ZERO
 
+@onready var head: Node3D = $Head
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+	# Handle rotation
+	handle_camera_rotateion()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -29,3 +40,22 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func _input(event: InputEvent) -> void:
+	# Record rotation
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		mouse_motion = -event.relative * mouse_sensitivity
+	
+	# Handle mouse escape
+	if event.is_action_pressed("ui_cancel") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("pick_up") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+func handle_camera_rotateion():
+	rotate_y(mouse_motion.x)
+	head.rotate_x(mouse_motion.y)
+	head.rotation_degrees.x = clampf(head.rotation_degrees.x, head_x_min_degree, head_x_max_degree)
+	mouse_motion = Vector2.ZERO
+	
+
