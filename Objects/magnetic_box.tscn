@@ -1,24 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccmpojjkt5ic5"]
+[gd_scene load_steps=12 format=3 uid="uid://ccmpojjkt5ic5"]
 
 [ext_resource type="Script" path="res://Objects/magnetic_box.gd" id="1_lajwc"]
-[ext_resource type="Texture2D" uid="uid://xx1s2v81wm1o" path="res://Arts/Prototype/Purple/texture_07.png" id="1_sdgar"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_57o8e"]
+[ext_resource type="Texture2D" uid="uid://dnlfi0wrupiuo" path="res://Arts/Prototype/Dark/texture_02.png" id="2_mmagl"]
+[ext_resource type="Texture2D" uid="uid://bvdo2qsorhwki" path="res://Arts/Prototype/Red/texture_02.png" id="3_bo7o7"]
+[ext_resource type="Texture2D" uid="uid://x5rdwq2wlv72" path="res://Arts/Prototype/Purple/texture_02.png" id="4_bkjg0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fudrv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8xtw"]
+albedo_texture = ExtResource("2_mmagl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyc31"]
+albedo_texture = ExtResource("3_bo7o7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbwxk"]
+albedo_texture = ExtResource("4_bkjg0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
 size = Vector3(0.8, 0.8, 0.8)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6kbm"]
-albedo_texture = ExtResource("1_sdgar")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_offset = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_2b12i"]
+[sub_resource type="BoxMesh" id="BoxMesh_dfxy3"]
+resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_n6kbm")
 size = Vector3(0.8, 0.8, 0.8)
 
 [node name="MagneticBox" type="RigidBody3D" groups=["pickable"]]
@@ -27,6 +31,9 @@ collision_layer = 2
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_fudrv")
 script = ExtResource("1_lajwc")
+normal_material = SubResource("StandardMaterial3D_w8xtw")
+positive_material = SubResource("StandardMaterial3D_fyc31")
+negative_material = SubResource("StandardMaterial3D_rbwxk")
 metadata/_edit_group_ = true
 
 [node name="Magnetic" parent="." instance=ExtResource("2_57o8e")]
@@ -35,6 +42,6 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.268494, 0)
 shape = SubResource("BoxShape3D_bvjet")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249676, 0)
-mesh = SubResource("BoxMesh_2b12i")
+mesh = SubResource("BoxMesh_dfxy3")

@@ -47,5 +47,13 @@ size = Vector3(2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -2.5)
 size = Vector3(2, 1, 2)
 
-[node name="MagneticBox" parent="." instance=ExtResource("4_whynm")]
+[node name="PositiveBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 1)
 initial_plority = 1
+
+[node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 3)
+initial_plority = 2
+
+[node name="NeutralBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 5)
