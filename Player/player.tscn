@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhva1tc2tnv77"]
+[gd_scene load_steps=9 format=3 uid="uid://bhva1tc2tnv77"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_b0b15"]
 [ext_resource type="Script" path="res://Player/smooth_camera.gd" id="2_1brkh"]
+[ext_resource type="Script" path="res://Player/ray_casting_camera.gd" id="3_hff7t"]
 [ext_resource type="Script" path="res://Player/corsshair.gd" id="3_jgbva"]
+[ext_resource type="Script" path="res://Player/logic.gd" id="5_khhlg"]
+[ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="5_kv1sy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uwcpl"]
 height = 1.8
@@ -11,6 +14,7 @@ height = 1.8
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 6
 script = ExtResource("1_b0b15")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -24,10 +28,21 @@ shape = SubResource("CapsuleShape3D_61h40")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="SmoothCamera" type="Camera3D" parent="Head"]
+[node name="Cameras" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 top_level = true
 script = ExtResource("2_1brkh")
+
+[node name="RenderCamera" type="Camera3D" parent="Head/Cameras"]
+current = true
+
+[node name="RaycastingCamera" type="Camera3D" parent="Head/Cameras"]
+cull_mask = 0
+script = ExtResource("3_hff7t")
+
+[node name="Interaction" type="RayCast3D" parent="Head/Cameras/RaycastingCamera"]
+transform = Transform3D(2, 0, 0, 0, -1.31134e-07, -2, 0, 3, -8.74228e-08, 0, 0, 0)
+collision_mask = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -39,3 +54,15 @@ grow_vertical = 2
 [node name="Crosshair" type="Control" parent="CenterContainer"]
 layout_mode = 2
 script = ExtResource("3_jgbva")
+
+[node name="Hand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942735, -0.615916)
+gizmo_extents = 0.5
+
+[node name="Logic" type="Node" parent="."]
+script = ExtResource("5_khhlg")
+
+[node name="Magnetic" parent="Logic" instance=ExtResource("5_kv1sy")]
+
+[connection signal="colliding_state_changed" from="Head/Cameras/RaycastingCamera" to="CenterContainer/Crosshair" method="_on_raycasting_camera_colliding_state_changed"]
+[connection signal="right_mouse_clicked" from="Head/Cameras/RaycastingCamera" to="Logic" method="_on_raycasting_camera_right_mouse_clicked"]
