@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=8 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
+[ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
+[ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
+[ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,6 +30,30 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jtns1")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="Floor" parent="Stage" instance=ExtResource("2_seobx")]
 size = Vector3(64, 1, 64)
+
+[node name="Platform" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -4)
+size = Vector3(3, 3, 3)
+
+[node name="Platform2" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -4.5)
+size = Vector3(2, 2, 2)
+
+[node name="Platform3" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -2.5)
+size = Vector3(2, 1, 2)
+
+[node name="PositiveBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 1)
+initial_plority = 1
+
+[node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 3)
+initial_plority = 2
+
+[node name="NeutralBox" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 5)

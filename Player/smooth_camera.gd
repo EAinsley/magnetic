@@ -1,4 +1,4 @@
-extends Camera3D
+extends Node3D
 
 @export var speed := 44.0
 
