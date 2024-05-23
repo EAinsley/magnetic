@@ -8,10 +8,7 @@ extends RigidBody3D
 
 @onready var magnetic: Magnetic = $Magnetic
 @onready var pickable: Node = $Pickable
-
 @onready var mesh: MeshInstance3D = $Mesh
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,4 +30,7 @@ func _on_magnetic_plority_changed(plority: Magnetic.Plority) -> void:
 			mesh.mesh.set("material", positive_material)
 		Magnetic.Plority.NEGATIVE:
 			mesh.mesh.set("material", negative_material)
+
+func get_mesh():
+	return mesh.mesh
 						

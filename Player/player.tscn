@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhva1tc2tnv77"]
+[gd_scene load_steps=14 format=3 uid="uid://bhva1tc2tnv77"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_b0b15"]
 [ext_resource type="Script" path="res://Player/smooth_camera.gd" id="2_1brkh"]
 [ext_resource type="Script" path="res://Player/interaction.gd" id="3_hff7t"]
 [ext_resource type="Script" path="res://Player/corsshair.gd" id="3_jgbva"]
 [ext_resource type="Script" path="res://Player/hand.gd" id="4_ilble"]
-[ext_resource type="Script" path="res://Player/putdown_ray.gd" id="4_or0f3"]
 [ext_resource type="Script" path="res://Player/logic.gd" id="5_khhlg"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="5_kv1sy"]
 [ext_resource type="Script" path="res://Player/magnetic_ui.gd" id="7_lcooq"]
@@ -22,6 +21,8 @@ height = 1.8
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 6
 script = ExtResource("1_b0b15")
+head_x_min_degree = -60.0
+head_x_max_degree = 70.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -47,13 +48,8 @@ target_position = Vector3(0, 0, -3)
 collision_mask = 2
 script = ExtResource("3_hff7t")
 
-[node name="PutdownRay" type="RayCast3D" parent="Head/Cameras"]
-target_position = Vector3(0, 0, -3)
-collision_mask = 6
-script = ExtResource("4_or0f3")
-
 [node name="Hand" type="Marker3D" parent="Head/Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.508746, -0.410728, -0.0847611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
 gizmo_extents = 0.5
 script = ExtResource("4_ilble")
 

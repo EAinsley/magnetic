@@ -58,3 +58,4 @@ extract={
 3d_physics/layer_1="player"
 3d_physics/layer_2="object"
 3d_physics/layer_3="static_object"
+3d_physics/layer_4="held_object"
