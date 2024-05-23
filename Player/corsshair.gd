@@ -14,6 +14,7 @@ func _draw() -> void:
 		draw_arc(Vector2.ZERO, circle_size, 0, PI * 2, 32, Color.WHITE, circle_width, true)
 
 
-func _on_raycasting_camera_colliding_state_changed(state: bool) -> void:
+
+func _on_interaction_colliding_state_changed(state: bool) -> void:
 	_is_colliding = state
 	queue_redraw()

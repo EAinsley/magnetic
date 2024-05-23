@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxabu3o5uvh1x"]
+
+[ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_rbqd4"]
+[ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="2_rsoco"]
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="CSGBox3D" parent="." instance=ExtResource("1_rbqd4")]
+
+[node name="Platform" parent="." instance=ExtResource("2_rsoco")]

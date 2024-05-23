@@ -7,6 +7,7 @@ extends RigidBody3D
 
 
 @onready var magnetic: Magnetic = $Magnetic
+@onready var pickable: Node = $Pickable
 
 @onready var mesh: MeshInstance3D = $Mesh
 

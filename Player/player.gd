@@ -55,13 +55,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			_handle_pickup()
 	if event.is_action_pressed("extract"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			_handle_extract()
 	
 func handle_camera_rotateion():
 	rotate_y(mouse_motion.x)
@@ -69,10 +65,4 @@ func handle_camera_rotateion():
 	head.rotation_degrees.x = clampf(head.rotation_degrees.x, head_x_min_degree, head_x_max_degree)
 	mouse_motion = Vector2.ZERO
 
-func _handle_pickup() -> void:
-	pass
-
-func _handle_extract() -> void:
-	pass
-	
 
