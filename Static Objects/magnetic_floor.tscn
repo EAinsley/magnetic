@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpq8s74hiqb2y"]
+[gd_scene load_steps=9 format=3 uid="uid://dpq8s74hiqb2y"]
 
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="1_ou4xn"]
 [ext_resource type="Script" path="res://Static Objects/magnetic_floor.gd" id="1_tfvcx"]
@@ -13,7 +13,12 @@ size = Vector3(1, 0.1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4mgi4"]
 size = Vector3(1, 0.1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_auhnm"]
+size = Vector3(1, 1.5, 1)
+
 [node name="MagneticFloor" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_tfvcx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -27,3 +32,16 @@ mesh_instance = NodePath("../MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4mgi4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.923551, 2.32226)
+
+[node name="CapturedArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CapturedArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799244, 0)
+shape = SubResource("BoxShape3D_auhnm")
+
+[connection signal="body_entered" from="CapturedArea" to="." method="_on_captured_area_body_entered"]
