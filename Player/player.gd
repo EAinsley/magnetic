@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var head_x_min_degree := -90.0
 @export var head_x_max_degree := 90.0
 
-@export var jump_height := 1.1  ## in meter
+@export var jump_height := 1.3  ## in meter
 
 const SPEED = 5.0
 var jump_speed : float
