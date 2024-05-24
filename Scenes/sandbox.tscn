@@ -36,8 +36,36 @@ environment = SubResource("Environment_jtns1")
 size = Vector3(64, 1, 64)
 
 [node name="Platform" parent="Stage" instance=ExtResource("3_bdsh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -5)
+size = Vector3(4, 5, 1)
+
+[node name="Platform7" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -3)
+size = Vector3(4, 5, 1)
+
+[node name="Platform8" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3.5, -4)
+size = Vector3(4, 4, 1)
+
+[node name="Platform6" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -4)
 size = Vector3(3, 3, 3)
+
+[node name="Platform4" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.064, 3, -3)
+size = Vector3(3, 5, 1)
+
+[node name="Platform9" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.064, 3, -5)
+size = Vector3(3, 5, 1)
+
+[node name="Platform10" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.564, 3, -4)
+size = Vector3(2, 5, 1)
+
+[node name="Platform5" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, -4.69812)
+size = Vector3(1, 3, 4)
 
 [node name="Platform2" parent="Stage" instance=ExtResource("3_bdsh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -4.5)
@@ -48,12 +76,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -2.5)
 size = Vector3(2, 1, 2)
 
 [node name="PositiveBox" parent="." instance=ExtResource("4_whynm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
+initial_plority = 1
+
+[node name="PositiveBox2" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.08115, 0)
 initial_plority = 1
 
 [node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.08115, -4)
+initial_plority = 2
+
+[node name="NegativeBox2" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 5)
 initial_plority = 2
 
 [node name="NeutralBox" parent="." instance=ExtResource("4_whynm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 9)
