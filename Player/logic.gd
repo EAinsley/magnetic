@@ -1,8 +1,13 @@
 extends Node
 
+
 @onready var magnetic: Magnetic = $Magnetic
 
-func _on_raycasting_camera_right_mouse_clicked(collider: Object) -> void:
+func _on_interaction_right_mouse_clicked(collider: Node3D) -> void:
+	_extract_magnetic(collider)
+
+
+func _extract_magnetic(collider: Object) -> void:
 	# Check if object is magnetic
 	if !collider.magnetic:
 		printerr("No magnetic extract")
@@ -23,3 +28,5 @@ func _on_raycasting_camera_right_mouse_clicked(collider: Object) -> void:
 		magnetic.inject(that_magnetic.extract())
 		print("extract")
 	pass # Replace with function body.
+
+
