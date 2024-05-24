@@ -8,6 +8,7 @@ signal released
 
 var is_holding := false
 var target: RigidBody3D
+var pickable: Pickable
 
 func _ready() -> void:
 	set_process_input(false)
@@ -31,10 +32,10 @@ func _pickup(collider: Node3D) -> void:
 		printerr("The object is not pickable: ", collider)
 		return
 	target = collider as RigidBody3D
+	pickable = target.pickable as Pickable
 	is_holding = true
-	target.set_collision_layer_value(2, false)
-	target.set_collision_layer_value(4, true)
-	target.set_collision_mask_value(1, false)
+
+	pickable.pick()
 	
 	held.emit()
 	set_process_input(true)
@@ -42,9 +43,7 @@ func _pickup(collider: Node3D) -> void:
 func _release() -> void:
 	is_holding = false
 	released.emit()
-	target.set_collision_layer_value(2, true)
-	target.set_collision_layer_value(4, false)
-	target.set_collision_mask_value(1, true)
+	pickable.release()
 	print("hand release")
 		
 
