@@ -6,6 +6,7 @@ signal plority_changed(plority: Plority)
 enum Plority {NEUTRAL, POSITIVE, NEGATIVE}
 
 @export var initial_plority : Plority
+@export var is_extractable : bool
 @export var normal_material : StandardMaterial3D
 @export var positive_material : StandardMaterial3D
 @export var negative_material : StandardMaterial3D
@@ -23,6 +24,8 @@ func _ready() -> void:
 	current_plority = initial_plority
 	get_parent().add_to_group("magnetic")
 	print(get_parent().name, "'s mesh instance", mesh_instance)
+	if is_extractable:
+		get_parent().add_to_group("extractable")
 
 func extract() -> Plority:
 	var extracted_plority = current_plority

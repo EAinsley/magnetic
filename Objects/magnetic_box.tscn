@@ -26,6 +26,7 @@ script = ExtResource("1_lajwc")
 metadata/_edit_group_ = true
 
 [node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("2_57o8e")]
+is_extractable = true
 normal_material = ExtResource("2_fwi05")
 positive_material = ExtResource("3_hbtha")
 negative_material = ExtResource("4_c54q7")

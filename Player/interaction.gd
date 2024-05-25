@@ -14,7 +14,11 @@ func _process(delta: float) -> void:
 
 
 func _update_collider() -> void:
-	_collider = get_collider()
+	var collider_candidate : Node3D= get_collider()
+	if collider_candidate and (collider_candidate.is_in_group("pickable") or collider_candidate.is_in_group("extractable")):
+		_collider = get_collider()
+	else:
+		_collider = null
 	if _is_colliding and !_collider:
 		print("not colliding")
 		_is_colliding = false
@@ -29,7 +33,7 @@ func  _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up") and _is_colliding and _collider.is_in_group("pickable"):
 		print("raycast left mouse clicked ", _collider)
 		left_mouse_clicked.emit(_collider)
-	if event.is_action_pressed("extract") and _is_colliding and _collider.is_in_group("magnetic"):
+	if event.is_action_pressed("extract") and _is_colliding and _collider.is_in_group("extractable"):
 		print("raycast right mouse clicked", _collider)
 		right_mouse_clicked.emit(_collider)
 	
