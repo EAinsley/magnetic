@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_5unha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_muyyx"]
+resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anxon"]
 albedo_texture = ExtResource("3_2qnyb")
@@ -26,6 +27,7 @@ material = SubResource("StandardMaterial3D_mssqa")
 size = Vector3(0.5, 0.099, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5yhun"]
+resource_local_to_scene = true
 size = Vector3(1, 0.2, 1)
 
 [sub_resource type="Animation" id="Animation_2ut4a"]
@@ -154,7 +156,8 @@ _data = {
 "untrigger": SubResource("Animation_6fj8i")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f8wmy"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ocqv2"]
+resource_local_to_scene = true
 size = Vector3(1, 0.1, 1)
 
 [node name="Button" type="StaticBody3D"]
@@ -195,7 +198,7 @@ collision_mask = 11
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = SubResource("BoxShape3D_f8wmy")
+shape = SubResource("BoxShape3D_ocqv2")
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_area_3d_body_exited"]
