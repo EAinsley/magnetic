@@ -1,0 +1,154 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnpjhl784gw1o"]
+
+[ext_resource type="Script" path="res://Static Objects/door.gd" id="1_3gra1"]
+[ext_resource type="PackedScene" uid="uid://iijywg0rgwqs" path="res://Utilities/triggerable.tscn" id="2_dlj07"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g33bw"]
+size = Vector3(0.5, 3, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a65ra"]
+points = PackedVector3Array(-0.25, -1.5, -0.25, -0.25, -1.5, 0.25, -0.25, 1.5, -0.25, 0.25, -1.5, -0.25, 0.25, -1.5, 0.25, -0.25, 1.5, 0.25, 0.25, 1.5, -0.25, 0.25, 1.5, 0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2kptp"]
+points = PackedVector3Array(-0.25, -1.5, -0.25, -0.25, -1.5, 0.25, -0.25, 1.5, -0.25, 0.25, -1.5, -0.25, 0.25, -1.5, 0.25, -0.25, 1.5, 0.25, 0.25, 1.5, -0.25, 0.25, 1.5, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wynn6"]
+size = Vector3(3, 0.5, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f2xxv"]
+points = PackedVector3Array(1.5, 0.25, 0.25, 1.5, 0.25, -0.25, -1.5, 0.25, 0.25, 1.5, -0.25, 0.25, 1.5, -0.25, -0.25, -1.5, 0.25, -0.25, -1.5, -0.25, 0.25, -1.5, -0.25, -0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_va1no"]
+size = Vector3(1, 3, 0.2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tunb0"]
+points = PackedVector3Array(-0.5, -1.5, -0.1, -0.5, -1.5, 0.1, -0.5, 1.5, -0.1, 0.5, -1.5, -0.1, 0.5, -1.5, 0.1, -0.5, 1.5, 0.1, 0.5, 1.5, -0.1, 0.5, 1.5, 0.1)
+
+[sub_resource type="Animation" id="Animation_ud0wc"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Rightdoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aig1q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Rightdoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8ofq"]
+_data = {
+"RESET": SubResource("Animation_aig1q"),
+"open": SubResource("Animation_ud0wc")
+}
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_3gra1")
+
+[node name="Triggerable" parent="." node_paths=PackedStringArray("host") instance=ExtResource("2_dlj07")]
+host = NodePath("..")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Frame" type="StaticBody3D" parent="Model"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="RightMesh" type="MeshInstance3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.5, 0)
+mesh = SubResource("BoxMesh_g33bw")
+
+[node name="RightCollision" type="CollisionShape3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.5, 0)
+shape = SubResource("ConvexPolygonShape3D_a65ra")
+
+[node name="LeftMesh" type="MeshInstance3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.5, 0)
+mesh = SubResource("BoxMesh_g33bw")
+
+[node name="LeftCollision" type="CollisionShape3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.5, 0)
+shape = SubResource("ConvexPolygonShape3D_2kptp")
+
+[node name="Top" type="MeshInstance3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_wynn6")
+
+[node name="TopCollision" type="CollisionShape3D" parent="Model/Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+shape = SubResource("ConvexPolygonShape3D_f2xxv")
+
+[node name="LeftDoor" type="StaticBody3D" parent="Model"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/LeftDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0)
+mesh = SubResource("BoxMesh_va1no")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/LeftDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0)
+shape = SubResource("ConvexPolygonShape3D_tunb0")
+
+[node name="Rightdoor" type="StaticBody3D" parent="Model"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/Rightdoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, 0)
+mesh = SubResource("BoxMesh_va1no")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Rightdoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, 0)
+shape = SubResource("ConvexPolygonShape3D_tunb0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f8ofq")
+}
+
+[connection signal="triggered" from="Triggerable" to="." method="_on_triggerable_triggered"]
+[connection signal="untriggered" from="Triggerable" to="." method="_on_triggerable_untriggered"]
