@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
+[ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Static Objects/button.tscn" id="6_imdho"]
@@ -41,6 +42,7 @@ environment = SubResource("Environment_jtns1")
 [node name="Stage" type="Node3D" parent="."]
 
 [node name="Floor" parent="Stage" instance=ExtResource("2_seobx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 size = Vector3(64, 1, 64)
 
 [node name="Platform" parent="Stage" instance=ExtResource("3_bdsh1")]
@@ -87,16 +89,72 @@ size = Vector3(2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -2.5)
 size = Vector3(2, 1, 2)
 
+[node name="MagneticBox" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 12)
+initial_plority = 2
+
+[node name="MagneticBox2" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 12)
+initial_plority = 2
+
+[node name="MagneticBox3" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 12)
+initial_plority = 2
+
+[node name="MagneticBox4" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 12)
+initial_plority = 2
+
+[node name="MagneticBox5" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 12)
+initial_plority = 2
+
+[node name="MagneticBox6" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 12)
+initial_plority = 2
+
+[node name="MagneticBox7" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 12)
+initial_plority = 2
+
+[node name="MagneticBox8" parent="Stage" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 12)
+initial_plority = 2
+
+[node name="Platform12" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 13)
+size = Vector3(3, 1, 1)
+
+[node name="Platform13" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 11)
+size = Vector3(3, 1, 1)
+
+[node name="Platform14" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 12)
+
+[node name="Platform15" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
+
 [node name="PositiveBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
 initial_plority = 1
 
-[node name="Mesh" parent="PositiveBox" index="3"]
+[node name="Mesh" parent="PositiveBox" index="2"]
 mesh = SubResource("BoxMesh_moaqk")
 
 [node name="PositiveBox2" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.08115, 0)
 initial_plority = 1
+
+[node name="PositiveBox3" parent="." instance=ExtResource("4_whynm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 12)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+initial_plority = 1
+is_pickable = false
 
 [node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.08115, -4)
