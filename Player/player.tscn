@@ -13,9 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dq0f2gouuperc" path="res://Arts/Prototype/Purple/texture_13.png" id="10_nwoqb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uwcpl"]
+radius = 0.3
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61h40"]
+radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
