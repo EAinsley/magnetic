@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=12 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
 [ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
+[ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
+[ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Static Objects/button.tscn" id="6_imdho"]
+[ext_resource type="PackedScene" uid="uid://bnpjhl784gw1o" path="res://Static Objects/door.tscn" id="7_o41sx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,6 +20,11 @@ background_mode = 2
 sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_moaqk"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+size = Vector3(0.9, 0.9, 0.9)
 
 [node name="Sandbox" type="Node3D"]
 
@@ -59,6 +67,10 @@ size = Vector3(3, 5, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.064, 3, -5)
 size = Vector3(3, 5, 1)
 
+[node name="Platform11" parent="Stage" instance=ExtResource("3_bdsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.064, 3, -11.6917)
+size = Vector3(3, 5, 12)
+
 [node name="Platform10" parent="Stage" instance=ExtResource("3_bdsh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.564, 3, -4)
 size = Vector3(2, 5, 1)
@@ -79,6 +91,9 @@ size = Vector3(2, 1, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
 initial_plority = 1
 
+[node name="Mesh" parent="PositiveBox" index="3"]
+mesh = SubResource("BoxMesh_moaqk")
+
 [node name="PositiveBox2" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.08115, 0)
 initial_plority = 1
@@ -93,3 +108,50 @@ initial_plority = 2
 
 [node name="NeutralBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 9)
+
+[node name="MagneticFloor2" parent="." instance=ExtResource("5_wxlg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 6)
+
+[node name="MagneticFloor3" parent="." instance=ExtResource("5_wxlg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 8)
+plority = 1
+
+[node name="MagneticFloor4" parent="." instance=ExtResource("5_wxlg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 10)
+plority = 2
+
+[node name="NeuturalButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, 0.5)
+trigger_target = NodePath("../NeuturalDoor")
+
+[node name="PositiveButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, -7.35775)
+trigger_target = NodePath("../PositiveDoor")
+plority = 1
+
+[node name="PositiveButton2" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, -12.7, 2.40595, -7.35775)
+trigger_target = NodePath("../PositiveDoor")
+plority = 1
+
+[node name="NegativeButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, -16)
+trigger_target = NodePath("../NegativeDoor")
+plority = 2
+
+[node name="NegativeButton2" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, -12.8, 2.5, -16)
+trigger_target = NodePath("../NegativeDoor")
+plority = 2
+
+[node name="NegativeDoor" parent="." instance=ExtResource("7_o41sx")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, -16.2)
+
+[node name="PositiveDoor" parent="." instance=ExtResource("7_o41sx")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, -7.2)
+
+[node name="NeuturalDoor" parent="." instance=ExtResource("7_o41sx")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, 0.799999)
+
+[editable path="PositiveBox"]
+[editable path="PositiveBox/MagneticField"]

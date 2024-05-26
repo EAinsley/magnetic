@@ -20,7 +20,7 @@ func _apply_forces() -> void:
 			continue
 		var distance_square = global_position.distance_squared_to(body.global_position)
 		var force = (body.global_position - global_position).normalized() / distance_square  * magnetic_forces
-		print("apply forces to body ", body.name, ", ", force)
+		#print("apply forces to body ", body.name, ", ", force)
 		if magnetic.current_plority == body_magnetic.current_plority:
 			body.apply_central_force(force)
 		else:
