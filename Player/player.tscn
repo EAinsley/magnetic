@@ -61,7 +61,8 @@ script = ExtResource("4_ilble")
 [node name="Logic" type="Node" parent="."]
 script = ExtResource("5_khhlg")
 
-[node name="Magnetic" parent="Logic" instance=ExtResource("5_kv1sy")]
+[node name="Magnetic" parent="Logic" node_paths=PackedStringArray("host") instance=ExtResource("5_kv1sy")]
+host = NodePath("../..")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
