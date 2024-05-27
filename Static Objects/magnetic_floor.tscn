@@ -26,9 +26,6 @@ normal_material = ExtResource("2_1pwkg")
 positive_material = ExtResource("3_ed5f6")
 negative_material = ExtResource("4_au8ap")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.923551, 2.32226)
-
 [node name="CapturedArea" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 3
