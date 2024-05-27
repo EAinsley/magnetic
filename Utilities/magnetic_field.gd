@@ -3,6 +3,7 @@ extends Area3D
 @export var magnetic: Magnetic
 @export var magnetic_forces := 100
 
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var in_range_object: Array[RigidBody3D] = []
 
 func _ready() -> void:
@@ -11,6 +12,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_apply_forces()
 	pass
+	
+func set_shape(shape: Shape3D) -> void:
+	collision_shape_3d.shape = shape
 
 #
 func _apply_forces() -> void:
@@ -20,7 +24,7 @@ func _apply_forces() -> void:
 			continue
 		var distance_square = global_position.distance_squared_to(body.global_position)
 		var force = (body.global_position - global_position).normalized() / distance_square  * magnetic_forces
-		print("apply forces to body ", body.name, ", ", force)
+		#print("apply forces to body ", body.name, ", ", force)
 		if magnetic.current_plority == body_magnetic.current_plority:
 			body.apply_central_force(force)
 		else:

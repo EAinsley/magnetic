@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://iijywg0rgwqs"]
+
+[ext_resource type="Script" path="res://Utilities/triggerable.gd" id="1_gavdl"]
+
+[node name="Triggerable" type="Node"]
+script = ExtResource("1_gavdl")

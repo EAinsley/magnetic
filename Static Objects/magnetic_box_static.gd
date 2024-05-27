@@ -1,10 +1,9 @@
-class_name MagneticBox
-extends RigidBody3D
+extends StaticBody3D
 
-@export var initial_plority : Magnetic.Plority = Magnetic.Plority.NEUTRAL
+@export var initial_plority : Magnetic.Plority
 
-@onready var pickable: Pickable = $Logics/Pickable
-@onready var magnetic: Magnetic = $Logics/Magnetic
+
+@onready var magnetic: Magnetic = $Magnetic
 @onready var mesh: MeshInstance3D = $Mesh
 
 # Called when the node enters the scene tree for the first time.

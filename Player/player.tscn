@@ -13,13 +13,18 @@
 [ext_resource type="Texture2D" uid="uid://dq0f2gouuperc" path="res://Arts/Prototype/Purple/texture_13.png" id="10_nwoqb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uwcpl"]
+radius = 0.3
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61h40"]
+radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 6
+collision_mask = 14
+slide_on_ceiling = false
+platform_floor_layers = 4294967285
+platform_wall_layers = 4
 script = ExtResource("1_b0b15")
 head_x_min_degree = -60.0
 head_x_max_degree = 70.0
@@ -45,7 +50,7 @@ current = true
 
 [node name="Interaction" type="RayCast3D" parent="Head/Cameras"]
 target_position = Vector3(0, 0, -3)
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("3_hff7t")
 
 [node name="Hand" type="Marker3D" parent="Head/Cameras"]
@@ -56,7 +61,8 @@ script = ExtResource("4_ilble")
 [node name="Logic" type="Node" parent="."]
 script = ExtResource("5_khhlg")
 
-[node name="Magnetic" parent="Logic" instance=ExtResource("5_kv1sy")]
+[node name="Magnetic" parent="Logic" node_paths=PackedStringArray("host") instance=ExtResource("5_kv1sy")]
+host = NodePath("../..")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
