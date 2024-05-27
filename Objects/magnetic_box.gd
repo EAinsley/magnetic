@@ -6,6 +6,7 @@ extends RigidBody3D
 @onready var pickable: Pickable = $Logics/Pickable
 @onready var magnetic: Magnetic = $Logics/Magnetic
 @onready var mesh: MeshInstance3D = $Mesh
+@onready var capturable: Node = $Logics/Capturable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

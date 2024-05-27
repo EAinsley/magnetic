@@ -5,43 +5,44 @@
 [ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="2_1pwkg"]
 [ext_resource type="Material" uid="uid://ddo7yjmhtxvhu" path="res://Arts/Prototype/magnetic/positive.tres" id="3_ed5f6"]
 [ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_au8ap"]
+[ext_resource type="Script" path="res://Utilities/captured_area.gd" id="6_1cqn4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_2eh4k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5y4j"]
 resource_local_to_scene = true
-size = Vector3(1, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4mgi4"]
-size = Vector3(1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_auhnm"]
-size = Vector3(1, 1.5, 1)
+size = Vector3(1, 2, 1)
 
-[node name="MagneticFloor" type="StaticBody3D"]
+[node name="MagneticFloor" type="CSGBox3D"]
+use_collision = true
 collision_layer = 4
-collision_mask = 2
+collision_mask = 11
+material = SubResource("StandardMaterial3D_a5y4j")
 script = ExtResource("1_tfvcx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_2eh4k")
-
-[node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("1_ou4xn")]
+[node name="Magnetic" parent="." node_paths=PackedStringArray("host") instance=ExtResource("1_ou4xn")]
+host = NodePath("..")
 normal_material = ExtResource("2_1pwkg")
 positive_material = ExtResource("3_ed5f6")
 negative_material = ExtResource("4_au8ap")
-mesh_instance = NodePath("../MeshInstance3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_4mgi4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.923551, 2.32226)
 
 [node name="CapturedArea" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
+linear_damp_space_override = 1
+linear_damp = 1.0
+angular_damp_space_override = 1
+angular_damp = 1.0
+script = ExtResource("6_1cqn4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CapturedArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799244, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_auhnm")
 
+[connection signal="plority_changed" from="Magnetic" to="." method="_on_magnetic_plority_changed"]
 [connection signal="body_entered" from="CapturedArea" to="." method="_on_captured_area_body_entered"]
+[connection signal="body_entered" from="CapturedArea" to="CapturedArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CapturedArea" to="CapturedArea" method="_on_body_exited"]

@@ -48,13 +48,14 @@ mesh_instance = NodePath("../../Mesh")
 [node name="Extractable" parent="Logics" node_paths=PackedStringArray("magnetic") instance=ExtResource("7_y33r0")]
 magnetic = NodePath("../Magnetic")
 
+[node name="Capturable" type="Node" parent="Logics" node_paths=PackedStringArray("host")]
+script = ExtResource("8_3a5mf")
+host = NodePath("../..")
+
 [node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("7_o0bvm")]
 magnetic = NodePath("../Logics/Magnetic")
 
 [node name="CollisionShape3D" parent="MagneticField" index="0"]
 shape = SubResource("BoxShape3D_ugdqp")
-
-[node name="Capturable" type="Node" parent="."]
-script = ExtResource("8_3a5mf")
 
 [editable path="MagneticField"]

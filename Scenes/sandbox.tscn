@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=16 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
-[ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
+[ext_resource type="PackedScene" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
-[ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Static Objects/button.tscn" id="6_imdho"]
-[ext_resource type="PackedScene" uid="uid://bnpjhl784gw1o" path="res://Static Objects/door.tscn" id="7_o41sx"]
+[ext_resource type="PackedScene" path="res://Static Objects/button.tscn" id="6_imdho"]
+[ext_resource type="PackedScene" path="res://Static Objects/door.tscn" id="7_o41sx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,6 +26,15 @@ glow_enabled = true
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
 size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bikvi"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d835d"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfvm8"]
+resource_local_to_scene = true
 
 [node name="Sandbox" type="Node3D"]
 
@@ -169,13 +178,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08115, 9)
 
 [node name="MagneticFloor2" parent="." instance=ExtResource("5_wxlg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 6)
+material = SubResource("StandardMaterial3D_bikvi")
 
 [node name="MagneticFloor3" parent="." instance=ExtResource("5_wxlg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 8)
+material = SubResource("StandardMaterial3D_d835d")
 plority = 1
 
 [node name="MagneticFloor4" parent="." instance=ExtResource("5_wxlg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 10)
+material = SubResource("StandardMaterial3D_lfvm8")
 plority = 2
 
 [node name="NeuturalButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
