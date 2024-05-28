@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkoup1eugypfk"]
+
+[sub_resource type="Animation" id="Animation_miwwf"]
+resource_name = "to_neutural"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvcjc"]
+_data = {
+"to_neutural": SubResource("Animation_miwwf")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_thdg7"]
+animation = &"to_neutural"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7qs6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1xub7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_81f8h"]
+states/End/position = Vector2(948, 75)
+states/Start/position = Vector2(252, 100)
+states/to_neutural/node = SubResource("AnimationNodeAnimation_thdg7")
+states/to_neutural/position = Vector2(550, 87)
+transitions = ["Start", "to_neutural", SubResource("AnimationNodeStateMachineTransition_a7qs6"), "to_neutural", "End", SubResource("AnimationNodeStateMachineTransition_1xub7")]
+
+[node name="PlorityChangeAnimationTree" type="AnimationTree"]
+libraries = {
+"": SubResource("AnimationLibrary_fvcjc")
+}
+tree_root = SubResource("AnimationNodeStateMachine_81f8h")

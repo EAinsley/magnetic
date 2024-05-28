@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
 initial_plority = 1
 
-[node name="Mesh" parent="PositiveBox" index="2"]
+[node name="Mesh" parent="PositiveBox" index="1"]
 mesh = SubResource("BoxMesh_moaqk")
 
 [node name="PositiveBox2" parent="." instance=ExtResource("4_whynm")]
@@ -155,7 +155,6 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 can_sleep = false
 initial_plority = 1
-is_pickable = false
 
 [node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.08115, -4)

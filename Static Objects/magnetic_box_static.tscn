@@ -16,14 +16,14 @@ lightmap_size_hint = Vector2i(14, 21)
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi6ss"]
 size = Vector3(6, 6, 6)
 
-[node name="MagneticBox" type="StaticBody3D" groups=["pickable"]]
-collision_layer = 2
+[node name="MagneticBox" type="StaticBody3D"]
+collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_w4krx")
 metadata/_edit_group_ = true
 
-[node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("2_1t41o")]
-is_extractable = true
+[node name="Magnetic" parent="." node_paths=PackedStringArray("host", "mesh_instance") instance=ExtResource("2_1t41o")]
+host = NodePath("..")
 normal_material = ExtResource("3_qhwce")
 positive_material = ExtResource("4_x6yno")
 negative_material = ExtResource("5_1wohf")
