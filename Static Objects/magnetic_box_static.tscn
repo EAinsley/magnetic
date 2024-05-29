@@ -42,4 +42,11 @@ magnetic = NodePath("../Magnetic")
 [node name="CollisionShape3D" parent="MagneticField" index="0"]
 shape = SubResource("BoxShape3D_oi6ss")
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+visible = false
+polygon = PackedVector2Array(1, 2, 110, 208, 471, 218, 471, 8)
+
 [editable path="MagneticField"]

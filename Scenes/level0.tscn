@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.7248
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_53cro")]
-transform = Transform3D(0.00577704, 0, 0.999983, 0, 1, 0, -0.999983, 0, 0.00577704, -8.91552, 1.51287, 0.488279)
+transform = Transform3D(0.00577704, 0, 0.999983, 0, 1, 0, -0.999983, 0, 0.00577704, -7.63316, -0.981036, -0.129329)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
@@ -88,7 +88,7 @@ size = Vector3(3, 19, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 0)
 
 [node name="CSGBox3D" parent="LevelWalls/OuterWall3" instance=ExtResource("1_5aofw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1.0006, 0, 0, 0, 1.0006, 0, 0, 0, 1.0006, 0, 0, 0)
 size = Vector3(5, 1, 11)
 
 [node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall3"]
@@ -203,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 10)
 size = Vector3(10, 17, 1)
 
 [node name="OuterWall7" type="Node3D" parent="LevelWalls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.5, 1, 20.5)
+transform = Transform3D(-4.38492e-08, 0, 1.00315, 0, 1.00315, 0, -1.00315, 0, -4.38492e-08, 22.5, 1, 20.5)
 
 [node name="CSGBox3D" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1.71661e-05)
@@ -356,3 +356,17 @@ initial_plority = 1
 [node name="MagneticBox2" parent="." instance=ExtResource("6_qkuma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2524, 3.7825, -3.26659)
 initial_plority = 1
+
+[node name="MagneticBox3" parent="." instance=ExtResource("7_fdp7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5011, 1.27387, 14.0432)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+initial_plority = 1
+
+[node name="MagneticBox9" parent="." instance=ExtResource("7_fdp7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5862, 7.84073, 14.0324)
+initial_plority = 2
