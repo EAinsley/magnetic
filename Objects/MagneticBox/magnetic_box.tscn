@@ -1,11 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccmpojjkt5ic5"]
+[gd_scene load_steps=9 format=3 uid="uid://ccmpojjkt5ic5"]
 
-[ext_resource type="Script" path="res://Objects/magnetic_box.gd" id="1_lajwc"]
+[ext_resource type="Script" path="res://Objects/MagneticBox/magnetic_box.gd" id="1_lajwc"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_57o8e"]
-[ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="2_fwi05"]
 [ext_resource type="PackedScene" uid="uid://bp5a46pu6cyyr" path="res://Utilities/pickable.tscn" id="2_sfcpf"]
-[ext_resource type="Material" uid="uid://ddo7yjmhtxvhu" path="res://Arts/Prototype/magnetic/positive.tres" id="3_hbtha"]
-[ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_c54q7"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="7_o0bvm"]
 [ext_resource type="PackedScene" uid="uid://blwiwwypbpyxg" path="res://Utilities/extractable.tscn" id="7_y33r0"]
 
@@ -37,12 +34,8 @@ mesh = SubResource("BoxMesh_dfxy3")
 [node name="Pickable" parent="Logics" node_paths=PackedStringArray("host") instance=ExtResource("2_sfcpf")]
 host = NodePath("../..")
 
-[node name="Magnetic" parent="Logics" node_paths=PackedStringArray("host", "mesh_instance") instance=ExtResource("2_57o8e")]
+[node name="Magnetic" parent="Logics" node_paths=PackedStringArray("host") instance=ExtResource("2_57o8e")]
 host = NodePath("../..")
-normal_material = ExtResource("2_fwi05")
-positive_material = ExtResource("3_hbtha")
-negative_material = ExtResource("4_c54q7")
-mesh_instance = NodePath("../../Mesh")
 
 [node name="Extractable" parent="Logics" node_paths=PackedStringArray("magnetic") instance=ExtResource("7_y33r0")]
 magnetic = NodePath("../Magnetic")
