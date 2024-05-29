@@ -22,7 +22,7 @@ size = Vector3(6, 6, 6)
 
 [node name="MagneticBox" type="RigidBody3D"]
 collision_layer = 2
-collision_mask = 15
+collision_mask = 31
 script = ExtResource("1_lajwc")
 metadata/_edit_group_ = true
 

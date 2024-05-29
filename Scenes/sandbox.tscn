@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=14 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
+[ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Static Objects/blocking_wall.tscn" id="5_evf7a"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
-[ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Static Objects/button.tscn" id="6_imdho"]
-[ext_resource type="PackedScene" uid="uid://bnpjhl784gw1o" path="res://Static Objects/door.tscn" id="7_o41sx"]
+[ext_resource type="PackedScene" path="res://Static Objects/button.tscn" id="6_imdho"]
+[ext_resource type="PackedScene" path="res://Static Objects/door.tscn" id="7_o41sx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -134,6 +135,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 12)
 
 [node name="Platform15" parent="Stage" instance=ExtResource("3_bdsh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
+
+[node name="BlockingWall" parent="Stage" instance=ExtResource("5_evf7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.05, 6)
+size = Vector3(5, 2.9, 1)
 
 [node name="PositiveBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
