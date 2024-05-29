@@ -121,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [node name="Wall" parent="LevelWalls/OuterWall4/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0117416, 9.48718, -0.000256062)
 size = Vector3(5, 17, 1)
 
 [node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall4/BothSideWalls"]

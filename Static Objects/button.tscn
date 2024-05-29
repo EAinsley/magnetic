@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="2_brr88"]
 [ext_resource type="Material" uid="uid://ddo7yjmhtxvhu" path="res://Arts/Prototype/magnetic/positive.tres" id="3_ie37x"]
 [ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button (3).jpg" id="3_oowcm"]
-[ext_resource type="Skin" path="a" id="3_q3cs4"]
+[ext_resource type="Skin" path="s" id="3_qhtat"]
 [ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_5unha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_muyyx"]
@@ -179,7 +179,7 @@ shape = SubResource("BoxShape3D_muyyx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_m2qlr")
-skin = ExtResource("3_q3cs4")
+skin = ExtResource("3_qhtat")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.96906, 0, 0, 0, 1.08296, 0, 0, 0, 1.95581, 0, 0.1, 0)
