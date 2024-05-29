@@ -213,3 +213,4 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0
 
 [editable path="PositiveBox"]
 [editable path="PositiveBox/MagneticField"]
+[editable path="PositiveBox/Sketchfab_Scene"]

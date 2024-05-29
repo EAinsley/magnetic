@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccmpojjkt5ic5"]
+[gd_scene load_steps=13 format=3 uid="uid://ccmpojjkt5ic5"]
 
 [ext_resource type="Script" path="res://Objects/magnetic_box.gd" id="1_lajwc"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_57o8e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_c54q7"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="7_o0bvm"]
 [ext_resource type="PackedScene" uid="uid://blwiwwypbpyxg" path="res://Utilities/extractable.tscn" id="7_y33r0"]
+[ext_resource type="PackedScene" uid="uid://dvpcl8durbcuv" path="res://Objects/futuristic_box.glb" id="9_4kiy0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
 size = Vector3(0.9, 0.9, 0.9)
@@ -30,6 +31,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_bvjet")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_dfxy3")
 
 [node name="Logics" type="Node" parent="."]
@@ -53,4 +55,8 @@ magnetic = NodePath("../Logics/Magnetic")
 [node name="CollisionShape3D" parent="MagneticField" index="0"]
 shape = SubResource("BoxShape3D_ugdqp")
 
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("9_4kiy0")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.45, 0)
+
 [editable path="MagneticField"]
+[editable path="Sketchfab_Scene"]

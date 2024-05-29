@@ -10,7 +10,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="Platform" type="CSGBox3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 11
