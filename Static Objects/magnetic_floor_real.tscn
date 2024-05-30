@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dihkrgi3ttvyi"]
+
+[ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_wc3ap"]
+[ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="3_t7j8n"]
+[ext_resource type="Material" uid="uid://ddo7yjmhtxvhu" path="res://Arts/Prototype/magnetic/positive.tres" id="4_5y0hx"]
+[ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="5_dfkwf"]
+[ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="6_yj0bh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2eh4k"]
+resource_local_to_scene = true
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4mgi4"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27l0k"]
+
+[node name="MagneticFloor" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2eh4k")
+
+[node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("2_wc3ap")]
+normal_material = ExtResource("3_t7j8n")
+positive_material = ExtResource("4_5y0hx")
+negative_material = ExtResource("5_dfkwf")
+mesh_instance = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4mgi4")
+
+[node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("6_yj0bh")]
+magnetic = NodePath("../Magnetic")
+magnetic_forces = 3
+
+[node name="CollisionShape3D" parent="MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_27l0k")
+
+[editable path="MagneticField"]
