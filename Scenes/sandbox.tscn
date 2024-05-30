@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=12 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Static Objects/blocking_wall.tscn" id="5_evf7a"]
-[ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
 [ext_resource type="PackedScene" path="res://Static Objects/button.tscn" id="6_imdho"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box_2.tscn" id="6_j26gn"]
 [ext_resource type="PackedScene" path="res://Static Objects/door.tscn" id="7_o41sx"]
@@ -134,17 +133,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
 [node name="BlockingWall" parent="Stage" instance=ExtResource("5_evf7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.05, 6)
 size = Vector3(5, 2.9, 1)
-
-[node name="MagneticFloor2" parent="." instance=ExtResource("5_wxlg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 6)
-
-[node name="MagneticFloor3" parent="." instance=ExtResource("5_wxlg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 8)
-plority = 1
-
-[node name="MagneticFloor4" parent="." instance=ExtResource("5_wxlg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.5, 10)
-plority = 2
 
 [node name="NeuturalButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, 0.5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d23qs8axw47tv"]
+[gd_scene load_steps=25 format=3 uid="uid://d23qs8axw47tv"]
 
 [ext_resource type="Script" path="res://Objects/MagneticBox/magnetic_box.gd" id="1_3p3ir"]
 [ext_resource type="Texture2D" uid="uid://cv3y1ydovk0ps" path="res://Arts/Models/sci-fi_cube/textures/Metal_Shell_baseColor.png" id="2_owjjs"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bp5a46pu6cyyr" path="res://Utilities/pickable.tscn" id="6_6bwqk"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="7_amfon"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="8_0ufdf"]
+[ext_resource type="PackedScene" uid="uid://c32u672hevhr3" path="res://Utilities/capturable.tscn" id="12_4p701"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_54yxk"]
 friction = 0.7
@@ -334,6 +335,9 @@ magnetic = NodePath("../Magnetic")
 host = NodePath("../..")
 
 [node name="Magnetic" parent="Logics" node_paths=PackedStringArray("host") instance=ExtResource("7_amfon")]
+host = NodePath("../..")
+
+[node name="Capturable" parent="Logics" node_paths=PackedStringArray("host") instance=ExtResource("12_4p701")]
 host = NodePath("../..")
 
 [node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("8_0ufdf")]

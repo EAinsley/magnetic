@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends StaticBody3D
 
 @export var plority: Magnetic.Plority
 @export var push_height: float = 3.0
@@ -37,12 +37,3 @@ func _apply_forces(delta: float) -> void:
 				print(calculated_force)
 				body.apply_central_force(calculated_force)
 				
-func _on_magnetic_plority_changed(plority: Magnetic.Plority) -> void:
-	if material is StandardMaterial3D:
-		match plority:
-			Magnetic.Plority.NEUTRAL:
-				material.albedo_color = Color.GRAY
-			Magnetic.Plority.POSITIVE:
-				material.albedo_color = Color.RED
-			Magnetic.Plority.NEGATIVE:
-				material.albedo_color = Color.PURPLE
