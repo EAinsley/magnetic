@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Static Objects/blocking_wall.tscn" id="5_evf7a"]
 [ext_resource type="PackedScene" path="res://Static Objects/button.tscn" id="6_imdho"]
-[ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box_2.tscn" id="6_j26gn"]
+[ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="6_j26gn"]
 [ext_resource type="PackedScene" path="res://Static Objects/door.tscn" id="7_o41sx"]
+[ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Prefabs/magnetic_floor.tscn" id="9_8jum4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -170,11 +171,11 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0
 [node name="ObjectsTest" type="Node3D" parent="."]
 
 [node name="Sketchfab_Scene" parent="ObjectsTest" instance=ExtResource("6_j26gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1619, 1, 3.81471)
 initial_plority = 1
 
 [node name="Sketchfab_Scene2" parent="ObjectsTest" instance=ExtResource("6_j26gn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1738, 1.07558, 5.45541)
 initial_plority = 2
 
 [node name="Sketchfab_Scene3" parent="ObjectsTest" instance=ExtResource("6_j26gn")]
@@ -183,3 +184,11 @@ initial_plority = 2
 
 [node name="Sketchfab_Scene4" parent="ObjectsTest" instance=ExtResource("6_j26gn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+
+[node name="MagneticFloorPositive" parent="ObjectsTest" instance=ExtResource("9_8jum4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.217, 0.5, 3)
+plority = 1
+
+[node name="MagneticFloorPositive2" parent="ObjectsTest" instance=ExtResource("9_8jum4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.217, 0.5, 6)
+plority = 2
