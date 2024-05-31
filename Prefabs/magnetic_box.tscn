@@ -91,89 +91,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Animation" id="Animation_b06b8"]
-resource_name = "Open"
-length = 10.4
-step = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 19.4369, 0, 3.26667, 1, 0, 19.4369, 0, 3.3, 1, 0, 20.3459, 0, 3.33333, 1, 0, 23.9817, 0, 3.36667, 1, 0, 26.7784, 0, 3.4, 1, 0, 28.3166, 0, 3.43333, 1, 0, 28.5747, 0, 3.46667, 1, 0, 27.746, 0, 3.5, 1, 0, 26.2394, 0, 3.53333, 1, 0, 24.2808, 0, 3.56667, 1, 0, 23.6729, 0, 3.66667, 1, 0, 23.1997, 0, 4.53333, 1, 0, 23.1997, 0, 4.56667, 1, 0, 23.5465, 0, 7.86667, 1, 0, 69.3265, 0, 7.9, 1, 0, 70.3883, 0, 8.03333, 1, 0, 72.9116, 0, 8.1, 1, 0, 70.3883, 0, 8.13333, 1, 0, 69.4421, 0, 10.375, 1, 0, 69.4421, 0)
-tracks/1/type = "scale_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 94.0998, 94.0998, 94.0998)
-tracks/2/type = "blend_shape"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_0")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0)
-tracks/3/type = "blend_shape"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_1")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0)
-tracks/4/type = "blend_shape"
-tracks/4/imported = true
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_2")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0)
-tracks/5/type = "blend_shape"
-tracks/5/imported = true
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_3")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0, 3.26667, 1, 0, 3.3, 1, 0.0165, 3.33333, 1, 0.0824998, 3.36667, 1, 0.1125, 3.4, 1, 0.118042, 3.43333, 1, 0.113654, 3.46667, 1, 0.107224, 3.5, 1, 0.1, 3.53333, 1, 0.09374, 3.56667, 1, 0.08829, 3.6, 1, 0.08347, 3.63333, 1, 0.0791, 3.66667, 1, 0.075, 4.53333, 1, 0.075, 4.56667, 1, 0.0819375, 7.86667, 1, 0.997688, 7.9, 1, 1.02062, 7.93333, 1, 1.04062, 7.96667, 1, 1.04914, 8, 1, 1.0457, 8.03333, 1, 1.03664, 8.06667, 1, 1.02477, 8.1, 1, 1.01102, 8.13333, 1, 1, 10.4, 1, 1)
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sketchfab_model:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 3.301, 3.333, 3.432, 4.533, 7.858, 10.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -0.52, 0), Vector3(0, -0.52, 0), Vector3(0, -0.53, 0), Vector3(0, -0.54, 0), Vector3(0, -0.54, 0), Vector3(0, -0.605, 0), Vector3(0, -0.605, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CollisionShape3D:shape:size")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 3.3, 3.333, 3.433, 4.532, 7.858, 10.392),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.98, 0.98, 0.98), Vector3(0.98, 0.98, 0.98), Vector3(0.99, 0.99, 0.99), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.14, 1.14, 1.14), Vector3(1.14, 1.14, 1.14)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Power Cube:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 3.298, 3.431, 4.534, 7.866, 10.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 19.4369, 0), Vector3(0, 19.4369, 0), Vector3(0, 25, 0), Vector3(0, 25, 0), Vector3(0, 70, 0), Vector3(0, 70, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_uooq8"]
 length = 0.001
 tracks/0/type = "value"
@@ -255,10 +172,93 @@ tracks/8/keys = {
 "values": [Vector3(0, 19.4369, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_qfobu"]
+resource_name = "Open"
+length = 0.32
+step = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 19.4369, 0, 0.098, 1, 0, 19.4369, 0, 0.099, 1, 0, 20.3459, 0, 0.1, 1, 0, 23.9817, 0, 0.101, 1, 0, 26.7784, 0, 0.102, 1, 0, 28.3166, 0, 0.103, 1, 0, 28.5747, 0, 0.104, 1, 0, 27.746, 0, 0.105, 1, 0, 26.2394, 0, 0.106, 1, 0, 24.2808, 0, 0.107, 1, 0, 23.6729, 0, 0.11, 1, 0, 23.1997, 0, 0.136, 1, 0, 23.1997, 0, 0.137, 1, 0, 23.5465, 0, 0.236, 1, 0, 69.3265, 0, 0.237, 1, 0, 70.3883, 0, 0.241, 1, 0, 72.9116, 0, 0.243, 1, 0, 70.3883, 0, 0.244, 1, 0, 69.4421, 0, 0.31125, 1, 0, 69.4421, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 94.0998, 94.0998, 94.0998)
+tracks/2/type = "blend_shape"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_0")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0)
+tracks/3/type = "blend_shape"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0)
+tracks/4/type = "blend_shape"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0)
+tracks/5/type = "blend_shape"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_3")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0, 0.098, 1, 0, 0.099, 1, 0.0165, 0.1, 1, 0.0824998, 0.101, 1, 0.1125, 0.102, 1, 0.118042, 0.103, 1, 0.113654, 0.104, 1, 0.107224, 0.105, 1, 0.1, 0.106, 1, 0.09374, 0.107, 1, 0.08829, 0.108, 1, 0.08347, 0.109, 1, 0.0791, 0.11, 1, 0.075, 0.136, 1, 0.075, 0.137, 1, 0.0819375, 0.236, 1, 0.997688, 0.237, 1, 1.02062, 0.238, 1, 1.04062, 0.239, 1, 1.04914, 0.24, 1, 1.0457, 0.241, 1, 1.03664, 0.242, 1, 1.02477, 0.243, 1, 1.01102, 0.244, 1, 1, 0.312, 1, 1)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_model:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.09903, 0.09999, 0.10296, 0.13599, 0.23574, 0.312),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.52, 0), Vector3(0, -0.52, 0), Vector3(0, -0.53, 0), Vector3(0, -0.54, 0), Vector3(0, -0.54, 0), Vector3(0, -0.605, 0), Vector3(0, -0.605, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape3D:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.099, 0.09999, 0.10299, 0.13596, 0.23574, 0.31176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.98, 0.98, 0.98), Vector3(0.98, 0.98, 0.98), Vector3(0.99, 0.99, 0.99), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.14, 1.14, 1.14), Vector3(1.14, 1.14, 1.14)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Power Cube:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.103, 0.136, 0.235932, 0.311987),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 19.4369, 0), Vector3(0, 19.4369, 0), Vector3(0, 22, 0), Vector3(0, 22, 0), Vector3(0, 70, 0), Vector3(0, 70, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ompum"]
 _data = {
-"Close": SubResource("Animation_b06b8"),
 "Open": ExtResource("4_vlu0y"),
+"OpenFast": SubResource("Animation_qfobu"),
 "RESET": SubResource("Animation_uooq8")
 }
 
