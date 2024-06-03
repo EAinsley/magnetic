@@ -1,13 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcuyni0ghas6j"]
+[gd_scene load_steps=16 format=3 uid="uid://bcuyni0ghas6j"]
 
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="1_eso3n"]
 [ext_resource type="Script" path="res://Static Objects/button.gd" id="1_i58mc"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="2_b6ncd"]
-[ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="2_brr88"]
-[ext_resource type="Material" uid="uid://ddo7yjmhtxvhu" path="res://Arts/Prototype/magnetic/positive.tres" id="3_ie37x"]
 [ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button (3).jpg" id="3_oowcm"]
-[ext_resource type="Skin" path="s" id="3_qhtat"]
-[ext_resource type="Material" uid="uid://d8u1dt6bgvh5" path="res://Arts/Prototype/magnetic/negative.tres" id="4_5unha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_muyyx"]
 resource_local_to_scene = true
@@ -179,18 +175,13 @@ shape = SubResource("BoxShape3D_muyyx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_m2qlr")
-skin = ExtResource("3_qhtat")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.96906, 0, 0, 0, 1.08296, 0, 0, 0, 1.95581, 0, 0.1, 0)
 material_overlay = SubResource("StandardMaterial3D_4cn2o")
 mesh = SubResource("BoxMesh_sfb4y")
 
-[node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("1_eso3n")]
-normal_material = ExtResource("2_brr88")
-positive_material = ExtResource("3_ie37x")
-negative_material = ExtResource("4_5unha")
-mesh_instance = NodePath("../MeshInstance3D2")
+[node name="Magnetic" parent="." instance=ExtResource("1_eso3n")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
