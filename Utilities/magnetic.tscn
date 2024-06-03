@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu2efk6dyqge5"]
 
-[ext_resource type="Script" path="res://Utilities/magnetic.gd" id="1_24jmo"]
+[ext_resource type="Script" path="res://Utilities/scripts/magnetic.gd" id="1_o56f7"]
 
 [node name="Magnetic" type="Node"]
-script = ExtResource("1_24jmo")
+script = ExtResource("1_o56f7")

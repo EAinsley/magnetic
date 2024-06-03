@@ -14,7 +14,6 @@ func _ready() -> void:
 	set_process_input(false)
 
 func _physics_process(delta: float) -> void:
-
 	if is_holding:
 		if(target.global_position.distance_squared_to(global_position) > drop_distance * drop_distance):
 			print("drop")
@@ -34,9 +33,7 @@ func _pickup(collider: Node3D) -> void:
 	target = collider as RigidBody3D
 	pickable = target.pickable as Pickable
 	is_holding = true
-
 	pickable.pick()
-	
 	held.emit()
 	set_process_input(true)
 	
