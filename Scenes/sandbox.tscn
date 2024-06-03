@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_bdsh1"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="4_oyyeg"]
-[ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Static Objects/blocking_wall.tscn" id="5_evf7a"]
+[ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="5_evf7a"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="6_imdho"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="6_j26gn"]
 [ext_resource type="PackedScene" uid="uid://7lmgvednpxgn" path="res://Static Objects/door.tscn" id="7_o41sx"]
