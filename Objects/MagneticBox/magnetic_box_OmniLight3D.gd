@@ -7,7 +7,7 @@ const POSITIVE_COLOR : Color = Color.RED;
 
 
 
-func _on_magnetic_plority_changed(plority: Magnetic.Plority) -> void:
+func _on_magnetic_plority_changed(plority: Magnetic.Plority, _old_plority: Magnetic.Plority) -> void:
 	match plority:
 		Magnetic.Plority.NEUTRAL:
 			visible = false

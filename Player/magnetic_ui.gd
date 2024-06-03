@@ -6,7 +6,7 @@ extends TextureRect
 
 
 
-func _on_magnetic_plority_changed(plority: Magnetic.Plority) -> void:
+func _on_magnetic_plority_changed(plority: Magnetic.Plority, _old_plority) -> void:
 	match plority:
 		Magnetic.Plority.NEUTRAL:
 			texture = normal_texture
