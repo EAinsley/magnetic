@@ -16,14 +16,15 @@ lightmap_size_hint = Vector2i(14, 21)
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi6ss"]
 size = Vector3(6, 6, 6)
 
-[node name="MagneticBox" type="StaticBody3D" groups=["pickable"]]
-collision_layer = 2
+[node name="MagneticBox" type="StaticBody3D"]
+disable_mode = 2
+collision_layer = 5
 collision_mask = 15
 script = ExtResource("1_w4krx")
 metadata/_edit_group_ = true
 
-[node name="Magnetic" parent="." node_paths=PackedStringArray("mesh_instance") instance=ExtResource("2_1t41o")]
-is_extractable = true
+[node name="Magnetic" parent="." node_paths=PackedStringArray("host", "mesh_instance") instance=ExtResource("2_1t41o")]
+host = NodePath("..")
 normal_material = ExtResource("3_qhwce")
 positive_material = ExtResource("4_x6yno")
 negative_material = ExtResource("5_1wohf")
@@ -41,5 +42,12 @@ magnetic = NodePath("../Magnetic")
 
 [node name="CollisionShape3D" parent="MagneticField" index="0"]
 shape = SubResource("BoxShape3D_oi6ss")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+visible = false
+polygon = PackedVector2Array(1, 2, 110, 208, 471, 218, 471, 8)
 
 [editable path="MagneticField"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=16 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Static Objects/magnetic_box_static.tscn" id="4_oyyeg"]
 [ext_resource type="PackedScene" uid="uid://ccmpojjkt5ic5" path="res://Objects/magnetic_box.tscn" id="4_whynm"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Static Objects/magnetic_floor.tscn" id="5_wxlg1"]
+[ext_resource type="Texture2D" uid="uid://dnlfi0wrupiuo" path="res://Arts/Prototype/Dark/texture_02.png" id="6_1mnk2"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Static Objects/button.tscn" id="6_imdho"]
+[ext_resource type="Material" uid="uid://d3m80u3lm4crx" path="res://Arts/Prototype/magnetic/normal.tres" id="7_6xs0f"]
 [ext_resource type="PackedScene" uid="uid://bnpjhl784gw1o" path="res://Static Objects/door.tscn" id="7_o41sx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
@@ -26,6 +28,14 @@ glow_enabled = true
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
 size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah633"]
+resource_local_to_scene = true
+next_pass = ExtResource("7_6xs0f")
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("6_1mnk2")
 
 [node name="Sandbox" type="Node3D"]
 
@@ -139,8 +149,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.98115, -4)
 initial_plority = 1
 
-[node name="Mesh" parent="PositiveBox" index="2"]
+[node name="Mesh" parent="PositiveBox" index="1"]
 mesh = SubResource("BoxMesh_moaqk")
+
+[node name="Magnetic" parent="PositiveBox/Logics" index="1"]
+normal_material = SubResource("StandardMaterial3D_ah633")
 
 [node name="PositiveBox2" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.08115, 0)
@@ -155,7 +168,6 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 can_sleep = false
 initial_plority = 1
-is_pickable = false
 
 [node name="NegativeBox" parent="." instance=ExtResource("4_whynm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.08115, -4)
@@ -214,3 +226,4 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0
 
 [editable path="PositiveBox"]
 [editable path="PositiveBox/MagneticField"]
+[editable path="PositiveBox/Sketchfab_Scene"]

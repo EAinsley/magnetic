@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://qt7m5q5sefwr"]
 
-[ext_resource type="Texture2D" uid="uid://c0j3hylakhy6e" path="res://Arts/Prototype/Orange/texture_02.png" id="1_hcde2"]
+[ext_resource type="Texture2D" uid="uid://2ad0dktm4b7f" path="res://Arts/wall/bd9f46cf5e61ac591c27874f7297f05.jpg" id="1_fs7q5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7odw"]
-albedo_texture = ExtResource("1_hcde2")
+albedo_texture = ExtResource("1_fs7q5")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_offset = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true

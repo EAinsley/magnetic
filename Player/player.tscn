@@ -21,7 +21,10 @@ radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 6
+collision_mask = 14
+slide_on_ceiling = false
+platform_floor_layers = 4294967281
+platform_wall_layers = 4
 script = ExtResource("1_b0b15")
 head_x_min_degree = -60.0
 head_x_max_degree = 70.0
@@ -58,7 +61,8 @@ script = ExtResource("4_ilble")
 [node name="Logic" type="Node" parent="."]
 script = ExtResource("5_khhlg")
 
-[node name="Magnetic" parent="Logic" instance=ExtResource("5_kv1sy")]
+[node name="Magnetic" parent="Logic" node_paths=PackedStringArray("host") instance=ExtResource("5_kv1sy")]
+host = NodePath("../..")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
