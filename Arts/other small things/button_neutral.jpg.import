@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqpvjmi6qw6w"
-path="res://.godot/imported/button (2).jpg-512895468bfb963325defaebf78b1280.ctex"
+uid="uid://su2e1ljs3yul"
+path.s3tc="res://.godot/imported/button_neutral.jpg-ffbc9c9a2346eb70505ba5a9d5be6a43.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Arts/other small things/button (2).jpg"
-dest_files=["res://.godot/imported/button (2).jpg-512895468bfb963325defaebf78b1280.ctex"]
+source_file="res://Arts/other small things/button_neutral.jpg"
+dest_files=["res://.godot/imported/button_neutral.jpg-ffbc9c9a2346eb70505ba5a9d5be6a43.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

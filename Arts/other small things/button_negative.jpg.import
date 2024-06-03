@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g3aurtmf1j76"
-path.s3tc="res://.godot/imported/button (1).jpg-90e9300e68c422055fe03d976e379624.s3tc.ctex"
+path.s3tc="res://.godot/imported/button_negative.jpg-c87d23b68814168256f4e08d7b9bab74.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Arts/other small things/button (1).jpg"
-dest_files=["res://.godot/imported/button (1).jpg-90e9300e68c422055fe03d976e379624.s3tc.ctex"]
+source_file="res://Arts/other small things/button_negative.jpg"
+dest_files=["res://.godot/imported/button_negative.jpg-c87d23b68814168256f4e08d7b9bab74.s3tc.ctex"]
 
 [params]
 

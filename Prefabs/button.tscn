@@ -1,32 +1,39 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcuyni0ghas6j"]
+[gd_scene load_steps=19 format=3 uid="uid://bcuyni0ghas6j"]
 
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="1_eso3n"]
-[ext_resource type="Script" path="res://Static Objects/button.gd" id="1_i58mc"]
+[ext_resource type="Script" path="res://Static Objects/button/button.gd" id="1_i58mc"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="2_b6ncd"]
-[ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button (3).jpg" id="3_oowcm"]
+[ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="3_v1ud8"]
+[ext_resource type="Script" path="res://Static Objects/button/MeshInstance3D2.gd" id="4_ea3jx"]
+[ext_resource type="Texture2D" uid="uid://rqpvjmi6qw6w" path="res://Arts/other small things/button_positive.jpg" id="5_5qcbl"]
+[ext_resource type="Texture2D" uid="uid://g3aurtmf1j76" path="res://Arts/other small things/button_negative.jpg" id="6_7k0wr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_muyyx"]
 resource_local_to_scene = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfwhx"]
+albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
+
 [sub_resource type="BoxMesh" id="BoxMesh_m2qlr"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 12)
+material = SubResource("StandardMaterial3D_rfwhx")
 size = Vector3(1, 0.1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cn2o"]
-albedo_texture = ExtResource("3_oowcm")
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_v1ud8")
 uv1_scale = Vector3(3.095, 2.005, 1)
 uv1_offset = Vector3(-1.05, 0, 0)
 uv1_triplanar_sharpness = 0.292969
 uv2_scale = Vector3(0.48, 0.48, 0.48)
 uv2_offset = Vector3(-0.55, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mssqa"]
-albedo_texture = ExtResource("3_oowcm")
-
 [sub_resource type="BoxMesh" id="BoxMesh_sfb4y"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_mssqa")
 size = Vector3(0.5, 0.099, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5yhun"]
@@ -180,6 +187,10 @@ mesh = SubResource("BoxMesh_m2qlr")
 transform = Transform3D(1.96906, 0, 0, 0, 1.08296, 0, 0, 0, 1.95581, 0, 0.1, 0)
 material_overlay = SubResource("StandardMaterial3D_4cn2o")
 mesh = SubResource("BoxMesh_sfb4y")
+script = ExtResource("4_ea3jx")
+button_positive_texture = ExtResource("5_5qcbl")
+button_negative_texture = ExtResource("6_7k0wr")
+button_nuetral_texture = ExtResource("3_v1ud8")
 
 [node name="Magnetic" parent="." instance=ExtResource("1_eso3n")]
 
@@ -200,6 +211,7 @@ collision_mask = 11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_ocqv2")
 
+[connection signal="plority_changed" from="Magnetic" to="MeshInstance3D2" method="_on_magnetic_plority_changed"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_area_3d_body_exited"]
 
