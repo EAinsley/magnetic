@@ -1,0 +1,539 @@
+[gd_scene load_steps=12 format=3 uid="uid://ble0y1yirrtln"]
+
+[ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
+[ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
+[ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="3_m347d"]
+[ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="4_afr1o"]
+[ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_2o5kh"]
+[ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="8_0fw33"]
+[ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
+[ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e8o0h"]
+sky_material = SubResource("ProceduralSkyMaterial_nlxr8")
+
+[sub_resource type="Environment" id="Environment_jlj4o"]
+background_mode = 2
+sky = SubResource("Sky_e8o0h")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="level0" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 5, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_53cro")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 1.47129, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jlj4o")
+
+[node name="LevelWalls" type="Node3D" parent="."]
+
+[node name="CSGBox3D" parent="LevelWalls" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1.5, 0)
+size = Vector3(1, 6, 11)
+
+[node name="OuterWall" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 0)
+size = Vector3(10, 1, 11)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+size = Vector3(10, 5, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+size = Vector3(10, 5, 1)
+
+[node name="OuterWall2" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -1, 0)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall2" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+size = Vector3(3, 1, 11)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall2"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall2/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
+size = Vector3(3, 5, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall2/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
+size = Vector3(3, 5, 1)
+
+[node name="OuterWall3" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall3" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+size = Vector3(4, 1, 11)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall3"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall3/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall3/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+size = Vector3(5, 4, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall3/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall3/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+size = Vector3(5, 4, 1)
+
+[node name="OuterWall4" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall4" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+size = Vector3(3, 1, 9)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall4/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall4/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.5, 0)
+size = Vector3(2, 3, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall4/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall4/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.5, 0)
+size = Vector3(2, 3, 1)
+
+[node name="OuterWall5" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, 0)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall5" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(10, 1, 11)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall5"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall5/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall5/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, -4.5)
+size = Vector3(1, 3, 10)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall5/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall5/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(10, 3, 1)
+
+[node name="OuterWall7" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.5, 1, 20.5)
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.8147e-05)
+size = Vector3(5, 1, 11)
+
+[node name="CSGBox3D8" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, -4.76837e-05)
+size = Vector3(15, 1, 11)
+
+[node name="CSGBox3D2" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -4.19617e-05)
+size = Vector3(9, 1, 11)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall7"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall7/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -2.67029e-05)
+size = Vector3(33, 3, 1)
+
+[node name="Wall5" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, -4.50004)
+size = Vector3(1, 3, 10)
+
+[node name="Wall2" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, -2.00005)
+size = Vector3(1, 3, 3)
+
+[node name="Wall3" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, -8.00004)
+size = Vector3(1, 3, 3)
+
+[node name="Wall4" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 7, -5.00005)
+size = Vector3(1, 1, 3)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall7/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -2.67029e-05)
+size = Vector3(24, 3, 1)
+
+[node name="OuterWall9" type="Node3D" parent="LevelWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.5, 3, 52.5)
+
+[node name="MagneticBox2" parent="LevelWalls/OuterWall9" instance=ExtResource("7_2o5kh")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 18, -2.5, -2.00001)
+initial_plority = 2
+
+[node name="CSGBox3D" parent="LevelWalls/OuterWall9" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, -4, -11)
+size = Vector3(17, 1, 33)
+
+[node name="CSGBox3D2" parent="LevelWalls/OuterWall9" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, -3.5, 5.99997)
+size = Vector3(17, 2, 1)
+
+[node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall9"]
+
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, -1, -8.50002)
+size = Vector3(1, 5, 18)
+
+[node name="SingleSideWall3" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -1, -8.50003)
+size = Vector3(1, 5, 18)
+
+[node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -1, -18)
+size = Vector3(5, 5, 1)
+
+[node name="Wall3" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, -1, -18)
+size = Vector3(5, 5, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -1, 11)
+size = Vector3(6, 5, 1)
+
+[node name="Button3" parent="LevelWalls/OuterWall9" node_paths=PackedStringArray("trigger_target") instance=ExtResource("4_afr1o")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 14.5, -3.5, -2)
+trigger_target = NodePath("../MagneticBoxOnlyExtract4/MagneticExtractor2")
+
+[node name="MagneticBoxOnlyExtract4" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
+transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 14.3, -1, -12)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+
+[node name="MagneticExtractor2" parent="LevelWalls/OuterWall9/MagneticBoxOnlyExtract4" node_paths=PackedStringArray("target") instance=ExtResource("10_iw6vd")]
+target = NodePath("..")
+plority = 2
+
+[node name="MagneticBoxOnlyExtract5" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
+transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 18.6, -1, -12)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+
+[node name="door1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 2, 27)
+
+[node name="CSGBox3D6" parent="door1" instance=ExtResource("1_5aofw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.00002, -3, -13)
+size = Vector3(1, 3, 5)
+
+[node name="CSGBox3D7" parent="door1" instance=ExtResource("1_5aofw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.00002, -3, -11)
+size = Vector3(1, 3, 5)
+
+[node name="CSGBox3D5" parent="door1" instance=ExtResource("1_5aofw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.00004, -2.5, -12)
+size = Vector3(1, 4, 1)
+
+[node name="CSGBox3D4" parent="door1" instance=ExtResource("1_5aofw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.00004, -2.5, -12)
+size = Vector3(1, 4, 1)
+
+[node name="MagneticBoxStatic" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic2" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic3" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic4" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic5" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic6" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic7" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic8" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic9" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic10" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic11" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic12" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic13" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic14" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic15" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic31" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic32" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic33" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic34" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic35" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic36" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic16" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic17" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic18" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic19" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic20" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic21" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic22" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic23" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic24" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic25" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic26" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic27" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic28" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic29" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, -12)
+initial_plority = 2
+
+[node name="MagneticBoxStatic30" parent="door1" instance=ExtResource("8_0fw33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -12)
+initial_plority = 2
+
+[node name="MagneticBoxOnlyExtract" parent="door1" instance=ExtResource("9_wj26v")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, -4, 1, -12)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+initial_plority = 1
+
+[node name="CSGBox3D3" parent="door1" instance=ExtResource("1_5aofw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.00002, -4, -12)
+size = Vector3(1, 1, 3)
+
+[node name="door2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.5, -2, 27)
+
+[node name="MagneticBoxStatic" parent="door2" instance=ExtResource("8_0fw33")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 5, 2, 2.28882e-05)
+initial_plority = 1
+
+[node name="MagneticBoxStatic2" parent="door2" instance=ExtResource("8_0fw33")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 5, 2, -2.99998)
+initial_plority = 1
+
+[node name="MagneticBoxStatic3" parent="door2" instance=ExtResource("8_0fw33")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 5, 2, 3.00002)
+initial_plority = 1
+
+[node name="MagneticBoxOnlyExtract2" parent="door2" instance=ExtResource("9_wj26v")]
+transform = Transform3D(-1.31134e-07, 0, -1, 0, 3, 0, 3, 0, -4.37114e-08, 4, 5, 2.28882e-05)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+mass = 0.5
+
+[node name="door0" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 2, -1)
+
+[node name="MagneticBoxOnlyExtract3" parent="door0" instance=ExtResource("9_wj26v")]
+transform = Transform3D(4.5, 0, 0, 0, 5, 0, 0, 0, 1, 1.25, 2, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+initial_plority = 2
+
+[node name="Button2" parent="door0" node_paths=PackedStringArray("trigger_target") instance=ExtResource("4_afr1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -11)
+trigger_target = NodePath("../MagneticBoxOnlyExtract/MagneticExtractor")
+
+[node name="MagneticBoxOnlyExtract" parent="door0" instance=ExtResource("9_wj26v")]
+transform = Transform3D(4.5, 0, 0, 0, 5, 0, 0, 0, 1, -3, 2, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+initial_plority = 1
+
+[node name="MagneticExtractor" parent="door0/MagneticBoxOnlyExtract" node_paths=PackedStringArray("target") instance=ExtResource("10_iw6vd")]
+target = NodePath("..")
+plority = 2
+
+[node name="Wall2" parent="door0" instance=ExtResource("3_m347d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 1, 0)
+size = Vector3(1, 3, 1)
+
+[node name="Wall5" parent="door0" instance=ExtResource("3_m347d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1, 1)
+size = Vector3(1, 3, 3)
+
+[node name="Wall6" parent="door0" instance=ExtResource("3_m347d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 1, -1)
+size = Vector3(1, 3, 3)
+
+[node name="Wall3" parent="door0" instance=ExtResource("3_m347d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 1, 0)
+size = Vector3(1, 3, 3)
+
+[node name="Wall4" parent="door0" instance=ExtResource("3_m347d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.78363, 1, 1)
+size = Vector3(1, 3, 5.43274)
+
+[node name="OuterWall6" type="Node3D" parent="door0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, -1, -5.5)
+
+[node name="CSGBox3D" parent="door0/OuterWall6" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+size = Vector3(12, 1, 17)
+
+[node name="BothSideWalls" type="Node3D" parent="door0/OuterWall6"]
+
+[node name="SingleSideWall2" type="Node3D" parent="door0/OuterWall6/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Wall" parent="door0/OuterWall6/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0)
+size = Vector3(9, 3, 1)
+
+[node name="SingleSideWall" type="Node3D" parent="door0/OuterWall6/BothSideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Wall" parent="door0/OuterWall6/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
+size = Vector3(4, 3, 1)
+
+[node name="Wall2" parent="door0/OuterWall6/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0239, 2, -4.00372)
+size = Vector3(6, 3, 1)
+
+[node name="Wall3" parent="door0/OuterWall6/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4761, 2, -2.50373)
+size = Vector3(1, 3, 4)
+
+[node name="MagneticBox" parent="door0" instance=ExtResource("7_2o5kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -3)
