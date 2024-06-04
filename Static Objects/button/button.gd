@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var trigger_target: Node3D #in the future
+@export var trigger_target: Node #in the future
 @export var plority: Magnetic.Plority
 
 
