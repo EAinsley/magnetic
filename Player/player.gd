@@ -1,16 +1,18 @@
 extends CharacterBody3D
 
+@export_group("player control")
 @export var mouse_sensitivity := 0.001
 @export var head_x_min_degree := -90.0
 @export var head_x_max_degree := 90.0
 
+@export_group("physics")
+@export_range(0., 50.) var gravity: float = 9.8
 @export var jump_height := 1.3  ## in meter
 
 const SPEED = 5.0
 var jump_speed : float
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
 
 @onready var head: Node3D = $Head

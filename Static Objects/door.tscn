@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnpjhl784gw1o"]
+[gd_scene load_steps=13 format=3 uid="uid://7lmgvednpxgn"]
 
 [ext_resource type="Script" path="res://Static Objects/door.gd" id="1_3gra1"]
 [ext_resource type="PackedScene" uid="uid://iijywg0rgwqs" path="res://Utilities/triggerable.tscn" id="2_dlj07"]

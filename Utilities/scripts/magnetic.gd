@@ -1,7 +1,7 @@
 class_name Magnetic
 extends Node
 
-signal plority_changed(plority: Plority)
+signal plority_changed(plority: Plority, old_plority: Plority)
 
 enum Plority {NEUTRAL, POSITIVE, NEGATIVE}
 
@@ -11,8 +11,9 @@ enum Plority {NEUTRAL, POSITIVE, NEGATIVE}
 
 var current_plority : Plority :
 	set(value):
+		var old_plority := current_plority
 		current_plority = value
-		plority_changed.emit(current_plority)
+		plority_changed.emit(current_plority, old_plority)
 
 
 func _ready() -> void:

@@ -43,7 +43,7 @@ func _on_body_exited(body: Node3D) -> void:
 		in_range_object.erase(body)
 
 		
-func  _on_magnetic_plority_changed(plority: Magnetic.Plority):
+func  _on_magnetic_plority_changed(plority: Magnetic.Plority, _old_plority: Magnetic.Plority):
 	if plority == Magnetic.Plority.NEUTRAL:
 		print("diable magnetic field")
 		set_physics_process(false)

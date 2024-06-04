@@ -1,6 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d8u1dt6bgvh5"]
-
-[ext_resource type="Texture2D" uid="uid://x5rdwq2wlv72" path="res://Arts/Prototype/Purple/texture_02.png" id="1_o6uik"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d8u1dt6bgvh5"]
 
 [resource]
-albedo_texture = ExtResource("1_o6uik")
+albedo_color = Color(0.12418, 0.524926, 0.852529, 1)
