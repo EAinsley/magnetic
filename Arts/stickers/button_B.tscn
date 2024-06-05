@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://frm6720eem0o"]
+
+[ext_resource type="Texture2D" uid="uid://g3aurtmf1j76" path="res://Arts/other small things/button_negative.jpg" id="1_vlhnu"]
+
+[node name="Decal" type="Decal"]
+texture_albedo = ExtResource("1_vlhnu")

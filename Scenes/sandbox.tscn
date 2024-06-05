@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=17 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7lmgvednpxgn" path="res://Static Objects/door.tscn" id="7_o41sx"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Prefabs/magnetic_floor.tscn" id="9_8jum4"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="10_ow5gb"]
+[ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="13_nl3ub"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +24,14 @@ background_mode = 2
 sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_ijp4d"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtivu"]
+_data = {
+"new_animation": SubResource("Animation_ijp4d")
+}
 
 [node name="Sandbox" type="Node3D"]
 
@@ -201,3 +210,11 @@ plority = 1
 [node name="MagneticFloorPositive2" parent="ObjectsTest" instance=ExtResource("9_8jum4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.217, 0.5, 6)
 plority = 2
+
+[node name="Decal" parent="." instance=ExtResource("13_nl3ub")]
+transform = Transform3D(0.933013, 0.258819, -0.25, -0.25, 0.965926, 0.0669873, 0.258819, 0, 0.965926, -4, 1, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decal"]
+libraries = {
+"": SubResource("AnimationLibrary_xtivu")
+}

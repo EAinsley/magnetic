@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp1drbe8erruj"]
+
+[ext_resource type="Texture2D" uid="uid://dp1fd5xpn50xc" path="res://Arts/other small things/icon2.png" id="1_tury3"]
+
+[node name="Decal" type="Decal"]
+texture_albedo = ExtResource("1_tury3")
