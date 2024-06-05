@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxx756syagk4h"]
+
+[ext_resource type="Script" path="res://Utilities/magnetic_extractor.gd" id="1_1ti11"]
+[ext_resource type="PackedScene" uid="uid://iijywg0rgwqs" path="res://Utilities/triggerable.tscn" id="1_xpq32"]
+
+[node name="MagneticExtractor" type="Node"]
+script = ExtResource("1_1ti11")
+
+[node name="Triggerable" parent="." instance=ExtResource("1_xpq32")]
+
+[connection signal="triggered" from="Triggerable" to="." method="_on_triggerable_triggered"]
+[connection signal="untriggered" from="Triggerable" to="." method="_on_triggerable_untriggered"]
