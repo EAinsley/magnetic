@@ -91,87 +91,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Animation" id="Animation_uooq8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sketchfab_model:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.52, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:shape:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.98, 0.98, 0.98)]
-}
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 19.4369, 0)
-tracks/3/type = "scale_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 94.0998, 94.0998, 94.0998)
-tracks/4/type = "blend_shape"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_0")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0)
-tracks/5/type = "blend_shape"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_1")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0)
-tracks/6/type = "blend_shape"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_2")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, 0)
-tracks/7/type = "blend_shape"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_3")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, 0)
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Power Cube:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 19.4369, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_qfobu"]
 resource_name = "Open"
 length = 0.32
@@ -253,6 +172,87 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 19.4369, 0), Vector3(0, 19.4369, 0), Vector3(0, 22, 0), Vector3(0, 22, 0), Vector3(0, 70, 0), Vector3(0, 70, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uooq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.52, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.98, 0.98, 0.98)]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 19.4369, 0)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 94.0998, 94.0998, 94.0998)
+tracks/4/type = "blend_shape"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_0")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0)
+tracks/5/type = "blend_shape"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_1")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0)
+tracks/6/type = "blend_shape"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0)
+tracks/7/type = "blend_shape"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Metal Shell/0:morph_3")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0)
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_model/dd6ef14ae51b43909b1ee178a049bd4e_fbx/Object_2/RootNode/Power Cube:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 19.4369, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ompum"]

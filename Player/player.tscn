@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Player/magnetic_ui.gd" id="7_lcooq"]
 [ext_resource type="Texture2D" uid="uid://c72hta7b3ds5d" path="res://Arts/Prototype/Dark/texture_12.png" id="7_vbiy8"]
 [ext_resource type="Texture2D" uid="uid://crqye8g0dby72" path="res://Arts/Prototype/Red/texture_13.png" id="9_du32m"]
-[ext_resource type="Texture2D" uid="uid://dq0f2gouuperc" path="res://Arts/Prototype/Purple/texture_13.png" id="10_nwoqb"]
+[ext_resource type="Texture2D" uid="uid://ujgkil7e4o5c" path="res://Arts/Prototype/Blue/texture_13.png" id="11_j12wb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uwcpl"]
 radius = 0.3
@@ -105,7 +105,7 @@ stretch_mode = 4
 script = ExtResource("7_lcooq")
 positive_texture = ExtResource("9_du32m")
 normal_texture = ExtResource("7_vbiy8")
-negative_texture = ExtResource("10_nwoqb")
+negative_texture = ExtResource("11_j12wb")
 
 [connection signal="colliding_state_changed" from="Head/Cameras/Interaction" to="UI/CenterContainer/Crosshair" method="_on_interaction_colliding_state_changed"]
 [connection signal="left_mouse_clicked" from="Head/Cameras/Interaction" to="Head/Cameras/Hand" method="_on_interaction_left_mouse_clicked"]
