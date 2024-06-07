@@ -24,5 +24,5 @@ func _on_magnetic_plority_changed(plority: Magnetic.Plority, old_plority: Magnet
 		Magnetic.Plority.NEGATIVE:
 			material_overlay.set("albedo_texture", button_negative_texture)
 		Magnetic.Plority.NEUTRAL:
-			material_overlay.set("albedo_texture", button_negative_texture)
+			material_overlay.set("albedo_texture", button_nuetral_texture)
 			
