@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=16 format=3 uid="uid://cwiu1fkte5vi3"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
 [ext_resource type="PackedScene" uid="uid://cktnoucfmcd78" path="res://Arts/Models/Collision Volume Mode/chair_red.tscn" id="10_6qu1t"]
 [ext_resource type="PackedScene" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
+[ext_resource type="PackedScene" uid="uid://c7pn30rvvajyv" path="res://Arts/test_area.tscn" id="11_0s2ct"]
+[ext_resource type="PackedScene" uid="uid://cx3ssqego3tbx" path="res://Arts/text_story/ceshiwenzi .tscn" id="12_p42sj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -540,8 +542,19 @@ size = Vector3(1, 3, 4)
 [node name="MagneticBox" parent="door0" instance=ExtResource("7_2o5kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -3)
 
-[node name="Node3D" parent="." instance=ExtResource("9_7l5rc")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node3D" parent="Control" instance=ExtResource("9_7l5rc")]
 transform = Transform3D(1, 0, 0, 0, 0.24331, 0.969948, 0, -0.969948, 0.24331, -6.75117, -0.264479, -2.93593)
 
-[node name="Node3D2" parent="." instance=ExtResource("10_6qu1t")]
+[node name="Node3D2" parent="Control" instance=ExtResource("10_6qu1t")]
 transform = Transform3D(-0.856112, 0.509463, -0.0867203, -0.0131594, 0.14626, 0.989159, 0.516623, 0.847972, -0.118511, -6.2951, -0.390907, -4.49138)
+
+[node name="Area3D" parent="Control" instance=ExtResource("11_0s2ct")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -5.23674, 11.8987, -1.30452)
+
+[node name="CanvasLayer" parent="Control/Area3D" instance=ExtResource("12_p42sj")]
