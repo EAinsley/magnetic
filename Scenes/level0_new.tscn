@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=14 format=3 uid="uid://cwiu1fkte5vi3"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -6,12 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="4_afr1o"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_2o5kh"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="8_0fw33"]
-[ext_resource type="PackedScene" uid="uid://damlvdtg0sgdp" path="res://Arts/stickers/button_none.tscn" id="9_7g2ut"]
-[ext_resource type="PackedScene" uid="uid://j6wofsvrhbw8" path="res://Arts/Models/Collision Volume Mode/chair_blue.tscn" id="9_7l5rc"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
-[ext_resource type="PackedScene" uid="uid://cktnoucfmcd78" path="res://Arts/Models/Collision Volume Mode/chair_red.tscn" id="10_6qu1t"]
 [ext_resource type="PackedScene" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
-[ext_resource type="PackedScene" uid="uid://c7pn30rvvajyv" path="res://Arts/test_area.tscn" id="11_0s2ct"]
+[ext_resource type="PackedScene" path="res://Arts/test_area.tscn" id="11_0s2ct"]
 [ext_resource type="PackedScene" uid="uid://cx3ssqego3tbx" path="res://Arts/text_story/ceshiwenzi .tscn" id="12_p42sj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
@@ -479,10 +476,6 @@ initial_plority = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -11)
 trigger_target = NodePath("../MagneticBoxOnlyExtract/MagneticExtractor")
 
-[node name="Decal" parent="door0/Button2" instance=ExtResource("9_7g2ut")]
-transform = Transform3D(0.999689, -6.44058e-09, 0.0249207, 0.00367191, 0.989085, -0.147298, -0.0246487, 0.147343, 0.988778, 0.00252262, 0.574565, 0.0665917)
-size = Vector3(1.01668, 1.83472, 1.04944)
-
 [node name="MagneticBoxOnlyExtract" parent="door0" instance=ExtResource("9_wj26v")]
 transform = Transform3D(4.5, 0, 0, 0, 5, 0, 0, 0, 1, -3, 2, 0)
 axis_lock_linear_x = true
@@ -552,12 +545,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Node3D" parent="Control" instance=ExtResource("9_7l5rc")]
-transform = Transform3D(1, 0, 0, 0, 0.24331, 0.969948, 0, -0.969948, 0.24331, -6.75117, -0.264479, -2.93593)
-
-[node name="Node3D2" parent="Control" instance=ExtResource("10_6qu1t")]
-transform = Transform3D(-0.856112, 0.509463, -0.0867203, -0.0131594, 0.14626, 0.989159, 0.516623, 0.847972, -0.118511, -6.2951, -0.390907, -4.49138)
 
 [node name="Area3D" parent="Control" instance=ExtResource("11_0s2ct")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -5.23674, 11.8987, -1.30452)
