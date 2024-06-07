@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndn1o6g6x3bn"]
+[gd_scene load_steps=8 format=3 uid="uid://dndn1o6g6x3bn"]
 
-[ext_resource type="Texture2D" uid="uid://dqs5u4of44rrp" path="res://Arts/wall/旧砖头01_科瓦尔1_3K(BricksOld01_COL__爱给网_aigei_com.jpg" id="1_n7l2k"]
+[ext_resource type="Texture2D" uid="uid://vbn5lc27tyil" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Floor/BASE COLOR_MT_Floor.png" id="1_ki2kw"]
+[ext_resource type="Texture2D" uid="uid://batep2c1h8d2c" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/PanelFloor/MRAo_PanelFloor.exr" id="2_bu8ju"]
+[ext_resource type="Texture2D" uid="uid://7qqkqdm0s37p" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/PanelFloor/NORMAL_PanelFloor.png" id="3_hix4o"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6tdg"]
-diffuse_mode = 1
-albedo_texture = ExtResource("1_n7l2k")
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv2_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnpid"]
+albedo_texture = ExtResource("1_ki2kw")
+metallic = 0.15
+metallic_specular = 0.88
+metallic_texture_channel = 2
+roughness = 0.26
+roughness_texture = ExtResource("2_bu8ju")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = ExtResource("3_hix4o")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ld0ub"]
 sky_top_color = Color(0.371764, 0.6326, 0.984527, 1)
@@ -21,9 +28,7 @@ sky_material = SubResource("ProceduralSkyMaterial_ld0ub")
 [sub_resource type="Environment" id="Environment_pd7wx"]
 background_mode = 2
 sky = SubResource("Sky_xq6ln")
-tonemap_mode = 2
-sdfgi_enabled = true
-glow_enabled = true
+tonemap_mode = 3
 
 [node name="CSGBox3D" type="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
@@ -31,7 +36,7 @@ use_collision = true
 collision_layer = 4
 collision_mask = 11
 size = Vector3(3, 1, 3)
-material = SubResource("StandardMaterial3D_u6tdg")
+material = SubResource("StandardMaterial3D_qnpid")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pd7wx")
