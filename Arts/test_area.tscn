@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7pn30rvvajyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clmwk"]
+size = Vector3(1, 3, 3)
+
+[node name="Area3D" type="Area3D"]
+editor_description = "建立区域。可以用来设置玩家通过检测，搭配collisionshape3D设置透明纹理使用。"
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_clmwk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+modulate = Color(1, 0.388235, 1, 0)
+region_enabled = true
+region_rect = Rect2(10, 10, 50, 10)
