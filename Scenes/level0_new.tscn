@@ -38,23 +38,23 @@ environment = SubResource("Environment_jlj4o")
 
 [node name="LevelWalls" type="Node3D" parent="."]
 
-[node name="CSGBox3D" parent="LevelWalls" instance=ExtResource("1_5aofw")]
+[node name="behind" parent="LevelWalls" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1.5, 0)
 size = Vector3(1, 6, 11)
 
 [node name="OuterWall" type="Node3D" parent="LevelWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
-[node name="CSGBox3D" parent="LevelWalls/OuterWall" instance=ExtResource("1_5aofw")]
+[node name="floor1" parent="LevelWalls/OuterWall" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 0)
 size = Vector3(10, 1, 11)
 
 [node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall"]
 
-[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
+[node name="right1" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/right1" instance=ExtResource("3_m347d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
 size = Vector3(10, 5, 1)
 
@@ -77,7 +77,7 @@ size = Vector3(3, 1, 11)
 [node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall2/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="Wall" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+[node name="R-Wal2" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
 size = Vector3(3, 5, 1)
 
