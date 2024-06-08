@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ble0y1yirrtln"]
+[gd_scene load_steps=12 format=3 uid="uid://ble0y1yirrtln"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="6_qkuma"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="7_fdp7l"]
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="8_bfsf4"]
-[ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="9_a63i8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,7 +23,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="level0" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5114, 0.350166, -7.24314)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.72488, 26.7597, -13.3799)
@@ -370,7 +368,3 @@ size = Vector3(4.1, 5, 0.5)
 [node name="BlockingWall2" parent="BlockinWalls" instance=ExtResource("8_bfsf4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.791, 11, 55.95)
 size = Vector3(3, 15, 0.5)
-
-[node name="Decal" parent="." instance=ExtResource("9_a63i8")]
-transform = Transform3D(0.999472, 0.0325032, -4.02332e-06, 0.000678785, -0.0209964, -0.999779, -0.0324962, 0.999251, -0.0210073, 16.7441, 3.01334, 4.49381)
-size = Vector3(2.36536, 2, 2)
