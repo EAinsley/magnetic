@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfippb2fngg17"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ed7eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpynx"]
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+editor_description = "在Transparent中，依次调参：
+Alpha/Multiply/Back/Opaque 
+NO深度检测 on
+会得到一个全局透视指引（透明物体）"
+layers = 7
+mesh = SubResource("BoxMesh_ed7eu")
+surface_material_override/0 = SubResource("StandardMaterial3D_jpynx")

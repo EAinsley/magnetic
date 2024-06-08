@@ -12,7 +12,7 @@ func _ready() -> void:
 	host.add_to_group("pickable")
 	
 func pick() -> void: 
-	host.set_collision_layer_value(2, false)
+	host.s ,,et_collision_layer_value(2, false)
 	host.set_collision_layer_value(4, true)
 	host.set_collision_mask_value(1, false)
 	picked.emit()

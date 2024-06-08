@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://db7e8rp2ejy0u"]
+[gd_scene load_steps=18 format=3 uid="uid://db7e8rp2ejy0u"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_speid"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_odkrq"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="9_4np52"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_u8j7d"]
 [ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="11_yosat"]
+[ext_resource type="PackedScene" uid="uid://w51373qupi3m" path="res://Arts/stickers/icon.tscn" id="12_d7skt"]
+[ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="13_2uaw4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hs5hs"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -277,3 +279,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32052, 2.24186, -18.5)
 [node name="Decal" parent="icon" instance=ExtResource("11_yosat")]
 transform = Transform3D(0.381758, -0.460363, 0.801453, 0.922922, 0.236561, -0.303734, -0.0497646, 0.855631, 0.515188, -0.816705, -0.000462532, 0.126928)
 size = Vector3(2, 2.00391, 2)
+
+[node name="Decal" parent="." instance=ExtResource("12_d7skt")]
+transform = Transform3D(1.92351, 0, 0, 0, 1.9, 0, 0, 0, 1.75165, 8.02026, 2, -27.9895)
+size = Vector3(3.24805, 2, 3)
+metadata/_edit_group_ = true
+
+[node name="Decal2" parent="." instance=ExtResource("11_yosat")]
+transform = Transform3D(-0.121031, -0.988476, 0.0909263, 0.847865, -0.0553078, 0.527319, -0.516213, 0.140915, 0.844788, 5.5, 2.92866, -27.8062)
+
+[node name="Panel_Light" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.02701, 3.8751, -30.4825)
+
+[node name="Decal3" parent="." instance=ExtResource("12_d7skt")]
+transform = Transform3D(1.2506, 0, 0, 0, 1.3, 0, 0, 0, 1.26706, 25.4279, 1, -37.7166)
+size = Vector3(9.16943, 2, 7.48779)

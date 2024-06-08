@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=36 format=3 uid="uid://cwiu1fkte5vi3"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="4_afr1o"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_2o5kh"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="8_0fw33"]
+[ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="9_44nlx"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
 [ext_resource type="Texture2D" uid="uid://vbn5lc27tyil" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Floor/BASE COLOR_MT_Floor.png" id="11_nvrs8"]
@@ -22,6 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://bobq2so44iq7d" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_locker.tscn" id="20_c43mu"]
 [ext_resource type="PackedScene" uid="uid://ctnl16vpo658d" path="res://Arts/stickers/pen1.tscn" id="21_jhi0e"]
 [ext_resource type="PackedScene" uid="uid://chjspfqaymlom" path="res://Arts/stickers/pen2.tscn" id="22_enc8g"]
+[ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="23_gle6y"]
+[ext_resource type="PackedScene" uid="uid://dfippb2fngg17" path="res://Arts/Models/Collision Volume Mode/transparent_item.tscn" id="25_k6nfu"]
+[ext_resource type="PackedScene" path="res://Arts/Models/collected_item.tscn" id="26_qo7tp"]
+[ext_resource type="PackedScene" uid="uid://dxxvbyd48254o" path="res://Arts/Models/collected_item2.tscn" id="27_txqdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -58,7 +63,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_53cro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.4628, 1.47129, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.8487, 1.47129, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
@@ -698,3 +703,34 @@ size = Vector3(0.48941, 1.68066, 0.593506)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8193, -0.503594, 3.0828)
 layers = 7
 size = Vector3(0.520508, 2, 0.387817)
+
+[node name="Cont_Locker2" parent="." instance=ExtResource("20_c43mu")]
+transform = Transform3D(0.00714202, 0.791479, -0.611154, -0.999959, 0.00902326, 0, 0.0055146, 0.611129, 0.791512, 25.0069, 1.8897, -3.77184)
+
+[node name="guangmu" parent="." instance=ExtResource("23_gle6y")]
+transform = Transform3D(-1, 3.97575e-08, -4.74807e-08, -6.55671e-08, -0.5, 0.779423, 3.78552e-08, 0.866025, 0.45, 22.6004, 2.70503, 38.5)
+size = Vector3(5, 4, 2)
+
+[node name="Panel_Light" parent="." instance=ExtResource("9_44nlx")]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 18, 3.58448, 32)
+
+[node name="Panel_Light2" parent="." instance=ExtResource("9_44nlx")]
+transform = Transform3D(0.00951745, 0, 0.299849, 0, 0.3, 0, -0.299849, 0, 0.00951745, 18, 3.55595, 25.9946)
+
+[node name="Panel_Light3" parent="." instance=ExtResource("9_44nlx")]
+transform = Transform3D(0.00393735, 0, 0.299974, 0, 0.3, 0, -0.299974, 0, 0.00393735, 18.0127, 3.5919, 18.9229)
+
+[node name="Panel_Light4" parent="." instance=ExtResource("9_44nlx")]
+transform = Transform3D(-0.0124319, 0, 0.299742, 0, 0.3, 0, -0.299742, 0, -0.0124319, 18, 3.74023, 7.44874)
+
+[node name="Panel_Light5" parent="." instance=ExtResource("9_44nlx")]
+transform = Transform3D(0.00640837, 0, -0.299932, 0, 0.3, 0, 0.299932, 0, 0.00640837, 26.7876, 3.66847, 7.31467)
+
+[node name="Node3D" parent="." instance=ExtResource("25_k6nfu")]
+transform = Transform3D(1, 0, 0, 0, 0.957503, 0, 0, 0, 1, -7.52734, 0.00958359, 35.9972)
+
+[node name="Node3D2" parent="." instance=ExtResource("26_qo7tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5551, 0, 0)
+
+[node name="Node3D3" parent="." instance=ExtResource("27_txqdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
