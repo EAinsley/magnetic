@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://djra8wgdmbhst"]
-
-[ext_resource type="Texture2D" uid="uid://b5op4rl31cbw7" path="res://Arts/other small things/217cc2f5b2914d1716898385698d9eb17e352d97385b8-Fojf0Y.png" id="1_jm2fu"]
-
-[node name="Decal" type="Decal"]
-texture_albedo = ExtResource("1_jm2fu")
