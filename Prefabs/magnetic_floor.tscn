@@ -169,7 +169,7 @@ mesh = SubResource("ArrayMesh_sui7o")
 skeleton = NodePath("")
 script = ExtResource("4_dya73")
 
-[node name="Sci-Fi_Panel_002_plasticBlack_0" type="MeshInstance3D" parent="Sketchfab_model/2bf31eb357304fa3a510387979c56726_fbx/RootNode/Sci-Fi_Panel_002"]
+[node name="Sci-Fi_Panel_002_plasticB lack_0" type="MeshInstance3D" parent="Sketchfab_model/2bf31eb357304fa3a510387979c56726_fbx/RootNode/Sci-Fi_Panel_002"]
 mesh = SubResource("ArrayMesh_yghga")
 skeleton = NodePath("")
 

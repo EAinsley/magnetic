@@ -23,6 +23,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="level0" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5114, 0.350166, -7.24314)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.72488, 26.7597, -13.3799)
