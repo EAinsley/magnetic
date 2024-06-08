@@ -65,6 +65,9 @@ size = Vector3(27, 6, 1)
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Player" parent="." instance=ExtResource("2_odkrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28999, 1.40618, -7.46678)
+
 [node name="Enviroment" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
@@ -75,7 +78,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Stage01" type="Node3D" parent="."]
-visible = false
 
 [node name="MagneticFloor2" parent="Stage01" instance=ExtResource("3_y0lki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.75, -17)
@@ -116,7 +118,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 2)
 size = Vector3(9, 9, 1)
 
 [node name="Stage02" type="Node3D" parent="."]
-visible = false
 
 [node name="Objects" type="Node3D" parent="Stage02"]
 
@@ -205,9 +206,6 @@ size = Vector3(3, 9, 1)
 [node name="BlockingWall3" parent="Stage02" instance=ExtResource("5_6x6l8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.6168, 6.23438, -28.0031)
 size = Vector3(5.18835, 4.6333, 0.1)
-
-[node name="Player" parent="." instance=ExtResource("2_odkrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28999, 1.40618, -7.46678)
 
 [node name="Stage3" type="Node3D" parent="."]
 
