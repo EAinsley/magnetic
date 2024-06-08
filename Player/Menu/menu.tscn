@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://e85whmjdcm35"]
+
+[ext_resource type="Script" path="res://Player/menu.gd" id="1_33wcj"]
+[ext_resource type="Shader" path="res://Player/Menu/blur_background.gdshader" id="2_cwhw4"]
+
+[sub_resource type="Theme" id="Theme_vr08a"]
+default_font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5fna"]
+shader = ExtResource("2_cwhw4")
+shader_parameter/lod = 3.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hud6k"]
+
+[sub_resource type="Theme" id="Theme_kjyjv"]
+
+[node name="Menu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vr08a")
+script = ExtResource("1_33wcj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_c5fna")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_hud6k")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kjyjv")
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Retry" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
