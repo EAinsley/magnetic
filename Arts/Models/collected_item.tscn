@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdkq1un60sbwh"]
+[gd_scene load_steps=8 format=3 uid="uid://b7hihjjfyq4ev"]
 
 [sub_resource type="Animation" id="Animation_em6hc"]
 resource_name = "new_animation"
@@ -11,6 +11,8 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_3qp43"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_umjc7"]
+radius = 0.35
+height = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b7lf"]
 blend_mode = 1
@@ -19,7 +21,7 @@ diffuse_mode = 1
 albedo_color = Color(0.865753, 0.759987, 0.378072, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ebq7"]
-size = Vector3(0.4, 0.4, 0.4)
+size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_um4r8"]
 blend_mode = 1
