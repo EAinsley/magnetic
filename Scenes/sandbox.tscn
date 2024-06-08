@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=18 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -24,6 +24,20 @@ background_mode = 2
 sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dsa8x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgxp8"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_2hbfy"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_pgxp8")
+size = Vector3(0.95, 1, 0.95)
 
 [node name="Sandbox" type="Node3D"]
 
@@ -221,6 +235,12 @@ trigger_target = NodePath("../MagneticBoxStatic1/MagneticExtractor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -15)
 initial_plority = 2
 
+[node name="CollisionShape3D" parent="MagneticChangeTest/MagneticBoxOnlyExtract" index="0"]
+shape = SubResource("BoxShape3D_dsa8x")
+
+[node name="Mesh" parent="MagneticChangeTest/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_2hbfy")
+
 [node name="MagneticExtractor" parent="MagneticChangeTest/MagneticBoxOnlyExtract" node_paths=PackedStringArray("target") instance=ExtResource("11_n0puw")]
 target = NodePath("..")
 plority = 1
@@ -228,3 +248,6 @@ plority = 1
 [node name="Button2" parent="MagneticChangeTest" node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -20)
 trigger_target = NodePath("../MagneticBoxOnlyExtract/MagneticExtractor")
+
+[editable path="MagneticChangeTest/MagneticBoxOnlyExtract"]
+[editable path="MagneticChangeTest/MagneticBoxOnlyExtract/MagneticField"]
