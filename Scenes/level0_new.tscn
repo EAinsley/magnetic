@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=32 format=3 uid="uid://cwiu1fkte5vi3"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="9_44nlx"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
-[ext_resource type="Texture2D" uid="uid://vbn5lc27tyil" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Floor/BASE COLOR_MT_Floor.png" id="11_nvrs8"]
 [ext_resource type="PackedScene" uid="uid://cua23doef7lyk" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_locker_group_static.tscn" id="11_pmy6m"]
 [ext_resource type="PackedScene" uid="uid://vkk30mmx0tpw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_chair.tscn" id="12_y24ql"]
 [ext_resource type="PackedScene" uid="uid://cpewjwfa3cpne" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Posts/post_weird.tscn" id="13_lwgri"]
@@ -24,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://ctnl16vpo658d" path="res://Arts/stickers/pen1.tscn" id="21_jhi0e"]
 [ext_resource type="PackedScene" uid="uid://chjspfqaymlom" path="res://Arts/stickers/pen2.tscn" id="22_enc8g"]
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="23_gle6y"]
-[ext_resource type="PackedScene" uid="uid://dfippb2fngg17" path="res://Arts/Models/Collision Volume Mode/transparent_item.tscn" id="25_k6nfu"]
 [ext_resource type="PackedScene" uid="uid://cdkq1un60sbwh" path="res://Arts/Models/collected_item.tscn" id="26_qo7tp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
@@ -51,9 +49,6 @@ albedo_texture = ExtResource("3_0ukxp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khahg"]
 albedo_texture = ExtResource("3_0ukxp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcesa"]
-albedo_texture = ExtResource("11_nvrs8")
 
 [node name="level0" type="Node3D"]
 
@@ -198,9 +193,9 @@ size = Vector3(5, 4, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
 
 [node name="CSGBox3D" parent="LevelWalls/OuterWall4" instance=ExtResource("1_5aofw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 material_override = SubResource("StandardMaterial3D_khahg")
-size = Vector3(3, 1, 9)
+size = Vector3(2, 1, 9)
 
 [node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -593,11 +588,6 @@ size = Vector3(1, 3, 5.43274)
 [node name="OuterWall6" type="Node3D" parent="door0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, -1, -5.5)
 
-[node name="CSGBox3D" parent="door0/OuterWall6" instance=ExtResource("1_5aofw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
-material_override = SubResource("StandardMaterial3D_tcesa")
-size = Vector3(12, 1, 17)
-
 [node name="BothSideWalls" type="Node3D" parent="door0/OuterWall6"]
 
 [node name="SingleSideWall2" type="Node3D" parent="door0/OuterWall6/BothSideWalls"]
@@ -621,6 +611,10 @@ size = Vector3(6, 3, 1)
 [node name="Wall3" parent="door0/OuterWall6/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4761, 2, -2.50373)
 size = Vector3(1, 3, 4)
+
+[node name="CSGBox3D3" parent="door0/OuterWall6" instance=ExtResource("1_5aofw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3)
+size = Vector3(13, 1, 16)
 
 [node name="MagneticBox" parent="door0" instance=ExtResource("7_2o5kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -3)
@@ -724,9 +718,6 @@ transform = Transform3D(-0.0124319, 0, 0.299742, 0, 0.3, 0, -0.299742, 0, -0.012
 
 [node name="Panel_Light5" parent="." instance=ExtResource("9_44nlx")]
 transform = Transform3D(0.00640837, 0, -0.299932, 0, 0.3, 0, 0.299932, 0, 0.00640837, 26.7876, 3.66847, 7.31467)
-
-[node name="Node3D" parent="." instance=ExtResource("25_k6nfu")]
-transform = Transform3D(1, 0, 0, 0, 0.957503, 0, 0, 0, 1, -7.52734, 0.00958359, 35.9972)
 
 [node name="Node3D2" parent="." instance=ExtResource("26_qo7tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5551, 0, 0)
