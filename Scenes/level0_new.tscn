@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=12 format=3 uid="uid://ble0y1yirrtln"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_2o5kh"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="8_0fw33"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
-[ext_resource type="PackedScene" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
-[ext_resource type="PackedScene" path="res://Arts/test_area.tscn" id="11_0s2ct"]
-[ext_resource type="PackedScene" uid="uid://cx3ssqego3tbx" path="res://Arts/text_story/ceshiwenzi .tscn" id="12_p42sj"]
+[ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,23 +36,23 @@ environment = SubResource("Environment_jlj4o")
 
 [node name="LevelWalls" type="Node3D" parent="."]
 
-[node name="behind" parent="LevelWalls" instance=ExtResource("1_5aofw")]
+[node name="CSGBox3D" parent="LevelWalls" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1.5, 0)
 size = Vector3(1, 6, 11)
 
 [node name="OuterWall" type="Node3D" parent="LevelWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
-[node name="floor1" parent="LevelWalls/OuterWall" instance=ExtResource("1_5aofw")]
+[node name="CSGBox3D" parent="LevelWalls/OuterWall" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 0)
 size = Vector3(10, 1, 11)
 
 [node name="BothSideWalls" type="Node3D" parent="LevelWalls/OuterWall"]
 
-[node name="right1" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
+[node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/right1" instance=ExtResource("3_m347d")]
+[node name="Wall" parent="LevelWalls/OuterWall/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
 size = Vector3(10, 5, 1)
 
@@ -77,7 +75,7 @@ size = Vector3(3, 1, 11)
 [node name="SingleSideWall2" type="Node3D" parent="LevelWalls/OuterWall2/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="R-Wal2" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
+[node name="Wall" parent="LevelWalls/OuterWall2/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
 size = Vector3(3, 5, 1)
 
@@ -539,14 +537,3 @@ size = Vector3(1, 3, 4)
 
 [node name="MagneticBox" parent="door0" instance=ExtResource("7_2o5kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -3)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Area3D" parent="Control" instance=ExtResource("11_0s2ct")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -5.23674, 11.8987, -1.30452)
-
-[node name="CanvasLayer" parent="Control/Area3D" instance=ExtResource("12_p42sj")]
