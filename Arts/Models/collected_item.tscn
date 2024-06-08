@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdkq1un60sbwh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3qp43"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_umjc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b7lf"]
+blend_mode = 1
+cull_mode = 1
+diffuse_mode = 1
+albedo_color = Color(0.865753, 0.759987, 0.378072, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ebq7"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_um4r8"]
+blend_mode = 1
+albedo_color = Color(0.924182, 0.402319, 0.23088, 1)
+metallic = 0.65
+metallic_specular = 0.01
+roughness = 0.36
+emission = Color(0.960708, 0.498057, 0.351277, 1)
+emission_energy_multiplier = 3.76
+
+[sub_resource type="Animation" id="Animation_em6hc"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gui1e"]
+_data = {
+"new_animation": SubResource("Animation_em6hc")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 7
+collision_mask = 21
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_3qp43")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_umjc7")
+skeleton = NodePath("../StaticBody3D/CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_1b7lf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+mesh = SubResource("BoxMesh_6ebq7")
+surface_material_override/0 = SubResource("StandardMaterial3D_um4r8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_gui1e")
+}

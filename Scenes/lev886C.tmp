@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwiu1fkte5vi3"]
+[gd_scene load_steps=36 format=3 uid="uid://cwiu1fkte5vi3"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="23_gle6y"]
 [ext_resource type="PackedScene" uid="uid://dfippb2fngg17" path="res://Arts/Models/Collision Volume Mode/transparent_item.tscn" id="25_k6nfu"]
 [ext_resource type="PackedScene" uid="uid://cdkq1un60sbwh" path="res://Arts/Models/collected_item.tscn" id="26_qo7tp"]
+[ext_resource type="PackedScene" uid="uid://u3gsgbh74ssw" path="res://Arts/Models/collected_item2.tscn" id="27_txqdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -730,3 +731,6 @@ transform = Transform3D(1, 0, 0, 0, 0.957503, 0, 0, 0, 1, -7.52734, 0.00958359, 
 
 [node name="Node3D2" parent="." instance=ExtResource("26_qo7tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5551, 0, 0)
+
+[node name="Node3D3" parent="." instance=ExtResource("27_txqdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
