@@ -60,9 +60,9 @@ shadow_mesh = SubResource("ArrayMesh_2abyn")
 [node name="Panel_Light" type="MeshInstance3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.00445187, 0.0467407, -0.0266643)
 layers = 7
-instance_shader_parameters/albedo = Color(0.992157, 1, 1, 1)
-instance_shader_parameters/emission = Color(1, 1, 1, 0.203922)
-instance_shader_parameters/emission_energy = 8.72
+instance_shader_parameters/albedo = Color(0.976471, 1, 1, 1)
+instance_shader_parameters/emission = Color(1, 1, 1, 0.482353)
+instance_shader_parameters/emission_energy = 30.0
 mesh = SubResource("ArrayMesh_k768x")
 skeleton = NodePath("")
 
