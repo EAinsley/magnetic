@@ -1,29 +1,34 @@
-[gd_scene load_steps=12 format=3 uid="uid://caucs88uf7tsx"]
+[gd_scene load_steps=14 format=3 uid="uid://dl10veyw4nyug"]
 
-[ext_resource type="Script" path="res://Objects/MagneticBoxOnlyExtract/magnetic_box_only_extract.gd" id="1_uagd4"]
-[ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_7d5ce"]
-[ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="3_mja34"]
-[ext_resource type="Script" path="res://Static Objects/MagneticBoxStatic/MeshManager.gd" id="4_kljyj"]
-[ext_resource type="PackedScene" uid="uid://blwiwwypbpyxg" path="res://Utilities/extractable.tscn" id="5_k1wjk"]
+[ext_resource type="Script" path="res://Objects/MagneticBoxOnlyExtract/magnetic_box_only_extract.gd" id="1_3x507"]
+[ext_resource type="Script" path="res://Static Objects/MagneticBoxStatic/MeshManager.gd" id="2_l81gn"]
+[ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="3_twdfn"]
+[ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="4_ef7sn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw5oc"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
+size = Vector3(0.95, 5, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owuba"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
-emission_enabled = true
+emission = Color(0.870588, 0.0862745, 0.137255, 1)
 emission_energy_multiplier = 3.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfxy3"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_owuba")
-size = Vector3(0.95, 1, 0.95)
+size = Vector3(0.95, 5, 3)
 
 [sub_resource type="Animation" id="Animation_dhiya"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:mesh:material:emission")
+tracks/0/path = NodePath("Mesh:mesh:material:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +45,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:mesh:material:emission")
+tracks/0/path = NodePath("Mesh:mesh:material:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,7 +62,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:mesh:material:emission")
+tracks/0/path = NodePath("Mesh:mesh:material:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,17 +79,23 @@ _data = {
 "to_positive": SubResource("Animation_1kugh")
 }
 
-[node name="MagneticBoxOnlyExtract" type="RigidBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oi6ss"]
+size = Vector3(6, 6, 18)
+
+[node name="MagneticBoxNoExtractNoMove" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 31
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_yw5oc")
 can_sleep = false
-script = ExtResource("1_uagd4")
+script = ExtResource("1_3x507")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bvjet")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_dfxy3")
@@ -93,17 +104,18 @@ mesh = SubResource("BoxMesh_dfxy3")
 libraries = {
 "": SubResource("AnimationLibrary_3lsyd")
 }
-script = ExtResource("4_kljyj")
+script = ExtResource("2_l81gn")
 
-[node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("3_mja34")]
+[node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("3_twdfn")]
 input_ray_pickable = false
 magnetic = NodePath("../Magnetic")
+magnetic_forces = 1000
 
-[node name="Magnetic" parent="." node_paths=PackedStringArray("host") instance=ExtResource("2_7d5ce")]
+[node name="CollisionShape3D" parent="MagneticField" index="0"]
+shape = SubResource("BoxShape3D_oi6ss")
+
+[node name="Magnetic" parent="." node_paths=PackedStringArray("host") instance=ExtResource("4_ef7sn")]
 host = NodePath("..")
-
-[node name="Extractable" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("5_k1wjk")]
-magnetic = NodePath("../Magnetic")
 
 [connection signal="plority_changed" from="Magnetic" to="MeshManager" method="_on_magnetic_plority_changed"]
 
