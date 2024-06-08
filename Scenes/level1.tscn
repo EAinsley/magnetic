@@ -251,7 +251,7 @@ trigger_target = NodePath("../MagneticBoxOnlyExtract4/MagneticExtractor2")
 plority = 1
 
 [node name="MagneticBoxOnlyExtract5" parent="Stage03" instance=ExtResource("9_u8j7d")]
-transform = Transform3D(4.37114e-08, -6.60025e-15, -1, -1.50996e-07, -1, 1.3101e-20, -1, 1.50996e-07, -4.37114e-08, 38, 7, -40.31)
+transform = Transform3D(4.37114e-08, -6.60025e-15, -1, -1.50996e-07, -1, 1.3101e-20, -1, 1.50996e-07, -4.37114e-08, 38, 6, -40.31)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 mass = 100.0
@@ -271,7 +271,7 @@ magnetic_forces = 1000
 shape = SubResource("BoxShape3D_dx5un")
 
 [node name="MagneticBoxOnlyExtract4" parent="Stage03" instance=ExtResource("9_u8j7d")]
-transform = Transform3D(4.37114e-08, -6.60025e-15, 1, -1.50996e-07, -1, -1.3101e-20, 1, -1.50996e-07, -4.37114e-08, 38, 7, -36)
+transform = Transform3D(4.37114e-08, -6.60025e-15, 1, -1.50996e-07, -1, -1.3101e-20, 1, -1.50996e-07, -4.37114e-08, 38, 6, -36)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 mass = 100.0
@@ -329,7 +329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 2.5, -42.5)
 size = Vector3(4, 1, 4)
 
 [node name="CSGBox3D13" parent="Stage03" instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 4, -38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 3, -38)
 size = Vector3(22, 1, 13)
 
 [node name="CSGBox3D11" parent="Stage03" instance=ExtResource("1_speid")]
