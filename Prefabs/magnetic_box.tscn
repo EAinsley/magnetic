@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d23qs8axw47tv"]
+[gd_scene load_steps=24 format=3 uid="uid://d23qs8axw47tv"]
 
 [ext_resource type="Script" path="res://Objects/MagneticBox/magnetic_box.gd" id="1_3p3ir"]
 [ext_resource type="Texture2D" uid="uid://cv3y1ydovk0ps" path="res://Arts/Models/sci-fi_cube/textures/Metal_Shell_baseColor.png" id="2_owjjs"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b38rdrjp6gtd4" path="res://Arts/Models/sci-fi_cube/textures/Metal_Shell_metallicRoughness.png" id="3_8q3r0"]
 [ext_resource type="Script" path="res://Objects/MagneticBox/magnetic_box_OmniLight3D.gd" id="3_qjnqc"]
 [ext_resource type="Texture2D" uid="uid://l5rusl7o2lgb" path="res://Arts/Models/sci-fi_cube/textures/Metal_Shell_normal.png" id="4_11qhr"]
-[ext_resource type="Animation" uid="uid://bnpyw1xcc8qrv" path="res://Arts/Animations/magnetic_box_animation.res" id="4_vlu0y"]
 [ext_resource type="PackedScene" uid="uid://blwiwwypbpyxg" path="res://Utilities/extractable.tscn" id="5_bodnj"]
 [ext_resource type="Script" path="res://Objects/MagneticBox/magnetic_box_animation_player.gd" id="6_2ojni"]
 [ext_resource type="PackedScene" uid="uid://bp5a46pu6cyyr" path="res://Utilities/pickable.tscn" id="6_6bwqk"]
@@ -257,7 +256,6 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ompum"]
 _data = {
-"Open": ExtResource("4_vlu0y"),
 "OpenFast": SubResource("Animation_qfobu"),
 "RESET": SubResource("Animation_uooq8")
 }
