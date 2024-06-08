@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bcuyni0ghas6j"]
 
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="1_eso3n"]
-[ext_resource type="Script" path="res://Static Objects/button/button.gd" id="1_i58mc"]
+[ext_resource type="Script" path="res://Arts/button.gd" id="1_ini8p"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="2_b6ncd"]
 [ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="3_v1ud8"]
 [ext_resource type="Script" path="res://Static Objects/button/MeshInstance3D2.gd" id="4_ea3jx"]
@@ -172,7 +172,7 @@ resource_local_to_scene = true
 size = Vector3(1, 0.1, 1)
 
 [node name="Button" type="StaticBody3D"]
-script = ExtResource("1_i58mc")
+script = ExtResource("1_ini8p")
 
 [node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("2_b6ncd")]
 magnetic = NodePath("../Magnetic")
