@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bphklmbgxjoua"]
+
+[ext_resource type="FontFile" uid="uid://5wh6q0jwn01j" path="res://Arts/text_story/Fonts/BRADHITC.TTF" id="1_jy7ua"]
+[ext_resource type="Texture2D" uid="uid://domnplds6i0ti" path="res://Arts/other small things/05ca544405863d96e1f9400b58b38f0.jpg" id="1_or3j2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dubd"]
+font = ExtResource("1_jy7ua")
+font_size = 110
+
+[node name="Decal" type="Decal"]
+layers = 7
+texture_albedo = ExtResource("1_or3j2")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "turn around
+perhaps sth···"
+label_settings = SubResource("LabelSettings_0dubd")

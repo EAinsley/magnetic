@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brmvaqrm8uqai"]
+[gd_scene load_steps=25 format=3 uid="uid://brmvaqrm8uqai"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_speid"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_odkrq"]
@@ -16,7 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="15_ddqv8"]
 [ext_resource type="PackedScene" uid="uid://64xfnhwrtl7q" path="res://Arts/stickers/paper2.tscn" id="16_putoj"]
 [ext_resource type="PackedScene" uid="uid://ctnl16vpo658d" path="res://Arts/stickers/pen1.tscn" id="17_q511d"]
+[ext_resource type="PackedScene" uid="uid://vkk30mmx0tpw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_chair.tscn" id="18_a7a2f"]
 [ext_resource type="PackedScene" uid="uid://t4r70h0o2suq" path="res://Arts/stickers/screw.tscn" id="18_g80nf"]
+[ext_resource type="PackedScene" uid="uid://caep6moatq4jc" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_barrel_static.tscn" id="19_vcqas"]
+[ext_resource type="PackedScene" uid="uid://c8r8r8n2u52fw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_table_2.tscn" id="20_4noay"]
+[ext_resource type="PackedScene" uid="uid://llo60dmtxt06" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_table_1.tscn" id="21_f8w0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hs5hs"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,7 +38,7 @@ glow_enabled = true
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_odkrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68129, 1.40618, -27.849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7417, 2.06615, -0.849022)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -48,11 +52,11 @@ transform = Transform3D(1, 0, 0, 0, 0.946203, 0, 0, 0, 1, 0, 1.75, -19)
 size = Vector3(11, 4.5, 1)
 
 [node name="CSGBox3D16" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49884, 1.45964, -3.03181)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49884, 0.129711, -3.03181)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D15" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.47311, -14.0161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.105237, -14.0161)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D3" parent="." instance=ExtResource("1_speid")]
@@ -322,7 +326,7 @@ size = Vector3(3.24805, 2, 3)
 metadata/_edit_group_ = true
 
 [node name="Panel_Light" parent="." instance=ExtResource("13_2uaw4")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.02701, 3.8751, -30.4825)
+transform = Transform3D(-0.298768, 0, -0.0271637, 0, 0.3, 0, 0.0271637, 0, -0.298768, 8.02701, 5.71271, -25.4642)
 
 [node name="Decal3" parent="." instance=ExtResource("12_d7skt")]
 transform = Transform3D(1.2506, 0, 0, 0, 1.3, 0, 0, 0, 1.26706, 25.4279, 1, -37.7166)
@@ -444,3 +448,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2593, 1.9729, -17.5847)
 
 [node name="Decal2" parent="Node" instance=ExtResource("18_g80nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7267, 1, -37.1797)
+
+[node name="Furn_Chair" parent="." instance=ExtResource("18_a7a2f")]
+transform = Transform3D(0.04049, -0.67417, -0.737466, 0.998201, 0.0599511, 0, 0.0442119, -0.736139, 0.675384, 0.90909, 1.25199, -5.13816)
+
+[node name="Furn_Chair2" parent="." instance=ExtResource("18_a7a2f")]
+transform = Transform3D(-0.0134305, 0.882403, 0.470304, -0.999884, -0.0152187, 0, 0.00715739, -0.470249, 0.882505, -5.01393, 1.04009, -7.30099)
+
+[node name="Cont_Barrel_static" parent="." instance=ExtResource("19_vcqas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.670068, 0)
+
+[node name="Furn_Table_2" parent="." instance=ExtResource("20_4noay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.670068, -8)
+
+[node name="Furn_Table_1" parent="." instance=ExtResource("21_f8w0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, -32)
+
+[node name="Panel_Light2" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 1.53182, 5.48035, -15.7061)
+
+[node name="Panel_Light3" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-0.000204194, 0, -0.3, 0, 0.3, 0, 0.3, 0, -0.000204194, 1.45775, 5.94764, -5.92147)
+
+[node name="Panel_Light4" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-0.297022, 0, 0.0421667, 0, 0.3, 0, -0.0421667, 0, -0.297022, 19.9356, 7.36732, -25.5914)
+
+[node name="Panel_Light5" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(0.019182, 0, 0.299386, 0, 0.3, 0, -0.299386, 0, 0.019182, 19.559, 5.58565, -36.3508)
+
+[node name="Decal2" parent="." instance=ExtResource("11_yosat")]
+transform = Transform3D(-0.0275242, 0.984702, 0.172061, 0.878902, -0.0581596, 0.473443, 0.476207, 0.164256, -0.863856, -4.81499, 6, -21.5038)
