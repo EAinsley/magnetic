@@ -86,8 +86,12 @@ transform = Transform3D(0.967197, 0, 0, 0, 0.395573, 0, 0, 0, 0.967197, 49.9469,
 size = Vector3(11.2779, 1, 29.67)
 
 [node name="tianhuaban" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4/tianhuaban" instance=ExtResource("1_5aofw")]
-transform = Transform3D(0.96719, 0, 0, 0, 0.395573, 0, 0, 0, 0.96719, -14.5978, 0.164852, 11.5308)
-size = Vector3(18.215, 1, 15.9837)
+transform = Transform3D(0.96719, 0, 0, 0, 0.395573, 0, 0, 0, 0.96719, -15.029, 0.164852, 11.8531)
+size = Vector3(21.0577, 1, 16.6501)
+
+[node name="tianhuaban" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4/tianhuaban/tianhuaban" instance=ExtResource("1_5aofw")]
+transform = Transform3D(0.96719, 0, 0, 0, 0.395573, 0, 0, 0, 0.96719, -16.5221, 0.586456, 1.26767)
+size = Vector3(21.0577, 1, 16.6501)
 
 [node name="CSGBox3D4" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4" instance=ExtResource("1_5aofw")]
 transform = Transform3D(0.983462, 0, 0, 0, -0.628946, 0, 0, 0, 0.983462, 40.0828, 0.661218, 1.8755)
@@ -333,12 +337,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.664551, -8.50003)
 size = Vector3(1, 8.3291, 18)
 
 [node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -1, -18)
-size = Vector3(5, 5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.181702, -18)
+size = Vector3(5, 7.3634, 1)
 
 [node name="Wall3" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, -1, -18)
-size = Vector3(5, 5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.109863, -18)
+size = Vector3(5, 7.21973, 1)
 
 [node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

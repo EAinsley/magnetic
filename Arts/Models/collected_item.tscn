@@ -1,10 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7hihjjfyq4ev"]
+[gd_scene load_steps=9 format=3 uid="uid://b7hihjjfyq4ev"]
 
 [sub_resource type="Animation" id="Animation_em6hc"]
 resource_name = "new_animation"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 2.63902, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.07, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ewcb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gui1e"]
 _data = {
+"RESET": SubResource("Animation_ewcb7"),
 "new_animation": SubResource("Animation_em6hc")
 }
 
