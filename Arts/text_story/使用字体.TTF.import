@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://s5jfcds2lvyk"
-path="res://.godot/imported/ARIALN.TTF-2503f12c445368f251494fb582294daf.fontdata"
+path="res://.godot/imported/使用字体.TTF-4445b9f1f5ce8c02a5c156cc6ef91e6d.fontdata"
 
 [deps]
 
-source_file="res://Arts/text_story/Fonts/ARIALN.TTF"
-dest_files=["res://.godot/imported/ARIALN.TTF-2503f12c445368f251494fb582294daf.fontdata"]
+source_file="res://Arts/text_story/使用字体.TTF"
+dest_files=["res://.godot/imported/使用字体.TTF-4445b9f1f5ce8c02a5c156cc6ef91e6d.fontdata"]
 
 [params]
 

@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbebm1of30ttl"]
+
+[ext_resource type="Texture2D" uid="uid://crjn8t4xghk6d" path="res://Arts/other small things/9673f4ab7b894252596e23bf932336e.png" id="1_8rk3h"]
+[ext_resource type="FontFile" uid="uid://s5jfcds2lvyk" path="res://Arts/text_story/使用字体.TTF" id="2_1xp2s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lt4xl"]
+font = ExtResource("2_1xp2s")
+font_size = 30
+outline_size = 2
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d6v8m"]
+font = ExtResource("2_1xp2s")
+font_size = 23
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 495.0
+offset_top = 43.0
+offset_right = 495.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -496.0
+offset_top = 190.0
+offset_right = 663.0
+offset_bottom = 363.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -5.88264
+offset_top = 67.4146
+offset_right = 34.1174
+offset_bottom = 107.415
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 19.0
+offset_right = 636.217
+offset_bottom = 468.0
+scale = Vector2(0.197863, 0.200817)
+texture = ExtResource("1_8rk3h")
+
+[node name="Node" type="Node" parent="Panel"]
+
+[node name="title" type="Label" parent="Panel/Node"]
+offset_left = 253.0
+offset_top = 267.0
+offset_right = 493.0
+offset_bottom = 307.0
+text = "一些不知名的仪器"
+label_settings = SubResource("LabelSettings_lt4xl")
+
+[node name="details" type="Label" parent="Panel/Node"]
+offset_left = 353.0
+offset_top = 326.0
+offset_right = 754.0
+offset_bottom = 358.0
+text = "看起来像是科学仪器，但你根本不知道这是怎么用的。不过手感还不错。"
+label_settings = SubResource("LabelSettings_d6v8m")
