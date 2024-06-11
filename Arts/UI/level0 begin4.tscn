@@ -97,7 +97,7 @@ offset_top = 529.0
 offset_right = 1093.0
 offset_bottom = 584.0
 text = "（使用WASD进行移动）
-（左键拿取物体，右键提取/释放磁性）"
+（左键拿取物体，右键提取/释放磁性，空格跳跃）"
 label_settings = SubResource("LabelSettings_dxhh2")
 
 [node name="Label2" type="Label" parent="."]

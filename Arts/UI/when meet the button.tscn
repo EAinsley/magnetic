@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dw5veu0drcrms"]
 
 [sub_resource type="Animation" id="Animation_87agk"]
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -9,7 +9,7 @@ tracks/0/path = NodePath("../Label:label_settings:font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.8, 2),
+"times": PackedFloat32Array(0, 0.4, 3.8, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -84,7 +84,8 @@ offset_left = 70.0
 offset_top = 529.0
 offset_right = 1093.0
 offset_bottom = 584.0
-text = "哦，一个按钮。他有什么用呢？这些方块或许有神奇的效果···"
+text = "哦，一个按钮。他有什么用呢？这些方块或许有神奇的效果···
+颜色之间尚不清楚有什么关系，我要多尝试一下···"
 label_settings = SubResource("LabelSettings_dxhh2")
 
 [node name="Label2" type="Label" parent="."]
