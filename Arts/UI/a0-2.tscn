@@ -1,17 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce7xj8ag5dto7"]
+[gd_scene load_steps=4 format=3 uid="uid://ce7xj8ag5dto7"]
 
 [ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="1_n0ky2"]
-[ext_resource type="FontFile" uid="uid://s5jfcds2lvyk" path="res://Arts/text_story/使用字体.TTF" id="2_yih3u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lt4xl"]
-font = ExtResource("2_yih3u")
 font_size = 30
 outline_size = 2
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_d6v8m"]
-font = ExtResource("2_yih3u")
 font_size = 23
 
 [node name="Control" type="Control"]
@@ -63,9 +60,10 @@ text = "【可逆转与不可逆转的】"
 label_settings = SubResource("LabelSettings_lt4xl")
 
 [node name="details" type="Label" parent="Panel/Node"]
-offset_left = 353.0
-offset_top = 326.0
-offset_right = 754.0
-offset_bottom = 358.0
-text = "——可逆转与不可逆转的，或许可以用它们打开一些机关？字面意义。"
+offset_left = 351.0
+offset_top = 316.0
+offset_right = 915.0
+offset_bottom = 383.0
+text = "——可逆转与不可逆转的。字面意义。
+同性相斥异性相吸 同性相斥异性相吸 同性相斥异性相吸"
 label_settings = SubResource("LabelSettings_d6v8m")

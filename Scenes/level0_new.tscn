@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="8_0fw33"]
 [ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="9_44nlx"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_wj26v"]
-[ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
-[ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="11_ghktv"]
+[ext_resource type="PackedScene" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
+[ext_resource type="PackedScene" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="11_ghktv"]
 [ext_resource type="PackedScene" uid="uid://cua23doef7lyk" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_locker_group_static.tscn" id="11_pmy6m"]
 [ext_resource type="PackedScene" uid="uid://vkk30mmx0tpw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_chair.tscn" id="12_y24ql"]
 [ext_resource type="PackedScene" uid="uid://cpewjwfa3cpne" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Posts/post_weird.tscn" id="13_lwgri"]
@@ -796,3 +796,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3677, 3.13055, 18.6647)
 
 [node name="c0-1" parent="a&c" instance=ExtResource("26_qo7tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0988, 4.23352, 37.3458)
+
+[node name="Decal10" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-1.61634, 0.10919, 0.508104, -0.43972, -0.666417, -0.712136, -0.334257, 0.348684, -1.52017, 3.31781, -0.5, 35.8392)
+
+[node name="Decal11" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.951067, 0, 0.308984, 0, 1, 0, -0.308984, 0, -0.951067, 19.0974, 1.5, 36.311)
+
+[node name="Decal12" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.310743, 0, -0.950494, 0, 1, 0, 0.950494, 0, -0.310743, 20.9117, 1.5, 26.8013)
+
+[node name="Decal13" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(0.921735, 0, -0.387821, 0, 1, 0, 0.387821, 0, 0.921735, 14.1842, 1.5, 0.420721)
