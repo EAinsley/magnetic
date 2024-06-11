@@ -30,7 +30,7 @@ func _apply_forces(delta: float) -> void:
 			if magnetic.current_plority != body_magnetic.current_plority:
 				body.apply_central_force(-transform.basis.y * force * delta * 1000)
 			else:
-				push_height = 2
+				push_height = 3
 				var damp_velocity : Vector3 = body.linear_velocity.y * transform.basis.y
 				var apply_force : Vector3 = basis.y * (push_height - (body.global_position - global_position).dot(basis.y))
 				var calculated_force := apply_force * force * delta * 1000 - damp_velocity 

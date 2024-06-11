@@ -61,7 +61,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_53cro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.7839, 1.47129, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51.2296, 0.763735, -0.0872101)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
@@ -269,8 +269,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.8147e-05)
 size = Vector3(6, 1, 11)
 
 [node name="CSGBox3D8" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -5.53131e-05)
-size = Vector3(14, 1, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -5.91278e-05)
+size = Vector3(19, 1, 11)
 
 [node name="CSGBox3D2" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -4.19617e-05)
@@ -340,37 +340,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.664551, -8.50003)
 size = Vector3(1, 8.3291, 18)
 
 [node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.181702, -18)
-size = Vector3(5, 7.3634, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.500002, -18)
+size = Vector3(5, 8, 1)
+
+[node name="Wall4" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.181702, -16)
+size = Vector3(4, 7.3634, 1)
+
+[node name="Wall5" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.181702, -16)
+size = Vector3(4, 7.3634, 1)
 
 [node name="Wall3" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.109863, -18)
-size = Vector3(5, 7.21973, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.499998, -18)
+size = Vector3(5, 8, 1)
 
 [node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.814453, 11)
-size = Vector3(6, 8.62891, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, 11)
+size = Vector3(6, 6, 1)
 
 [node name="Button3" parent="LevelWalls/OuterWall9" node_paths=PackedStringArray("trigger_target") instance=ExtResource("4_afr1o")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 14.5, -3.5, -2)
-trigger_target = NodePath("../MagneticBoxOnlyExtract4/MagneticExtractor2")
+trigger_target = NodePath("../MagneticBoxNoExtractNoMove/MagneticExtractor2")
 
-[node name="MagneticBoxOnlyExtract4" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
-transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 14.3, -1, -12)
-axis_lock_linear_x = true
-axis_lock_linear_y = true
+[node name="MagneticBoxNoExtractNoMove" parent="LevelWalls/OuterWall9" instance=ExtResource("11_ghktv")]
+transform = Transform3D(6, 0, -2.66454e-15, 0, 1, 0, 5.68434e-14, 0, 0.3, 11.9258, -1, -12)
+mass = 1000.0
 
-[node name="MagneticExtractor2" parent="LevelWalls/OuterWall9/MagneticBoxOnlyExtract4" node_paths=PackedStringArray("target") instance=ExtResource("10_iw6vd")]
-target = NodePath("..")
+[node name="MagneticExtractor2" parent="LevelWalls/OuterWall9/MagneticBoxNoExtractNoMove" node_paths=PackedStringArray("target") instance=ExtResource("10_iw6vd")]
+target = NodePath("")
 plority = 2
 
 [node name="MagneticBoxOnlyExtract5" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
-transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 18.6, -1, -12)
+transform = Transform3D(6, 0, -7.10543e-15, 0, 5, 0, 5.68434e-14, 0, 1, 17.6285, -1, -12)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 10.0
 
 [node name="door1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 2, 27)
@@ -571,7 +579,7 @@ mass = 0.5
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 2, -1)
 
 [node name="MagneticBoxNoExtractNoMove2" parent="door0" instance=ExtResource("11_ghktv")]
-transform = Transform3D(6, 0, 2.66454e-15, 0, 1, 0, -5.68434e-14, 0, 0.3, 1.16422, 2, 0)
+transform = Transform3D(6, 0, 2.66454e-15, 0, 1, 0, -5.68434e-14, 0, 0.3, 0.17294, 2, 0)
 mass = 5.0
 initial_plority = 2
 
@@ -580,7 +588,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -9)
 trigger_target = NodePath("../MagneticBoxNoExtractNoMove/MagneticExtractor")
 
 [node name="MagneticBoxNoExtractNoMove" parent="door0" instance=ExtResource("11_ghktv")]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 0.3, -4.58829, 2, 0)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 0.3, -5.10198, 2, 0)
 mass = 10000.0
 initial_plority = 1
 
@@ -796,3 +804,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3677, 3.13055, 18.6647)
 
 [node name="c0-1" parent="a&c" instance=ExtResource("26_qo7tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0988, 4.23352, 37.3458)
+
+[node name="Decal10" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.943344, 0, 0.331815, 0, 1, 0, -0.331815, 0, -0.943344, 3.62549, -0.5, 35.8621)
+
+[node name="Decal11" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.943344, 0, 0.331815, 0, 1, 0, -0.331815, 0, -0.943344, 19.6255, 1.5, 36.3907)
+
+[node name="Decal12" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.331815, 0, -0.943344, 0, 1, 0, 0.943344, 0, -0.331815, 22.6255, 1.5, 27.6887)
+
+[node name="Decal13" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(0.955067, 0, -0.296392, 0, 1, 0, 0.296392, 0, 0.955067, 12.4912, 1.5, 0.713243)
