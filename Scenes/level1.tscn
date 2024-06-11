@@ -63,19 +63,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.105237, -14.0161)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D3" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, -25.4081)
-size = Vector3(11, 1, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.38833, -25.1786)
+size = Vector3(11, 1, 11.459)
 
 [node name="CSGBox3D16" parent="CSGBox3D3" instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02438, 7.90646, 21.9682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02438, 5.90646, 21.9682)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D15" parent="CSGBox3D3" instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7.91993, 10.9839)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5.91993, 10.9839)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D3" parent="CSGBox3D3" instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 7.94681, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5.94681, 0)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D7" parent="." instance=ExtResource("1_speid")]
@@ -123,8 +123,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, -38)
 size = Vector3(1, 3, 13)
 
 [node name="CSGBox3D4" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 2, -25)
-size = Vector3(11, 2, 1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 2.95, -25)
+size = Vector3(11, 1.9, 1)
 
 [node name="CSGBox3D6" parent="." instance=ExtResource("1_speid")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 2, -28)
@@ -149,7 +149,6 @@ plority = 1
 [node name="MagneticFloor2" parent="." instance=ExtResource("3_y0lki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.75, -17)
 plority = 2
-push_height = 2.0
 force = 2.0
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_aey1f")]
@@ -238,6 +237,10 @@ size = Vector3(1, 5.98096, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 6.29761, -43)
 size = Vector3(1, 5.59521, 3)
 
+[node name="Platform20" parent="." instance=ExtResource("7_62dd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 6.29761, -43)
+size = Vector3(1, 5.59521, 3)
+
 [node name="Platform8" parent="." instance=ExtResource("7_62dd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4.51758, -32)
 size = Vector3(3, 10.0352, 1)
@@ -263,7 +266,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.34326, -31)
 size = Vector3(22, 9.68652, 1)
 
 [node name="Button" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_ddmfd")]
-transform = Transform3D(1.91068e-15, 4.37114e-08, 1, 1, -4.37114e-08, 1.27055e-21, 4.37114e-08, 1, -4.37114e-08, 2.69491, 4.09315, -30.4571)
+transform = Transform3D(1.91068e-15, 4.37114e-08, 1, 1, -4.37114e-08, 1.27055e-21, 4.37114e-08, 1, -4.37114e-08, 2.69491, 6.09315, -30.4571)
 trigger_target = NodePath("../MagneticBoxNoExtractNoMove2/MagneticExtractor")
 plority = 2
 
