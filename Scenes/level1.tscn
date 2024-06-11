@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://db7e8rp2ejy0u"]
+[gd_scene load_steps=27 format=3 uid="uid://brmvaqrm8uqai"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_speid"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_odkrq"]
@@ -7,8 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="5_6x6l8"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="6_ddmfd"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="7_62dd8"]
+[ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="8_713ac"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="9_4np52"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="9_u8j7d"]
+[ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="11_yosat"]
+[ext_resource type="PackedScene" uid="uid://w51373qupi3m" path="res://Arts/stickers/icon.tscn" id="12_d7skt"]
+[ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="13_2uaw4"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Arts/Models/collected_item.tscn" id="14_jryiv"]
+[ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="15_ddqv8"]
+[ext_resource type="PackedScene" uid="uid://64xfnhwrtl7q" path="res://Arts/stickers/paper2.tscn" id="16_putoj"]
+[ext_resource type="PackedScene" uid="uid://ctnl16vpo658d" path="res://Arts/stickers/pen1.tscn" id="17_q511d"]
+[ext_resource type="PackedScene" uid="uid://vkk30mmx0tpw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_chair.tscn" id="18_a7a2f"]
+[ext_resource type="PackedScene" uid="uid://t4r70h0o2suq" path="res://Arts/stickers/screw.tscn" id="18_g80nf"]
+[ext_resource type="PackedScene" uid="uid://caep6moatq4jc" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_barrel_static.tscn" id="19_vcqas"]
+[ext_resource type="PackedScene" uid="uid://c8r8r8n2u52fw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_table_2.tscn" id="20_4noay"]
+[ext_resource type="PackedScene" uid="uid://llo60dmtxt06" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_table_1.tscn" id="21_f8w0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hs5hs"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,10 +36,12 @@ sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ndgil"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_odkrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28999, 1.40618, -7.46678)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7417, 2.06615, -0.849022)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -35,16 +50,32 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fu3b5")
 
-[node name="CSGBox3D" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.25, -8.5)
-size = Vector3(7, 1, 20)
-
 [node name="CSGBox3D2" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -19)
+transform = Transform3D(1, 0, 0, 0, 0.946203, 0, 0, 0, 1, 0, 1.75, -19)
 size = Vector3(11, 4.5, 1)
 
+[node name="CSGBox3D16" parent="." instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49884, 0.129711, -3.03181)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D15" parent="." instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.105237, -14.0161)
+size = Vector3(11, 1, 11)
+
 [node name="CSGBox3D3" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, -25.4081)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D16" parent="CSGBox3D3" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02438, 7.90646, 21.9682)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D15" parent="CSGBox3D3" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7.91993, 10.9839)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D3" parent="CSGBox3D3" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 7.94681, 0)
 size = Vector3(11, 1, 11)
 
 [node name="CSGBox3D7" parent="." instance=ExtResource("1_speid")]
@@ -52,8 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 3.5, -28)
 size = Vector3(14, 1, 7)
 
 [node name="CSGBox3D8" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, -38)
-size = Vector3(12, 1, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, -38.4006)
+size = Vector3(12, 1, 13.8013)
 
 [node name="CSGBox3D10" parent="." instance=ExtResource("1_speid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1.5, -31)
@@ -67,13 +98,25 @@ size = Vector3(4, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1.5, -43)
 size = Vector3(1, 1, 3)
 
+[node name="CSGBox3D7" parent="CSGBox3D12" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40323, 7.83779, 14.9014)
+size = Vector3(14, 1, 7)
+
+[node name="CSGBox3D8" parent="CSGBox3D12" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32159, 8.03855, 5.01558)
+size = Vector3(12, 1, 13.2284)
+
+[node name="CSGBox3D13" parent="CSGBox3D12" instance=ExtResource("1_speid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0657, 7.99513, 5.01558)
+size = Vector3(22, 1, 13.2284)
+
 [node name="CSGBox3D9" parent="." instance=ExtResource("1_speid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 2.5, -42.5)
 size = Vector3(4, 1, 4)
 
 [node name="CSGBox3D13" parent="." instance=ExtResource("1_speid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 4, -38)
-size = Vector3(22, 1, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 4, -38.2808)
+size = Vector3(22, 1, 13.5615)
 
 [node name="CSGBox3D14" parent="." instance=ExtResource("1_speid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, -38)
@@ -91,8 +134,16 @@ size = Vector3(5, 2, 1)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 1.5, -28)
 size = Vector3(5, 1, 5)
 
+[node name="CSGBox3D5" parent="CSGBox3D5" instance=ExtResource("1_speid")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0177441, 7.89696, -2.11352)
+size = Vector3(5, 1, 5.08301)
+
+[node name="CSGBox3D5" parent="CSGBox3D5/CSGBox3D5" instance=ExtResource("1_speid")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.56968, 0.0905485, 0.00769234)
+size = Vector3(5.07227, 1, 5)
+
 [node name="MagneticFloor" parent="." instance=ExtResource("3_y0lki")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3, 5.75, -13.5)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3, 5.75, -14.5)
 plority = 1
 
 [node name="MagneticFloor2" parent="." instance=ExtResource("3_y0lki")]
@@ -100,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.75, -17)
 plority = 2
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_aey1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.53638, -13.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.53638, -14.5)
 initial_plority = 2
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("4_aey1f")]
@@ -132,96 +183,101 @@ visible = false
 size = Vector3(5.18835, 4.6333, 0.1)
 
 [node name="Platform" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -14.5)
-size = Vector3(1, 9, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4.41455, -14.5)
+size = Vector3(1, 9.8291, 32)
 
 [node name="Platform3" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, -22)
-size = Vector3(1, 9, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4.2182, -22)
+size = Vector3(1, 9.4364, 7)
 
 [node name="Platform6" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, -25)
-size = Vector3(4, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.58008, -25)
+size = Vector3(4, 10.1602, 1)
 
 [node name="Platform5" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, -8.5)
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 2, 4, -8.5)
 size = Vector3(1, 9, 20)
 
 [node name="Platform10" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 2)
-size = Vector3(9, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.3125, 2)
+size = Vector3(9, 9.625, 1)
 
 [node name="Platform4" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, -25)
-size = Vector3(9, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4.58105, -25)
+size = Vector3(9, 10.1621, 1)
 
 [node name="Platform7" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, -23)
-size = Vector3(3, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4.70093, -24)
+size = Vector3(3, 10.4019, 1)
 
 [node name="Platform9" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 4, -25)
-size = Vector3(8, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 4.52838, -25)
+size = Vector3(8, 10.0568, 1)
 
 [node name="Platform11" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 4, -28)
-size = Vector3(1, 9, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 4.51514, -28)
+size = Vector3(1, 10.0303, 7)
 
 [node name="Platform16" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 4, -31)
-size = Vector3(15, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 4.53717, -31)
+size = Vector3(15, 10.0743, 1)
 
 [node name="Platform17" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 6, -33)
-size = Vector3(1, 5, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 6.49048, -33)
+size = Vector3(1, 5.98096, 3)
+
+[node name="Platform19" parent="." instance=ExtResource("7_62dd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 6.49048, -33)
+size = Vector3(1, 5.98096, 3)
 
 [node name="Platform18" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 6, -43)
-size = Vector3(1, 5, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 6.29761, -43)
+size = Vector3(1, 5.59521, 3)
 
 [node name="Platform8" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, -33)
-size = Vector3(3, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4.51758, -33)
+size = Vector3(3, 10.0352, 1)
 
 [node name="Platform12" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 4, -31)
-size = Vector3(2, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 4.34119, -31)
+size = Vector3(2, 9.68237, 1)
 
 [node name="Platform13" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 4, -37.5)
-size = Vector3(1, 9, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 4.30688, -37.5)
+size = Vector3(1, 9.61377, 14)
 
 [node name="Platform14" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 4, -45)
-size = Vector3(22, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 4.30737, -45)
+size = Vector3(22, 9.61475, 1)
 
 [node name="Platform15" parent="." instance=ExtResource("7_62dd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0706, 8, -43)
 size = Vector3(3, 1, 3)
 
 [node name="Platform2" parent="." instance=ExtResource("7_62dd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, -31)
-size = Vector3(22, 9, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.34326, -31)
+size = Vector3(22, 9.68652, 1)
 
 [node name="Button" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_ddmfd")]
-transform = Transform3D(3.82137e-15, 4.37114e-08, 2, 2, -4.37114e-08, 0, 8.74228e-08, 1, -8.74228e-08, 2.69491, 6.53597, -30.4571)
-trigger_target = NodePath("../MagneticBoxOnlyExtract2/MagneticExtractor")
+transform = Transform3D(1.91068e-15, 4.37114e-08, 1, 1, -4.37114e-08, 1.27055e-21, 4.37114e-08, 1, -4.37114e-08, 2.69491, 5.09315, -30.4571)
+trigger_target = NodePath("../MagneticBoxNoExtractNoMove2/MagneticExtractor")
 plority = 2
 
-[node name="MagneticBoxOnlyExtract" parent="." instance=ExtResource("9_u8j7d")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 3, 16, 6.5, -26.5)
+[node name="MagneticBoxNoExtractNoMove" parent="." instance=ExtResource("8_713ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.5, -26)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 10000.0
 initial_plority = 2
 
-[node name="MagneticBoxOnlyExtract2" parent="." instance=ExtResource("9_u8j7d")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 3, 16, 6.5, -29.5)
+[node name="MagneticBoxNoExtractNoMove2" parent="." instance=ExtResource("8_713ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.5, -29)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 10.0
 initial_plority = 1
 
-[node name="MagneticExtractor" parent="MagneticBoxOnlyExtract2" node_paths=PackedStringArray("target") instance=ExtResource("9_4np52")]
-target = NodePath("..")
+[node name="MagneticExtractor" parent="MagneticBoxNoExtractNoMove2" instance=ExtResource("9_4np52")]
 plority = 2
 
 [node name="MagneticFloor3" parent="." instance=ExtResource("3_y0lki")]
@@ -246,21 +302,189 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 
-[node name="MagneticBoxOnlyExtract4" parent="." instance=ExtResource("9_u8j7d")]
-transform = Transform3D(1.96701e-07, -1.91069e-14, 1, -3.93403e-07, -5, 0, 4.5, -4.37114e-07, -4.37114e-08, 38, 7, -36)
+[node name="MagneticBoxNoExtractNoMove3" parent="." instance=ExtResource("8_713ac")]
+transform = Transform3D(2.27299e-07, -6.60025e-15, 0.3, -7.85178e-07, -1, -4.39049e-21, 5.2, -1.50996e-07, -1.31134e-08, 38, 7, -34.0012)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 10000.0
 
-[node name="MagneticExtractor2" parent="MagneticBoxOnlyExtract4" node_paths=PackedStringArray("target") instance=ExtResource("9_4np52")]
-target = NodePath("..")
+[node name="MagneticExtractor2" parent="MagneticBoxNoExtractNoMove3" instance=ExtResource("9_4np52")]
 plority = 1
 
 [node name="MagneticBoxOnlyExtract5" parent="." instance=ExtResource("9_u8j7d")]
-transform = Transform3D(1.96701e-07, -1.91069e-14, -1, -3.93403e-07, -5, 0, -4.5, 4.37114e-07, -4.37114e-08, 38, 7, -40.31)
+transform = Transform3D(2.36042e-07, -3.30012e-14, -1, -8.15377e-07, -5, 1.3101e-20, -5.4, 7.54979e-07, -4.37114e-08, 38, 7, -39.0746)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_ndgil")
 
 [node name="Button2" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_ddmfd")]
-transform = Transform3D(2, 0, 0, 0, -1, 3.01992e-07, 0, -1.50996e-07, -2, 25.0706, 7.5, -43)
-trigger_target = NodePath("../MagneticBoxOnlyExtract4/MagneticExtractor2")
+transform = Transform3D(1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, 25.0706, 7.5, -43)
+trigger_target = NodePath("../MagneticBoxNoExtractNoMove3/MagneticExtractor2")
 plority = 1
+
+[node name="icon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32052, 2.24186, -18.5)
+
+[node name="Decal" parent="icon" instance=ExtResource("11_yosat")]
+transform = Transform3D(0.381758, -0.460363, 0.801453, 0.922922, 0.236561, -0.303734, -0.0497646, 0.855631, 0.515188, -0.816705, -0.000462532, 0.126928)
+size = Vector3(2, 2.00391, 2)
+
+[node name="Decal" parent="." instance=ExtResource("12_d7skt")]
+transform = Transform3D(1.92351, 0, 0, 0, 1.9, 0, 0, 0, 1.75165, 8.02026, 2, -27.9895)
+size = Vector3(3.24805, 2, 3)
+metadata/_edit_group_ = true
+
+[node name="Panel_Light" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-0.298768, 0, -0.0271637, 0, 0.3, 0, 0.0271637, 0, -0.298768, 8.02701, 5.71271, -25.4642)
+
+[node name="Decal3" parent="." instance=ExtResource("12_d7skt")]
+transform = Transform3D(1.2506, 0, 0, 0, 1.3, 0, 0, 0, 1.26706, 25.4279, 1, -37.7166)
+size = Vector3(9.16943, 2, 7.48779)
+
+[node name="a&c" type="Node" parent="."]
+
+[node name="a1-1" parent="a&c" instance=ExtResource("14_jryiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00434, 6.33322, -14.5428)
+
+[node name="c1-1" parent="a&c" instance=ExtResource("14_jryiv")]
+transform = Transform3D(1, 0, 0, 0, -0.965926, -0.258819, 0, 0.258819, -0.965926, 20.8316, 6.1364, -42.9467)
+
+[node name="c1-2" parent="a&c" instance=ExtResource("14_jryiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3426, 5.19426, -37.5826)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Decal4" parent="Node" instance=ExtResource("15_ddqv8")]
+transform = Transform3D(0.0737008, 0.997263, -0.00589257, 0.0501656, -0.00960841, -0.998695, -0.996018, 0.073309, -0.0507364, 0.784579, 5.16659, -23.4404)
+size = Vector3(3.39355, 2.11035, 1.94385)
+
+[node name="Decal5" parent="Node" instance=ExtResource("12_d7skt")]
+transform = Transform3D(1.15495, 0, 0, 0, 1, 0, 0, 0, 1.09684, -2.09882, 2, -24.32)
+size = Vector3(4.49622, 2, 4.08203)
+
+[node name="Decal6" parent="Node" instance=ExtResource("16_putoj")]
+transform = Transform3D(0.853123, 0, -0.52171, 0, 1, 0, 0.52171, 0, 0.853123, 0.0505674, 1.35191, -13.8209)
+size = Vector3(1.16797, 2, 1.26898)
+
+[node name="Decal6" parent="Node/Decal6" instance=ExtResource("16_putoj")]
+transform = Transform3D(0.853123, 0, -0.52171, 0, 1, 0, 0.52171, 0, 0.853123, 0.658041, 0.574096, -0.183772)
+size = Vector3(1.16797, 2, 1.26898)
+
+[node name="Decal7" parent="Node" instance=ExtResource("17_q511d")]
+transform = Transform3D(0.856105, 0, -0.516802, 0, 1, 0, 0.516802, 0, 0.856105, 0.522522, 1.79033, -11.5384)
+size = Vector3(0.954956, 2, 0.923157)
+
+[node name="Decal8" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97272, 1.99988, -28.513)
+
+[node name="Decal9" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98937, 1.99988, -27.9469)
+
+[node name="Decal10" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19318, 1.99988, -26.3485)
+
+[node name="Decal11" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77292, 1.99988, -24.8001)
+
+[node name="Decal12" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78716, 1.99988, -28.896)
+
+[node name="Decal13" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31996, 1.99988, -28.18)
+
+[node name="Decal14" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82884, 1.99988, -26.4428)
+
+[node name="Decal16" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 4, -30)
+
+[node name="Decal17" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 4, -30)
+
+[node name="Decal18" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 4, -30)
+
+[node name="Decal19" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 4, -28)
+
+[node name="Decal20" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 5, -40)
+
+[node name="Decal21" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 5, -33)
+
+[node name="Decal22" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, -38)
+
+[node name="Decal23" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, -32)
+
+[node name="Decal15" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.68424, 2.00012, -26.8742)
+
+[node name="Decal24" parent="Node/Decal15" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3158, -1.00012, -9.12579)
+
+[node name="Decal25" parent="Node/Decal15" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3158, 2.99988, -11.1258)
+
+[node name="Decal26" parent="Node/Decal15" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3158, -1.00012, -6.12579)
+
+[node name="Decal3" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3407, 1, -35.2223)
+
+[node name="Decal24" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7348, 1, -39.4181)
+
+[node name="Decal25" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.409, 1.00012, -32.5715)
+
+[node name="Decal26" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94162, 1.95947, -6.50557)
+
+[node name="Decal27" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792816, 1.95935, -0.441203)
+
+[node name="Decal28" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3498, 1.95935, -0.849382)
+
+[node name="Decal29" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909435, 1.9729, -10.9372)
+
+[node name="Decal30" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2593, 1.9729, -17.5847)
+
+[node name="Decal2" parent="Node" instance=ExtResource("18_g80nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7267, 1, -37.1797)
+
+[node name="Furn_Chair" parent="." instance=ExtResource("18_a7a2f")]
+transform = Transform3D(0.04049, -0.67417, -0.737466, 0.998201, 0.0599511, 0, 0.0442119, -0.736139, 0.675384, 0.90909, 1.25199, -5.13816)
+
+[node name="Furn_Chair2" parent="." instance=ExtResource("18_a7a2f")]
+transform = Transform3D(-0.0134305, 0.882403, 0.470304, -0.999884, -0.0152187, 0, 0.00715739, -0.470249, 0.882505, -5.01393, 1.04009, -7.30099)
+
+[node name="Cont_Barrel_static" parent="." instance=ExtResource("19_vcqas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.670068, 0)
+
+[node name="Furn_Table_2" parent="." instance=ExtResource("20_4noay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.670068, -8)
+
+[node name="Furn_Table_1" parent="." instance=ExtResource("21_f8w0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, -32)
+
+[node name="Panel_Light2" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 1.53182, 5.48035, -15.7061)
+
+[node name="Panel_Light3" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-0.000204194, 0, -0.3, 0, 0.3, 0, 0.3, 0, -0.000204194, 1.45775, 5.94764, -5.92147)
+
+[node name="Panel_Light4" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(-0.297022, 0, 0.0421667, 0, 0.3, 0, -0.0421667, 0, -0.297022, 19.9356, 7.36732, -25.5914)
+
+[node name="Panel_Light5" parent="." instance=ExtResource("13_2uaw4")]
+transform = Transform3D(0.019182, 0, 0.299386, 0, 0.3, 0, -0.299386, 0, 0.019182, 19.559, 5.58565, -36.3508)
+
+[node name="Decal2" parent="." instance=ExtResource("11_yosat")]
+transform = Transform3D(-0.0275242, 0.984702, 0.172061, 0.878902, -0.0581596, 0.473443, 0.476207, 0.164256, -0.863856, -4.81499, 6, -21.5038)
