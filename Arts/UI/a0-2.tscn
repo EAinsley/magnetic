@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce7xj8ag5dto7"]
+
+[ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="1_n0ky2"]
+[ext_resource type="FontFile" uid="uid://s5jfcds2lvyk" path="res://Arts/text_story/使用字体.TTF" id="2_yih3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lt4xl"]
+font = ExtResource("2_yih3u")
+font_size = 30
+outline_size = 2
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d6v8m"]
+font = ExtResource("2_yih3u")
+font_size = 23
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 495.0
+offset_top = 43.0
+offset_right = 495.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -496.0
+offset_top = 190.0
+offset_right = 663.0
+offset_bottom = 363.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -5.88264
+offset_top = 67.4146
+offset_right = 34.1174
+offset_bottom = 107.415
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 19.0
+offset_right = 636.217
+offset_bottom = 468.0
+scale = Vector2(0.197863, 0.200817)
+texture = ExtResource("1_n0ky2")
+
+[node name="Node" type="Node" parent="Panel"]
+
+[node name="title" type="Label" parent="Panel/Node"]
+offset_left = 253.0
+offset_top = 267.0
+offset_right = 493.0
+offset_bottom = 307.0
+text = "【可逆转与不可逆转的】"
+label_settings = SubResource("LabelSettings_lt4xl")
+
+[node name="details" type="Label" parent="Panel/Node"]
+offset_left = 353.0
+offset_top = 326.0
+offset_right = 754.0
+offset_bottom = 358.0
+text = "——可逆转与不可逆转的，或许可以用它们打开一些机关？字面意义。"
+label_settings = SubResource("LabelSettings_d6v8m")

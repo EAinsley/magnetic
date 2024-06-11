@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://qt7m5q5sefwr"]
+[gd_scene load_steps=5 format=3 uid="uid://qt7m5q5sefwr"]
 
-[ext_resource type="Texture2D" uid="uid://2ad0dktm4b7f" path="res://Arts/wall/bd9f46cf5e61ac591c27874f7297f05.jpg" id="1_fs7q5"]
+[ext_resource type="Texture2D" uid="uid://dak5rgcgxvs8m" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Wall/BASE COLOR_MT_Wall.png" id="1_5vmh5"]
+[ext_resource type="Texture2D" uid="uid://8ksx3vsaxyua" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Wall/MRAo_MT_Wall.exr" id="2_hyour"]
+[ext_resource type="Texture2D" uid="uid://j3e43cootwg7" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/Textures/MT_Wall/NORMAL_MT_Wall.png" id="3_b1aba"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7odw"]
-albedo_texture = ExtResource("1_fs7q5")
+albedo_texture = ExtResource("1_5vmh5")
+metallic = 1.0
+metallic_texture = ExtResource("2_hyour")
+roughness_texture = ExtResource("2_hyour")
+normal_enabled = true
+normal_texture = ExtResource("3_b1aba")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_offset = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true

@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://caucs88uf7tsx"]
+[gd_scene load_steps=14 format=3 uid="uid://caucs88uf7tsx"]
 
 [ext_resource type="Script" path="res://Objects/MagneticBoxOnlyExtract/magnetic_box_only_extract.gd" id="1_uagd4"]
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="2_7d5ce"]
 [ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="3_mja34"]
 [ext_resource type="Script" path="res://Static Objects/MagneticBoxStatic/MeshManager.gd" id="4_kljyj"]
 [ext_resource type="PackedScene" uid="uid://blwiwwypbpyxg" path="res://Utilities/extractable.tscn" id="5_k1wjk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
+size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owuba"]
 resource_local_to_scene = true
@@ -74,6 +77,9 @@ _data = {
 "to_positive": SubResource("Animation_1kugh")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oi6ss"]
+size = Vector3(6, 6, 6)
+
 [node name="MagneticBoxOnlyExtract" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 31
@@ -85,6 +91,7 @@ script = ExtResource("1_uagd4")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bvjet")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_dfxy3")
@@ -98,6 +105,9 @@ script = ExtResource("4_kljyj")
 [node name="MagneticField" parent="." node_paths=PackedStringArray("magnetic") instance=ExtResource("3_mja34")]
 input_ray_pickable = false
 magnetic = NodePath("../Magnetic")
+
+[node name="CollisionShape3D" parent="MagneticField" index="0"]
+shape = SubResource("BoxShape3D_oi6ss")
 
 [node name="Magnetic" parent="." node_paths=PackedStringArray("host") instance=ExtResource("2_7d5ce")]
 host = NodePath("..")
