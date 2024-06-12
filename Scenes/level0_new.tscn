@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://gcal22no7dtl"]
+[gd_scene load_steps=43 format=3 uid="uid://gcal22no7dtl"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_iw6vd"]
 [ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="11_ghktv"]
 [ext_resource type="PackedScene" uid="uid://cua23doef7lyk" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_locker_group_static.tscn" id="11_pmy6m"]
+[ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="12_icaww"]
 [ext_resource type="PackedScene" uid="uid://vkk30mmx0tpw" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_chair.tscn" id="12_y24ql"]
 [ext_resource type="PackedScene" uid="uid://cpewjwfa3cpne" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Posts/post_weird.tscn" id="13_lwgri"]
 [ext_resource type="PackedScene" uid="uid://coerkjwmbnvit" path="res://Arts/stickers/paper1.tscn" id="14_fct2a"]
@@ -54,6 +55,43 @@ albedo_texture = ExtResource("3_0ukxp")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_se7ys"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_owqso"]
+resource_local_to_scene = true
+size = Vector3(2, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfwhx"]
+albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf1ii"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 12)
+material = SubResource("StandardMaterial3D_rfwhx")
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crses"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("12_icaww")
+uv1_scale = Vector3(3.095, 2.005, 1)
+uv1_offset = Vector3(-1.05, 0, 0)
+uv1_triplanar_sharpness = 0.292969
+uv2_scale = Vector3(0.48, 0.48, 0.48)
+uv2_offset = Vector3(-0.55, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fjpfx"]
+resource_local_to_scene = true
+size = Vector3(0.5, 0.099, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydjc2"]
+resource_local_to_scene = true
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8d8d"]
+resource_local_to_scene = true
+size = Vector3(1, 0.1, 1)
+
 [node name="level0" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -61,7 +99,12 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_53cro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.7839, 1.47129, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51.2296, 0.763735, -0.0872101)
+gravity = 15.0
+
+[node name="RenderCamera" parent="Player/Head/Cameras" index="0"]
+current = false
+fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
@@ -84,17 +127,17 @@ size = Vector3(10, 1, 11.5809)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5602, 7.69982, -0.163513)
 size = Vector3(53.8535, 1.2002, 11.8829)
 
+[node name="tianhuaban2" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4" instance=ExtResource("1_5aofw")]
+transform = Transform3D(0.935463, 0, 0, 0, 0.156478, 0, 0, 0, 0.935463, 35.4109, 0.398085, 35.3696)
+size = Vector3(21.0577, 1, 16.6501)
+
 [node name="tianhuaban" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4" instance=ExtResource("1_5aofw")]
-transform = Transform3D(0.967197, 0, 0, 0, 0.395573, 0, 0, 0, 0.967197, 49.9469, 0.332874, 23.9053)
-size = Vector3(11.2779, 1, 29.67)
+transform = Transform3D(0.967197, 0, 0, 0, 0.395573, 0, 0, 0, 0.967197, 49.9469, 0.332874, 15.9888)
+size = Vector3(11.2779, 1, 13.3)
 
-[node name="tianhuaban" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4/tianhuaban" instance=ExtResource("1_5aofw")]
-transform = Transform3D(0.96719, 0, 0, 0, 0.395573, 0, 0, 0, 0.96719, -15.029, 0.164852, 11.8531)
-size = Vector3(21.0577, 1, 16.6501)
-
-[node name="tianhuaban" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4/tianhuaban/tianhuaban" instance=ExtResource("1_5aofw")]
-transform = Transform3D(0.96719, 0, 0, 0, 0.395573, 0, 0, 0, 0.96719, -16.5221, 0.586456, 1.26767)
-size = Vector3(21.0577, 1, 16.6501)
+[node name="tianhuaban3" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4" instance=ExtResource("1_5aofw")]
+transform = Transform3D(0.967197, 0, 0, 0, 0.395573, 0, 0, 0, 0.967197, 49.9469, 0.332874, 31.2945)
+size = Vector3(11.2779, 1, 16)
 
 [node name="CSGBox3D4" parent="LevelWalls/OuterWall/CSGBox3D4/CSGBox3D4" instance=ExtResource("1_5aofw")]
 transform = Transform3D(0.983462, 0, 0, 0, -0.628946, 0, 0, 0, 0.983462, 40.0828, 0.661218, 1.8755)
@@ -258,8 +301,8 @@ size = Vector3(1, 3.2384, 10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="Wall" parent="LevelWalls/OuterWall5/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3515, 0)
-size = Vector3(10, 5.703, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+size = Vector3(10, 6, 1)
 
 [node name="OuterWall7" type="Node3D" parent="LevelWalls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.5, 1, 20.5)
@@ -269,8 +312,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.8147e-05)
 size = Vector3(6, 1, 11)
 
 [node name="CSGBox3D8" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -5.53131e-05)
-size = Vector3(14, 1, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -5.91278e-05)
+size = Vector3(19, 1, 11)
 
 [node name="CSGBox3D2" parent="LevelWalls/OuterWall7" instance=ExtResource("1_5aofw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -4.19617e-05)
@@ -298,8 +341,13 @@ transform = Transform3D(1, 0, 0, 0, 1.99144, 0, 0, 0, 1, -2.49997, 3.19974, -8.0
 size = Vector3(1, 2.78497, 3)
 
 [node name="Wall4" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 7, -5.00005)
-size = Vector3(1, 1, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 7.5, -5.12679)
+size = Vector3(3, 4, 7.94385)
+
+[node name="Wall6" parent="LevelWalls/OuterWall7/BothSideWalls/SingleSideWall2/Wall4" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0808105, -0.5, 0.111664)
+operation = 2
+size = Vector3(1.16162, 3, 3.8)
 
 [node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall7/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
@@ -340,37 +388,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.664551, -8.50003)
 size = Vector3(1, 8.3291, 18)
 
 [node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.181702, -18)
-size = Vector3(5, 7.3634, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.500002, -18)
+size = Vector3(5, 8, 1)
+
+[node name="Wall4" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.181702, -16)
+size = Vector3(4, 7.3634, 1)
+
+[node name="Wall5" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.181702, -16)
+size = Vector3(4, 7.3634, 1)
 
 [node name="Wall3" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall3" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.109863, -18)
-size = Vector3(5, 7.21973, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.499998, -18)
+size = Vector3(5, 8, 1)
 
 [node name="SingleSideWall" type="Node3D" parent="LevelWalls/OuterWall9/BothSideWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="Wall2" parent="LevelWalls/OuterWall9/BothSideWalls/SingleSideWall" instance=ExtResource("3_m347d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.814453, 11)
-size = Vector3(6, 8.62891, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, 11)
+size = Vector3(6, 6, 1)
 
 [node name="Button3" parent="LevelWalls/OuterWall9" node_paths=PackedStringArray("trigger_target") instance=ExtResource("4_afr1o")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 14.5, -3.5, -2)
-trigger_target = NodePath("../MagneticBoxOnlyExtract4/MagneticExtractor2")
+trigger_target = NodePath("../MagneticBoxNoExtractNoMove/MagneticExtractor2")
 
-[node name="MagneticBoxOnlyExtract4" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
-transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 14.3, -1, -12)
-axis_lock_linear_x = true
-axis_lock_linear_y = true
+[node name="MagneticBoxNoExtractNoMove" parent="LevelWalls/OuterWall9" instance=ExtResource("11_ghktv")]
+transform = Transform3D(6, 0, -2.66454e-15, 0, 1, 0, 5.68434e-14, 0, 0.3, 11.9258, -1, -12)
+mass = 1000.0
 
-[node name="MagneticExtractor2" parent="LevelWalls/OuterWall9/MagneticBoxOnlyExtract4" node_paths=PackedStringArray("target") instance=ExtResource("10_iw6vd")]
-target = NodePath("..")
+[node name="MagneticExtractor2" parent="LevelWalls/OuterWall9/MagneticBoxNoExtractNoMove" instance=ExtResource("10_iw6vd")]
 plority = 2
 
 [node name="MagneticBoxOnlyExtract5" parent="LevelWalls/OuterWall9" instance=ExtResource("9_wj26v")]
-transform = Transform3D(4.5, 0, -1.06581e-14, 0, 5, 0, 4.26326e-14, 0, 1, 18.6, -1, -12)
+transform = Transform3D(6, 0, -7.10543e-15, 0, 5, 0, 5.68434e-14, 0, 1, 17.6285, -1, -12)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
+mass = 10.0
 
 [node name="door1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 2, 27)
@@ -565,39 +620,58 @@ initial_plority = 1
 transform = Transform3D(-1.31134e-07, 0, -1, 0, 3, 0, 3, 0, -4.37114e-08, 4, 5, 2.28882e-05)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
-mass = 0.5
+mass = 0.25
 
 [node name="door0" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 2, -1)
 
 [node name="MagneticBoxNoExtractNoMove2" parent="door0" instance=ExtResource("11_ghktv")]
-transform = Transform3D(6, 0, 2.66454e-15, 0, 1, 0, -5.68434e-14, 0, 0.3, 1.16422, 2, 0)
+transform = Transform3D(6, 0, 2.66454e-15, 0, 1, 0, -5.68434e-14, 0, 0.3, 0.17294, 2, 0)
 mass = 5.0
 initial_plority = 2
 
+[node name="MagneticExtractor" parent="door0/MagneticBoxNoExtractNoMove2" instance=ExtResource("10_iw6vd")]
+plority = 1
+
 [node name="Button2" parent="door0" node_paths=PackedStringArray("trigger_target") instance=ExtResource("4_afr1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -9)
-trigger_target = NodePath("../MagneticBoxNoExtractNoMove/MagneticExtractor")
+trigger_target = NodePath("../MagneticBoxNoExtractNoMove2/MagneticExtractor")
+
+[node name="CollisionShape3D" parent="door0/Button2/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_owqso")
+
+[node name="MeshInstance3D" parent="door0/Button2" index="1"]
+mesh = SubResource("BoxMesh_yf1ii")
+
+[node name="MeshInstance3D2" parent="door0/Button2" index="2"]
+material_overlay = SubResource("StandardMaterial3D_crses")
+mesh = SubResource("BoxMesh_fjpfx")
+
+[node name="CollisionShape3D" parent="door0/Button2" index="4"]
+shape = SubResource("BoxShape3D_ydjc2")
+
+[node name="CollisionShape3D" parent="door0/Button2/TriggerArea" index="0"]
+shape = SubResource("BoxShape3D_v8d8d")
+
+[node name="OmniLight3D" parent="door0/Button2" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="MagneticBoxNoExtractNoMove" parent="door0" instance=ExtResource("11_ghktv")]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 0.3, -4.58829, 2, 0)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 0.3, -5.10198, 2, 0)
 mass = 10000.0
 initial_plority = 1
-
-[node name="MagneticExtractor" parent="door0/MagneticBoxNoExtractNoMove" instance=ExtResource("10_iw6vd")]
-plority = 2
 
 [node name="Wall2" parent="door0" instance=ExtResource("3_m347d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 2.31842, 0)
 size = Vector3(1, 5.63684, 1)
 
 [node name="Wall5" parent="door0" instance=ExtResource("3_m347d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 2.31158, 1)
-size = Vector3(1, 5.62317, 6)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 2.49999, 1)
+size = Vector3(1, 6, 6)
 
 [node name="Wall6" parent="door0" instance=ExtResource("3_m347d")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 2.33176, -1)
-size = Vector3(1, 5.66351, 6)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 2.5, -1)
+size = Vector3(1, 6, 6)
 
 [node name="Wall3" parent="door0" instance=ExtResource("3_m347d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 2.52686, 0)
@@ -756,7 +830,7 @@ transform = Transform3D(-0.0124319, 0, 0.299742, 0, 0.3, 0, -0.299742, 0, -0.012
 transform = Transform3D(0.00640837, 0, -0.299932, 0, 0.3, 0, 0.299932, 0, 0.00640837, 26.7876, 3.66847, 7.31467)
 
 [node name="Panel_Light6" parent="." instance=ExtResource("9_44nlx")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 9, 5, -4)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 9, 5, -4.5)
 
 [node name="Decal3" parent="." instance=ExtResource("17_qwmkq")]
 transform = Transform3D(0.380974, -0.924586, 0, 0.924586, 0.380974, 0, 0, 0, 1, 10.0239, 2.97282, 6.40532)
@@ -796,3 +870,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3677, 3.13055, 18.6647)
 
 [node name="c0-1" parent="a&c" instance=ExtResource("26_qo7tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0988, 4.23352, 37.3458)
+
+[node name="Decal10" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.943344, 0, 0.331815, 0, 1, 0, -0.331815, 0, -0.943344, 3.62549, -0.5, 35.8621)
+
+[node name="Decal11" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.943344, 0, 0.331815, 0, 1, 0, -0.331815, 0, -0.943344, 19.6255, 1.5, 36.3907)
+
+[node name="Decal12" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(-0.331815, 0, -0.943344, 0, 1, 0, 0.943344, 0, -0.331815, 22.6255, 1.5, 27.6887)
+
+[node name="Decal13" parent="." instance=ExtResource("17_pultr")]
+transform = Transform3D(0.955067, 0, -0.296392, 0, 1, 0, 0.296392, 0, 0.955067, 12.4912, 1.5, 0.713243)
+
+[editable path="Player"]
+[editable path="door0/Button2"]
+[editable path="door0/Button2/MagneticField"]
