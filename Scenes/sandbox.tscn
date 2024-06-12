@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://7lmgvednpxgn" path="res://Static Objects/door.tscn" id="7_o41sx"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Prefabs/magnetic_floor.tscn" id="9_8jum4"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="10_ow5gb"]
-[ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="13_nl3ub"]
+[ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="11_n0puw"]
+[ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
+[ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,14 +26,6 @@ background_mode = 2
 sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="Animation" id="Animation_ijp4d"]
-resource_name = "new_animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtivu"]
-_data = {
-"new_animation": SubResource("Animation_ijp4d")
-}
 
 [node name="Sandbox" type="Node3D"]
 
@@ -211,10 +205,32 @@ plority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.217, 0.5, 6)
 plority = 2
 
-[node name="Decal" parent="." instance=ExtResource("13_nl3ub")]
-transform = Transform3D(0.933013, 0.258819, -0.25, -0.25, 0.965926, 0.0669873, 0.258819, 0, 0.965926, -4, 1, 2)
+[node name="MagneticChangeTest" type="Node3D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Decal"]
-libraries = {
-"": SubResource("AnimationLibrary_xtivu")
-}
+[node name="MagneticBoxStatic1" parent="MagneticChangeTest" instance=ExtResource("4_oyyeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -15)
+initial_plority = 1
+
+[node name="MagneticExtractor" parent="MagneticChangeTest/MagneticBoxStatic1" node_paths=PackedStringArray("target") instance=ExtResource("11_n0puw")]
+target = NodePath("..")
+plority = 2
+
+[node name="Button" parent="MagneticChangeTest" node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -20)
+trigger_target = NodePath("../MagneticBoxStatic1/MagneticExtractor")
+
+[node name="MagneticBoxOnlyExtract" parent="MagneticChangeTest" instance=ExtResource("10_ow5gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -15)
+initial_plority = 2
+
+[node name="MagneticExtractor" parent="MagneticChangeTest/MagneticBoxOnlyExtract" node_paths=PackedStringArray("target") instance=ExtResource("11_n0puw")]
+target = NodePath("..")
+plority = 1
+
+[node name="Button2" parent="MagneticChangeTest" node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -20)
+trigger_target = NodePath("../MagneticBoxOnlyExtract/MagneticExtractor")
+
+[node name="NextLevel" parent="." instance=ExtResource("12_ayrtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73669, 1.4141, -8.48491)
+next_level = ExtResource("13_w3bgq")

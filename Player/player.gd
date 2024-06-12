@@ -52,14 +52,7 @@ func _input(event: InputEvent) -> void:
 		mouse_motion = -event.relative * mouse_sensitivity
 	
 	# Handle mouse escape
-	if event.is_action_pressed("ui_cancel") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("pick_up"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if event.is_action_pressed("extract"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	
 func handle_camera_rotateion():
 	rotate_y(mouse_motion.x)
