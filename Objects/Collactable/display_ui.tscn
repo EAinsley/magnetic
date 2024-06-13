@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://yye584chbqg"]
+
+[ext_resource type="Texture2D" uid="uid://dru1nxqq0vsux" path="res://Arts/other small things/steel (3).jpg" id="1_xwy2p"]
+[ext_resource type="LabelSettings" uid="uid://bk0bptp7lx1xi" path="res://Arts/UI/HeadingSettings.tres" id="2_00ike"]
+
+[node name="DisplayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_xwy2p")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Container" type="Control" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 217.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " 【这部分是标题】"
+label_settings = ExtResource("2_00ike")
+
+[node name="Control" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "  实验日期：2024年6月12日
+  实验场地：XXX/
+  实验人员：XXX/
+``````
+下面貌似被匆匆撕掉了。
+"
