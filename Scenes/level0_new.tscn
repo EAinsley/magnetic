@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://gcal22no7dtl"]
+[gd_scene load_steps=45 format=3 uid="uid://gcal22no7dtl"]
 
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="1_5aofw"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_53cro"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="23_gle6y"]
 [ext_resource type="PackedScene" uid="uid://t4r70h0o2suq" path="res://Arts/stickers/screw.tscn" id="25_vdw5f"]
 [ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Arts/Models/collected_item.tscn" id="26_qo7tp"]
+[ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="28_0cqit"]
+[ext_resource type="PackedScene" uid="uid://brmvaqrm8uqai" path="res://Scenes/level1.tscn" id="29_yls4g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -99,12 +101,16 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_53cro")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51.2296, 0.763735, -0.0872101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46.7265, 0.763735, -0.0872101)
 gravity = 15.0
 
 [node name="RenderCamera" parent="Player/Head/Cameras" index="0"]
 current = false
 fov = 60.0
+
+[node name="Menu" parent="Player" index="5"]
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
@@ -658,7 +664,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="MagneticBoxNoExtractNoMove" parent="door0" instance=ExtResource("11_ghktv")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 0.3, -5.10198, 2, 0)
-mass = 10000.0
+mass = 5.0
 initial_plority = 1
 
 [node name="Wall2" parent="door0" instance=ExtResource("3_m347d")]
@@ -882,6 +888,10 @@ transform = Transform3D(-0.331815, 0, -0.943344, 0, 1, 0, 0.943344, 0, -0.331815
 
 [node name="Decal13" parent="." instance=ExtResource("17_pultr")]
 transform = Transform3D(0.955067, 0, -0.296392, 0, 1, 0, 0.296392, 0, 0.955067, 12.4912, 1.5, 0.713243)
+
+[node name="NextLevel" parent="." instance=ExtResource("28_0cqit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86848, 0.596162, 36.4195)
+next_level = ExtResource("29_yls4g")
 
 [editable path="Player"]
 [editable path="door0/Button2"]
