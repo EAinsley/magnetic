@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=19 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
 [ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
 [ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="14_60cvl"]
+[ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="15_bl278"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -240,3 +241,6 @@ next_level = ExtResource("13_w3bgq")
 
 [node name="Collactable" parent="Node3D" instance=ExtResource("14_60cvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.1, 0)
+texture = ExtResource("15_bl278")
+heading = "12345"
+details = "Testing"

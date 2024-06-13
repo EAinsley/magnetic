@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7hihjjfyq4ev"]
+[gd_scene load_steps=11 format=3 uid="uid://b7hihjjfyq4ev"]
 
 [ext_resource type="Script" path="res://Objects/Collactable/collected_item.gd" id="1_b13bi"]
+[ext_resource type="PackedScene" uid="uid://yye584chbqg" path="res://Objects/Collactable/display_ui.tscn" id="2_461km"]
 
 [sub_resource type="Animation" id="Animation_ewcb7"]
 length = 0.001
@@ -92,10 +93,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_um4r8")
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="MeshInstance3D"]
 remote_path = NodePath("../../CollisionShape3D")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="DisplayUI" parent="." instance=ExtResource("2_461km")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

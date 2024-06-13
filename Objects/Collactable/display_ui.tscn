@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://yye584chbqg"]
+[gd_scene load_steps=6 format=3 uid="uid://yye584chbqg"]
 
+[ext_resource type="Script" path="res://Objects/Collactable/display_ui.gd" id="1_801ag"]
 [ext_resource type="Texture2D" uid="uid://dru1nxqq0vsux" path="res://Arts/other small things/steel (3).jpg" id="1_xwy2p"]
 [ext_resource type="LabelSettings" uid="uid://bk0bptp7lx1xi" path="res://Arts/UI/HeadingSettings.tres" id="2_00ike"]
+[ext_resource type="LabelSettings" uid="uid://dqnvo35bcgctr" path="res://Arts/UI/DetailSettings.tres" id="4_45n7o"]
+[ext_resource type="FontFile" uid="uid://vnvoed3rc058" path="res://Arts/text_story/used_font.TTF" id="4_bg2pw"]
 
 [node name="DisplayUI" type="Control"]
 layout_mode = 3
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_801ag")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -21,14 +25,16 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer"]
@@ -36,42 +42,59 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("1_xwy2p")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Container" type="Control" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="Container" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="HeadingLabel" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
+layout_mode = 2
+text = " 【这部分是标题】"
+label_settings = ExtResource("2_00ike")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container/HBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 217.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
-text = " 【这部分是标题】"
-label_settings = ExtResource("2_00ike")
-
-[node name="Control" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="DetailLable" type="Label" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container/HBoxContainer/ScrollContainer/CenterContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
 text = "  实验日期：2024年6月12日
   实验场地：XXX/
   实验人员：XXX/
 ``````
 下面貌似被匆匆撕掉了。
 "
+label_settings = ExtResource("4_45n7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container/AspectRatioContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_bg2pw")
+theme_override_font_sizes/font_size = 20
+text = "关闭"
+
+[connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/Container/AspectRatioContainer/Button" to="." method="_on_button_pressed"]
