@@ -78,7 +78,6 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0441237, 0)
 shape = SubResource("SphereShape3D_3qp43")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -92,5 +91,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_um4r8")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="MeshInstance3D"]
 remote_path = NodePath("../../CollisionShape3D")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
