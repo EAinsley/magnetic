@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="11_yosat"]
 [ext_resource type="PackedScene" uid="uid://w51373qupi3m" path="res://Arts/stickers/icon.tscn" id="12_d7skt"]
 [ext_resource type="PackedScene" uid="uid://cbvo02v832lpb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Panels/panel_light.tscn" id="13_2uaw4"]
-[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Arts/Models/collected_item.tscn" id="14_jryiv"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="14_jryiv"]
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="15_ddqv8"]
 [ext_resource type="PackedScene" uid="uid://64xfnhwrtl7q" path="res://Arts/stickers/paper2.tscn" id="16_putoj"]
 [ext_resource type="PackedScene" uid="uid://ctnl16vpo658d" path="res://Arts/stickers/pen1.tscn" id="17_q511d"]
