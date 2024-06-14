@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="11_n0puw"]
 [ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
 [ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
-[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door.tscn" id="14_cq2yp"]
+[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="14_cq2yp"]
 [ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="15_f4m25"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]

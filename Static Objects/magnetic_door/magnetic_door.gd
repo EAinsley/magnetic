@@ -11,7 +11,7 @@ extends Node3D
 
 
 @onready var left_door: MagneticDoor = $Model/LeftDoor
-@onready var right_door: MagneticDoor = $Model/Rightdoor
+@onready var right_door: MagneticDoor = $Model/RightDoor
 
 func _ready() -> void:
 	left_door.initialize(left_door_config)
