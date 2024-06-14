@@ -48,6 +48,7 @@ script = ExtResource("2_1brkh")
 
 [node name="RenderCamera" type="Camera3D" parent="Head/Cameras"]
 current = true
+fov = 90.0
 
 [node name="Interaction" type="RayCast3D" parent="Head/Cameras"]
 target_position = Vector3(0, 0, -3)
