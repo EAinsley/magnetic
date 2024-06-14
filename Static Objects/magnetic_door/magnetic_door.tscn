@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=3 uid="uid://destal64t2o0q"]
+
+[ext_resource type="Script" path="res://Static Objects/magnetic_door/door.gd" id="1_3phl8"]
+[ext_resource type="PackedScene" uid="uid://ccox31ycpy3bo" path="res://Utilities/magnetic_field.tscn" id="2_qil4a"]
+[ext_resource type="Script" path="res://Static Objects/MagneticBoxStatic/MeshManager.gd" id="3_v84tw"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fts3r"]
+resource_local_to_scene = true
+points = PackedVector3Array(-0.5, -1.5, -0.1, -0.5, -1.5, 0.1, -0.5, 1.5, -0.1, 0.5, -1.5, -0.1, 0.5, -1.5, 0.1, -0.5, 1.5, 0.1, 0.5, 1.5, -0.1, 0.5, 1.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwfy5"]
+resource_local_to_scene = true
+albedo_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_m16do"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_hwfy5")
+size = Vector3(1, 3, 0.2)
+
+[sub_resource type="Animation" id="Animation_wlkup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Mesh:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0470588, 0.0470588, 0.0470588, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D/Mesh:mesh:material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3x4ka"]
+resource_name = "to_negative"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Mesh:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0470588, 0.0470588, 0.0470588, 1), Color(0.0392157, 0.552941, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D/Mesh:mesh:material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.0392157, 0.552941, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_olb57"]
+resource_name = "to_positive"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Mesh:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0470588, 0.0470588, 0.0470588, 1), Color(0.870588, 0.0862745, 0.137255, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D/Mesh:mesh:material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0470588, 0.0470588, 0.0470588, 1), Color(0.870588, 0.0862745, 0.137255, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha4ak"]
+_data = {
+"RESET": SubResource("Animation_wlkup"),
+"to_negative": SubResource("Animation_3x4ka"),
+"to_positive": SubResource("Animation_olb57")
+}
+
+[node name="MagneticDoor" type="AnimatableBody3D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_3phl8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("ConvexPolygonShape3D_fts3r")
+
+[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_m16do")
+skeleton = NodePath("../..")
+
+[node name="MagneticField" parent="." instance=ExtResource("2_qil4a")]
+
+[node name="MeshManager" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ha4ak")
+}
+script = ExtResource("3_v84tw")
