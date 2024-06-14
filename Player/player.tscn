@@ -48,6 +48,7 @@ script = ExtResource("2_1brkh")
 
 [node name="RenderCamera" type="Camera3D" parent="Head/Cameras"]
 current = true
+fov = 90.0
 
 [node name="Interaction" type="RayCast3D" parent="Head/Cameras"]
 target_position = Vector3(0, 0, -3)
@@ -117,6 +118,8 @@ anchor_bottom = 0.0
 offset_top = 20.0
 offset_right = 1132.0
 offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="colliding_state_changed" from="Head/Cameras/Interaction" to="UI/CenterContainer/Crosshair" method="_on_interaction_colliding_state_changed"]
 [connection signal="left_mouse_clicked" from="Head/Cameras/Interaction" to="Head/Cameras/Hand" method="_on_interaction_left_mouse_clicked"]
