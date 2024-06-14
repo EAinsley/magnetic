@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://chjspfqaymlom" path="res://Arts/stickers/pen2.tscn" id="22_enc8g"]
 [ext_resource type="PackedScene" uid="uid://b3y60fyhe4fyp" path="res://Arts/stickers/guangmu.tscn" id="23_gle6y"]
 [ext_resource type="PackedScene" uid="uid://t4r70h0o2suq" path="res://Arts/stickers/screw.tscn" id="25_vdw5f"]
-[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Arts/Models/collected_item.tscn" id="26_qo7tp"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="26_qo7tp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nlxr8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -105,6 +105,10 @@ gravity = 15.0
 [node name="RenderCamera" parent="Player/Head/Cameras" index="0"]
 current = false
 fov = 60.0
+
+[node name="Menu" parent="Player" index="5"]
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
