@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=22 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -39,6 +39,18 @@ script = ExtResource("15_f4m25")
 is_magnetic = true
 initial_plority = 2
 is_extractable = false
+
+[sub_resource type="Resource" id="Resource_64vhh"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 1
+is_extractable = true
+
+[sub_resource type="Resource" id="Resource_wcj6b"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 1
+is_extractable = true
 
 [node name="Sandbox" type="Node3D"]
 
@@ -216,6 +228,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73669, 1.4141, -8.48491)
 next_level = ExtResource("13_w3bgq")
 
 [node name="TriggarableDoor" parent="." instance=ExtResource("14_cq2yp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
 left_door_config = SubResource("Resource_cdsbs")
 right_door_config = SubResource("Resource_k8efn")
+
+[node name="MagneticDoorSuit" parent="." instance=ExtResource("14_cq2yp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6, 0.5, 3)
+left_door_config = SubResource("Resource_64vhh")
+right_door_config = SubResource("Resource_wcj6b")
