@@ -1,6 +1,8 @@
 class_name MagneticDoor
 extends AnimatableBody3D
 
+signal set_magnetic(magnetic: Magnetic)
+
 var has_initialized := false
 var is_magnetic: bool
 var magnetic: Magnetic
@@ -25,12 +27,15 @@ func initialize(data: MagneticData):
 		add_child(magnetic)
 		magnetic_field.magnetic = magnetic
 		mesh_manager.connect_magnetic(magnetic)
+		print("set magnetic")
+		set_magnetic.emit(magnetic)
 		
 	if data.is_extractable:
 		var extractable = EXTRACTABLE.instantiate()
 		extractable.magnetic = magnetic
 		add_child(extractable)
 		mesh.mesh.material.emission_enabled = true
+		
 	magnetic.current_plority = data.initial_plority
 	has_initialized = true
 	
