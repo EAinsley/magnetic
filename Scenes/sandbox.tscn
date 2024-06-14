@@ -236,12 +236,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.1, 0)
 texture = ExtResource("15_bl278")
 heading = "12345"
 details = "Testing"
-[node name="TriggarableDoor" parent="." instance=ExtResource("14_cq2yp")]
+[node name="TriggarableDoor" parent="." node_paths=PackedStringArray("left_door_trigger") instance=ExtResource("14_cq2yp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
 left_door_config = SubResource("Resource_cdsbs")
+left_door_trigger = NodePath("../MagneticExtractor1")
 right_door_config = SubResource("Resource_k8efn")
 
 [node name="MagneticDoorSuit" parent="." instance=ExtResource("14_cq2yp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6, 0.5, 3)
 left_door_config = SubResource("Resource_64vhh")
 right_door_config = SubResource("Resource_wcj6b")
+
+[node name="MagneticExtractor1" parent="." instance=ExtResource("11_n0puw")]
+plority = 2
+
+[node name="Button" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+trigger_target = NodePath("../MagneticExtractor1")

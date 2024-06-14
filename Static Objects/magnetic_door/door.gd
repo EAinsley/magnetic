@@ -15,7 +15,7 @@ const EXTRACTABLE = preload("res://Utilities/extractable.tscn")
 @onready var mesh: MeshInstance3D = $CollisionShape3D/Mesh
 
 
-func initialize(data: MagneticData):
+func initialize(data: MagneticData, extractor: MagneticExtractor):
 	if !data:
 		printerr(name, " in ", owner.name, " haven't been initialized")
 	if has_initialized: 
@@ -29,6 +29,9 @@ func initialize(data: MagneticData):
 		mesh_manager.connect_magnetic(magnetic)
 		print("set magnetic")
 		set_magnetic.emit(magnetic)
+		if extractor:
+			extractor.target = self
+			extractor.target_magnetic = magnetic
 		
 	if data.is_extractable:
 		var extractable = EXTRACTABLE.instantiate()
