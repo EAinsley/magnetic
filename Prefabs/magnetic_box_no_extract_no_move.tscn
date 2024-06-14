@@ -9,7 +9,7 @@
 friction = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
-size = Vector3(0.95, 5, 3)
+size = Vector3(0.95, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owuba"]
 resource_local_to_scene = true
@@ -21,7 +21,7 @@ emission_energy_multiplier = 3.0
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_owuba")
-size = Vector3(0.95, 5, 3)
+size = Vector3(0.95, 5, 5)
 
 [sub_resource type="Animation" id="Animation_dhiya"]
 length = 0.001

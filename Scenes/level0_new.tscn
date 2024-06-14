@@ -34,12 +34,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_e8o0h"]
+[sub_resource type="Sky" id="Sky_hpmx2"]
 sky_material = SubResource("ProceduralSkyMaterial_nlxr8")
 
 [sub_resource type="Environment" id="Environment_jlj4o"]
 background_mode = 2
-sky = SubResource("Sky_e8o0h")
+sky = SubResource("Sky_hpmx2")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -107,10 +107,6 @@ gravity = 15.0
 [node name="RenderCamera" parent="Player/Head/Cameras" index="0"]
 current = false
 fov = 60.0
-
-[node name="Menu" parent="Player" index="5"]
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jlj4o")
