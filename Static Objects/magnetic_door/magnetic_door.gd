@@ -16,3 +16,5 @@ extends Node3D
 func _ready() -> void:
 	left_door.initialize(left_door_config)
 	right_door.initialize(right_door_config)
+	
+
