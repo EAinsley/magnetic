@@ -1,3 +1,4 @@
+class_name MagneticExtractor
 extends Node
 
 @export var target: Node3D

@@ -23,7 +23,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MaxSizeContainer/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 

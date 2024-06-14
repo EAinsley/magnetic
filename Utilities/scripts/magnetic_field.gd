@@ -1,13 +1,18 @@
+class_name MagneticField
 extends Area3D
 
-@export var magnetic: Magnetic
+@export var magnetic: Magnetic:
+	set(value):
+		magnetic = value
+		magnetic.plority_changed.connect(_on_magnetic_plority_changed)
+		
 @export var magnetic_forces := 100
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var in_range_object: Array[RigidBody3D] = []
 
 func _ready() -> void:
-	magnetic.plority_changed.connect(_on_magnetic_plority_changed)
+	pass
 
 func _physics_process(delta: float) -> void:
 	_apply_forces()

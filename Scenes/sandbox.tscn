@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=24 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -7,14 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="5_evf7a"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="6_imdho"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="6_j26gn"]
-[ext_resource type="PackedScene" uid="uid://7lmgvednpxgn" path="res://Static Objects/door.tscn" id="7_o41sx"]
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Prefabs/magnetic_floor.tscn" id="9_8jum4"]
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="10_ow5gb"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="11_n0puw"]
 [ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
 [ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
 [ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="14_60cvl"]
+[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="14_cq2yp"]
 [ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="15_bl278"]
+[ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="15_f4m25"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,6 +29,30 @@ background_mode = 2
 sky = SubResource("Sky_e8o0h")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_cdsbs"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 1
+is_extractable = true
+
+[sub_resource type="Resource" id="Resource_k8efn"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 2
+is_extractable = false
+
+[sub_resource type="Resource" id="Resource_64vhh"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 1
+is_extractable = true
+
+[sub_resource type="Resource" id="Resource_wcj6b"]
+script = ExtResource("15_f4m25")
+is_magnetic = true
+initial_plority = 1
+is_extractable = true
 
 [node name="Sandbox" type="Node3D"]
 
@@ -141,39 +166,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.05, 6)
 size = Vector3(5, 2.9, 1)
 
-[node name="NeuturalButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, 0.5)
-trigger_target = NodePath("../NeuturalDoor")
-
-[node name="PositiveButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, -7.35775)
-trigger_target = NodePath("../PositiveDoor")
-plority = 1
-
-[node name="PositiveButton2" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
-transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, -12.7, 2.40595, -7.35775)
-trigger_target = NodePath("../PositiveDoor")
-plority = 1
-
-[node name="NegativeButton" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.1, 0.5, -16)
-trigger_target = NodePath("../NegativeDoor")
-plority = 2
-
-[node name="NegativeButton2" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
-transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, -12.8, 2.5, -16)
-trigger_target = NodePath("../NegativeDoor")
-plority = 2
-
-[node name="NegativeDoor" parent="." instance=ExtResource("7_o41sx")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, -16.2)
-
-[node name="PositiveDoor" parent="." instance=ExtResource("7_o41sx")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, -7.2)
-
-[node name="NeuturalDoor" parent="." instance=ExtResource("7_o41sx")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -28, 0.5, 0.799999)
-
 [node name="ObjectsTest" type="Node3D" parent="."]
 
 [node name="MagneticBoxOnlyExtract" parent="ObjectsTest" instance=ExtResource("10_ow5gb")]
@@ -244,3 +236,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.1, 0)
 texture = ExtResource("15_bl278")
 heading = "12345"
 details = "Testing"
+
+[node name="TriggarableDoor" parent="." node_paths=PackedStringArray("left_door_trigger") instance=ExtResource("14_cq2yp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
+left_door_config = SubResource("Resource_cdsbs")
+left_door_trigger = NodePath("../MagneticExtractor1")
+right_door_config = SubResource("Resource_k8efn")
+
+[node name="MagneticDoorSuit" parent="." instance=ExtResource("14_cq2yp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6, 0.5, 3)
+left_door_config = SubResource("Resource_64vhh")
+right_door_config = SubResource("Resource_wcj6b")
+
+[node name="MagneticExtractor1" parent="." instance=ExtResource("11_n0puw")]
+plority = 2
+
+[node name="Button" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+trigger_target = NodePath("../MagneticExtractor1")

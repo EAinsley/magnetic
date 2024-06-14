@@ -1,4 +1,8 @@
+class_name MeshManager
 extends AnimationPlayer
+
+func connect_magnetic(magnetic: Magnetic):
+	magnetic.plority_changed.connect(_on_magnetic_plority_changed)
 
 func _on_magnetic_plority_changed(plority: Magnetic.Plority, old_plority: Magnetic.Plority) -> void:
 	match plority:
