@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://f0f156nv4kp7"]
+
+[ext_resource type="Shader" path="res://Arts/Textures/glass.gdshader" id="1_bu1t2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_012rh"]
+noise_type = 4
+frequency = 0.0224
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tai5n"]
+seamless = true
+noise = SubResource("FastNoiseLite_012rh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruk1b"]
+render_priority = 0
+shader = ExtResource("1_bu1t2")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/roughness = 0.475
+shader_parameter/specular = 0.35
+shader_parameter/refraction = 0.145
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_tai5n")
+
+[node name="Glass" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0917969, 0.5, 1.93066)
+use_collision = true
+material = SubResource("ShaderMaterial_ruk1b")

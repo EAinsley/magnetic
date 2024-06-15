@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbfqpm2n1u3b8"]
+[gd_scene load_steps=35 format=3 uid="uid://cbfqpm2n1u3b8"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_j0awv"]
 [ext_resource type="PackedScene" uid="uid://dndn1o6g6x3bn" path="res://Scenes/Prototype/floor.tscn" id="2_seobx"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="14_cq2yp"]
 [ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="15_bl278"]
 [ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="15_f4m25"]
+[ext_resource type="PackedScene" uid="uid://f0f156nv4kp7" path="res://Prefabs/Glass.tscn" id="17_tg4k1"]
+[ext_resource type="Shader" path="res://Arts/Textures/glass.gdshader" id="18_hs5x3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,6 +55,72 @@ script = ExtResource("15_f4m25")
 is_magnetic = true
 initial_plority = 1
 is_extractable = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_012rh"]
+noise_type = 4
+frequency = 0.0224
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tai5n"]
+seamless = true
+noise = SubResource("FastNoiseLite_012rh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85g13"]
+render_priority = 0
+shader = ExtResource("18_hs5x3")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/roughness = 0.475
+shader_parameter/specular = 0.35
+shader_parameter/refraction = 0.145
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_tai5n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xebg5"]
+render_priority = 0
+shader = ExtResource("18_hs5x3")
+shader_parameter/albedo = Color(0.313726, 1, 1, 0)
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/refraction = 0.1
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2y02"]
+render_priority = 0
+shader = ExtResource("18_hs5x3")
+shader_parameter/albedo = Color(0.313726, 0, 0.129412, 0.45098)
+shader_parameter/roughness = 0.5
+shader_parameter/specular = 0.6
+shader_parameter/refraction = 0.1
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8in4"]
+render_priority = 0
+shader = ExtResource("18_hs5x3")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/roughness = 0.7
+shader_parameter/specular = 0.3
+shader_parameter/refraction = 0.1
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tby5y"]
+noise_type = 2
+frequency = 0.0065
+fractal_type = 2
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_veo20"]
+noise = SubResource("FastNoiseLite_tby5y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5kqm"]
+render_priority = 0
+shader = ExtResource("18_hs5x3")
+shader_parameter/albedo = Color(1, 0, 0, 0)
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.3
+shader_parameter/refraction = 0.5
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_veo20")
 
 [node name="Sandbox" type="Node3D"]
 
@@ -254,3 +322,28 @@ plority = 2
 [node name="Button" parent="." node_paths=PackedStringArray("trigger_target") instance=ExtResource("6_imdho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
 trigger_target = NodePath("../MagneticExtractor1")
+
+[node name="Glass" parent="." instance=ExtResource("17_tg4k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0918, 5, 2.43066)
+size = Vector3(3, 9, 8)
+material = SubResource("ShaderMaterial_85g13")
+
+[node name="Glass2" parent="." instance=ExtResource("17_tg4k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0918, 5, -6.56934)
+size = Vector3(3, 9, 8)
+material = SubResource("ShaderMaterial_xebg5")
+
+[node name="Glass5" parent="." instance=ExtResource("17_tg4k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0918, 5, -16.5693)
+size = Vector3(3, 9, 8)
+material = SubResource("ShaderMaterial_e2y02")
+
+[node name="Glass3" parent="." instance=ExtResource("17_tg4k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0918, 5, 12.4307)
+size = Vector3(3, 9, 8)
+material = SubResource("ShaderMaterial_i8in4")
+
+[node name="Glass4" parent="." instance=ExtResource("17_tg4k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0918, 5, 22.4307)
+size = Vector3(3, 9, 8)
+material = SubResource("ShaderMaterial_d5kqm")
