@@ -280,6 +280,10 @@ trigger_target = NodePath("../MagneticBoxOnlyExtract/MagneticExtractor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73669, 1.4141, -8.48491)
 next_level = ExtResource("13_w3bgq")
 
+[node name="MagneticBoxOnlyExtract" parent="." instance=ExtResource("10_ow5gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4)
+initial_plority = 2
+
 [editable path="ObjectsTest/Sketchfab_Scene"]
 [editable path="ObjectsTest/Sketchfab_Scene/MagneticField"]
 [editable path="ObjectsTest/Sketchfab_Scene2"]
