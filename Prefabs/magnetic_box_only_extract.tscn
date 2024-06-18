@@ -9,16 +9,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bvjet"]
 size = Vector3(0.95, 1, 0.95)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owuba"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro0tt"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission_energy_multiplier = 3.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_dfxy3"]
+[sub_resource type="BoxMesh" id="BoxMesh_dpbm1"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_owuba")
+material = SubResource("StandardMaterial3D_ro0tt")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="Animation" id="Animation_dhiya"]
@@ -94,7 +94,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_bvjet")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_dfxy3")
+mesh = SubResource("BoxMesh_dpbm1")
 
 [node name="MeshManager" type="AnimationPlayer" parent="."]
 libraries = {
