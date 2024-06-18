@@ -13,7 +13,8 @@ config_version=5
 config/name="Magnetic"
 run/main_scene="res://levels/new_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Arts/other small things/title2.png"
+config/windows_native_icon="res://Arts/other small things/icon.ico"
 
 [debug]
 
