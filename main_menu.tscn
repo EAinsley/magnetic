@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci4e6gab4rh1q"]
+
+[ext_resource type="Script" path="res://StartButton.gd" id="1_0mct1"]
+[ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="2_lhmsj"]
+[ext_resource type="Script" path="res://ExitButton.gd" id="2_tmeuf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_grbjl"]
+font_size = 108
+
+[sub_resource type="InputEventKey" id="InputEventKey_qjb7b"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_n7ua6"]
+events = [SubResource("InputEventKey_qjb7b")]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/CenterContainer"]
+layout_mode = 2
+text = "Magnetic"
+label_settings = SubResource("LabelSettings_grbjl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start"
+script = ExtResource("1_0mct1")
+level_start = ExtResource("2_lhmsj")
+
+[node name="ExitButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_n7ua6")
+text = "Exit
+"
+script = ExtResource("2_tmeuf")
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/StartButton" to="VBoxContainer2/VBoxContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/ExitButton" to="VBoxContainer2/VBoxContainer/ExitButton" method="_on_pressed"]
