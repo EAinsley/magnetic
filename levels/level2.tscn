@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dktip6axvkkfb"]
+[gd_scene load_steps=23 format=3 uid="uid://dktip6axvkkfb"]
 
 [ext_resource type="Material" uid="uid://cw345q056yq14" path="res://Arts/Textures/platform.tres" id="1_263j4"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_6t71b"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="7_6o7av"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="8_ayarb"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="9_xmv0i"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="10_es5f1"]
+[ext_resource type="Texture2D" uid="uid://8rivduklcwae" path="res://Prefabs/Collactable/2210b896c194919097f929c8083d3aa.png" id="11_iu5lk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l0fx8"]
 size = Vector3(0.95, 1, 0.95)
@@ -53,6 +55,18 @@ script = ExtResource("7_6o7av")
 is_magnetic = true
 initial_plority = 1
 is_extractable = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_yq56p"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi8fp"]
+transparency = 1
+albedo_color = Color(0.866667, 0.760784, 0.376471, 0.588235)
+rim = 0.25
+ao_light_affect = 1.0
+subsurf_scatter_strength = 0.31
+refraction_scale = -1.0
 
 [node name="Level2" type="Node3D"]
 
@@ -134,7 +148,18 @@ plority = 1
 [node name="MagneticBox" parent="Scenes/Room1" instance=ExtResource("9_xmv0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -4)
 
+[node name="Collactable2" parent="Scenes/Room1" instance=ExtResource("10_es5f1")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0.15413, -2.37706, -15.6455)
+texture = ExtResource("11_iu5lk")
+heading = "感谢游玩"
+details = "未完待续..."
+
+[node name="MeshInstance3D" parent="Scenes/Room1/Collactable2" index="2"]
+mesh = SubResource("SphereMesh_yq56p")
+surface_material_override/0 = SubResource("StandardMaterial3D_yi8fp")
+
 [editable path="Scenes/Room1/MagneticBoxOnlyExtract"]
 [editable path="Scenes/Room1/MagneticBoxOnlyExtract/MagneticField"]
 [editable path="Scenes/Room1/MagneticBoxOnlyExtract2"]
 [editable path="Scenes/Room1/MagneticBoxOnlyExtract2/MagneticField"]
+[editable path="Scenes/Room1/Collactable2"]

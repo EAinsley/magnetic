@@ -156,6 +156,7 @@ transform = Transform3D(-4.32743e-08, 0, 0.99, 0, 0.99, 0, -0.99, 0, -4.32743e-0
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 mass = 10.0
+linear_damp = 2.0
 initial_plority = 2
 
 [node name="MagneticExtractor" parent="Scenes/Room2/MagneticBoxNoExtractNoMove" node_paths=PackedStringArray("target") instance=ExtResource("6_1y6nl")]
@@ -167,6 +168,7 @@ transform = Transform3D(-4.32743e-08, 0, 0.99, 0, 0.99, 0, -0.99, 0, -4.32743e-0
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 mass = 10.0
+linear_damp = 2.0
 initial_plority = 1
 
 [node name="Room3" parent="Scenes" instance=ExtResource("1_qmc3r")]
@@ -793,9 +795,20 @@ size = Vector3(0.01, 5, 4)
 transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 8, -2.72865, -0.9)
 texture = ExtResource("13_y04gx")
 heading = "【操作提示】"
-details = "按住左键－抓取方块"
+details = "按住左键－抓取磁性方块
+"
 
 [node name="MeshInstance3D" parent="Collactable" index="2"]
+mesh = SubResource("SphereMesh_bdli6")
+surface_material_override/0 = SubResource("StandardMaterial3D_l1gs1")
+
+[node name="Collactable2" parent="." instance=ExtResource("12_1igh8")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 15.3939, -1.09931, -0.548272)
+texture = ExtResource("13_y04gx")
+heading = "【提示】"
+details = "同样的颜色是同一种属性。这不是废话。"
+
+[node name="MeshInstance3D" parent="Collactable2" index="2"]
 mesh = SubResource("SphereMesh_bdli6")
 surface_material_override/0 = SubResource("StandardMaterial3D_l1gs1")
 
@@ -806,3 +819,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_l1gs1")
 [editable path="Scenes/Room3/MagneticBoxStatic3"]
 [editable path="Scenes/Room3/MagneticBoxStatic3/MagneticField"]
 [editable path="Collactable"]
+[editable path="Collactable2"]
