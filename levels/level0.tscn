@@ -170,16 +170,16 @@ mass = 10.0
 initial_plority = 1
 
 [node name="Room3" parent="Scenes" instance=ExtResource("1_qmc3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.25, 34.55)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 34.55)
 flip_faces = true
-size = Vector3(14, 10.5, 16.9)
+size = Vector3(14, 10, 16.9)
 
 [node name="NextLevel" parent="Scenes/Room3" instance=ExtResource("8_6cqsa")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -13.8, 2.55, 5.85)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -13.8, 2.3, 5.85)
 next_level = ExtResource("9_0s7e6")
 
 [node name="MagneticBoxStatic" parent="Scenes/Room3" instance=ExtResource("7_81idl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2.25, 8.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2.5, 8.9)
 initial_plority = 2
 
 [node name="Mesh" parent="Scenes/Room3/MagneticBoxStatic" index="2"]
@@ -189,7 +189,7 @@ mesh = SubResource("BoxMesh_d1y0d")
 shape = SubResource("BoxShape3D_jayik")
 
 [node name="MagneticBoxStatic2" parent="Scenes/Room3" instance=ExtResource("7_81idl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.75, 8.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2, 8.9)
 initial_plority = 2
 
 [node name="Mesh" parent="Scenes/Room3/MagneticBoxStatic2" index="2"]
@@ -199,7 +199,7 @@ mesh = SubResource("BoxMesh_5jqh2")
 shape = SubResource("BoxShape3D_0bncx")
 
 [node name="MagneticBoxStatic3" parent="Scenes/Room3" instance=ExtResource("7_81idl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -1.25, 8.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -1.5, 8.9)
 initial_plority = 2
 
 [node name="Mesh" parent="Scenes/Room3/MagneticBoxStatic3" index="2"]
@@ -209,29 +209,29 @@ mesh = SubResource("BoxMesh_wcjrd")
 shape = SubResource("BoxShape3D_knrab")
 
 [node name="Passage" parent="Scenes/Room3" instance=ExtResource("1_qmc3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -8.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -8.5)
 flip_faces = true
 size = Vector3(6, 5, 0.1)
 
 [node name="Platform2" parent="Scenes/Room3" instance=ExtResource("1_qmc3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -4.25, -7.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -4.5, -7.05)
 operation = 2
 flip_faces = true
 size = Vector3(15, 3, 3)
 
 [node name="Platform3" parent="Scenes/Room3" instance=ExtResource("1_qmc3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -4.25, 1.45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -4.5, 1.45)
 operation = 2
 flip_faces = true
 size = Vector3(4, 3, 14)
 
 [node name="Passage2" parent="Scenes/Room3" instance=ExtResource("1_qmc3r")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -11, 2.5, 6)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -11, 2.25, 6)
 flip_faces = true
 size = Vector3(8, 5.5, 5)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Scenes/Room3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -5.75, -5.05)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -6, -5.05)
 operation = 2
 flip_faces = true
 polygon = PackedVector2Array(-0.5, 0, -0.5, 3, 5, 0)
@@ -239,7 +239,7 @@ depth = 10.0
 material = ExtResource("8_eopqr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Scenes/Room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0.950001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.950001)
 light_energy = 5.0
 shadow_enabled = true
 shadow_opacity = 0.75
@@ -247,21 +247,21 @@ omni_range = 27.718
 omni_attenuation = 0.164939
 
 [node name="MagneticBox" parent="Scenes/Room3" instance=ExtResource("3_4grc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.25, -2.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -2.05)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 initial_plority = 1
 
 [node name="MagneticBox2" parent="Scenes/Room3" instance=ExtResource("3_4grc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -4.25, 4.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -4.5, 4.05)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 initial_plority = 1
 
 [node name="MagneticBox3" parent="Scenes/Room3" instance=ExtResource("3_4grc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.25, 1.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.5, 1.95)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
