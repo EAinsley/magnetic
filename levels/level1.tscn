@@ -1,0 +1,965 @@
+[gd_scene load_steps=61 format=3 uid="uid://s4lkhmtfpddg"]
+
+[ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="1_u265x"]
+[ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_wilv3"]
+[ext_resource type="Shader" uid="uid://bt1rjpoxclghc" path="res://Arts/Textures/glass_wall.tres" id="2_ksfhi"]
+[ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="2_unl5h"]
+[ext_resource type="Material" uid="uid://cw345q056yq14" path="res://Arts/Textures/platform.tres" id="3_i4i5r"]
+[ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="4_6ky6g"]
+[ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="5_tud7l"]
+[ext_resource type="Material" uid="uid://i64qgoxatwiy" path="res://Static Objects/MagneticBoxStatic/neutral_static.tres" id="6_eqt77"]
+[ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_d8vtp"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="8_lkvoa"]
+[ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="8_ocwb3"]
+[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="8_v0o7p"]
+[ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="9_bippd"]
+[ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="9_fmmgu"]
+[ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="9_pcpi7"]
+[ext_resource type="Texture2D" uid="uid://crjn8t4xghk6d" path="res://Arts/other small things/9673f4ab7b894252596e23bf932336e.png" id="9_ujfqu"]
+[ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_fxil4"]
+[ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="18_khr5t"]
+[ext_resource type="PackedScene" uid="uid://dktip6axvkkfb" path="res://levels/level2.tscn" id="19_gbkht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1maxu"]
+render_priority = 0
+shader = ExtResource("2_ksfhi")
+shader_parameter/albedo = Color(0, 0, 0, 0.341176)
+shader_parameter/roughness = 0.2
+shader_parameter/specular = 0.0
+shader_parameter/refraction = 0.00100005
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osgud"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_u0squ"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_osgud")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwidi"]
+size = Vector3(1, 6, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wx2vp"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxw6d"]
+transparency = 1
+albedo_color = Color(0.866667, 0.760784, 0.376471, 0.588235)
+rim = 0.25
+ao_light_affect = 1.0
+subsurf_scatter_strength = 0.31
+refraction_scale = -1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lie7d"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_n47hr"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_lie7d")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0non"]
+size = Vector3(1, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jyt13"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = ExtResource("6_eqt77")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsy2g"]
+size = Vector3(1, 1, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpf4d"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_qcuqp"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_gpf4d")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovx4y"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4hxj"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rlob"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_n4hxj")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1crvh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4kat"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta7mv"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_j4kat")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nifgl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g7i7y"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = ExtResource("6_eqt77")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryua6"]
+size = Vector3(1, 30, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6m2ww"]
+size = Vector3(3.43, 0.5, 3.43)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1315"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_skikf"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_y1315")
+size = Vector3(3.5, 0.5, 3.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlhyu"]
+size = Vector3(1, 30, 1)
+
+[sub_resource type="Resource" id="Resource_3htsj"]
+script = ExtResource("9_bippd")
+is_magnetic = true
+initial_plority = 2
+is_extractable = false
+
+[sub_resource type="Resource" id="Resource_jyxwn"]
+script = ExtResource("9_bippd")
+is_magnetic = true
+initial_plority = 0
+is_extractable = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qen4"]
+resource_local_to_scene = true
+size = Vector3(2, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhad3"]
+albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_1tqio"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 12)
+material = SubResource("StandardMaterial3D_uhad3")
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r06mc"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("9_fmmgu")
+uv1_scale = Vector3(3.095, 2.005, 1)
+uv1_offset = Vector3(-1.05, 0, 0)
+uv1_triplanar_sharpness = 0.292969
+uv2_scale = Vector3(0.48, 0.48, 0.48)
+uv2_offset = Vector3(-0.55, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ugbrv"]
+resource_local_to_scene = true
+size = Vector3(0.5, 0.099, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8hp0"]
+resource_local_to_scene = true
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lq67p"]
+resource_local_to_scene = true
+size = Vector3(1.9, 0.2, 1.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odpuy"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission = Color(0.870588, 0.0862745, 0.137255, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8moqm"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_odpuy")
+size = Vector3(0.95, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j701h"]
+size = Vector3(1, 5, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxlkx"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wg6i"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_uxlkx")
+size = Vector3(0.95, 1, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dj6j3"]
+size = Vector3(1, 1, 2)
+
+[node name="Level1" type="Node3D"]
+
+[node name="BlockingWall" parent="." instance=ExtResource("1_u265x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5222, 6.8, 28.1379)
+visible = false
+size = Vector3(3.86377, 0.2, 3.70608)
+
+[node name="Scenes" type="CSGCombiner3D" parent="."]
+use_collision = true
+collision_layer = 255
+
+[node name="Player" parent="Scenes" instance=ExtResource("1_wilv3")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+visible = false
+head_x_max_degree = 89.0
+gravity = 20.0
+
+[node name="Room1" parent="Scenes" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
+flip_faces = true
+size = Vector3(16, 6, 20)
+
+[node name="Glass" type="Node3D" parent="Scenes/Room1"]
+
+[node name="Glass" parent="Scenes/Room1/Glass" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 2)
+operation = 2
+collision_mask = 10
+flip_faces = true
+size = Vector3(0.01, 5.99, 15.99)
+material = SubResource("ShaderMaterial_1maxu")
+
+[node name="Platform" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.5, -4.25)
+operation = 2
+flip_faces = true
+size = Vector3(7, 1, 11.5)
+
+[node name="Platform2" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.5, 7.25)
+operation = 2
+flip_faces = true
+size = Vector3(7, 1, 5.5)
+
+[node name="Passage" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 13)
+flip_faces = true
+size = Vector3(4, 4, 6)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Scenes/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
+operation = 2
+flip_faces = true
+polygon = PackedVector2Array(-2, 0, 1, 1, 1, 0)
+depth = 4.0
+material = ExtResource("3_i4i5r")
+
+[node name="Light" type="Node3D" parent="Scenes/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Scenes/Room1/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -7)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Scenes/Room1/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 0)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Scenes/Room1/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 8)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Scenes/Room1/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 4)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Scenes/Room1/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -3.5)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="Door1" type="CSGCombiner3D" parent="Scenes/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="door_frame" type="Node3D" parent="Scenes/Room1/Door1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="MagneticBoxStatic7" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic8" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic9" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic10" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic11" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic13" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic14" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic15" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic16" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic17" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic19" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic20" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic21" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic22" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic23" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic25" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic26" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic27" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic28" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic29" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic37" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic38" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic40" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic41" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic43" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic44" parent="Scenes/Room1/Door1/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxOnlyExtract" parent="Scenes/Room1/Door1" instance=ExtResource("5_tud7l")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 3.5, -0.5, -3.5)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+initial_plority = 1
+
+[node name="Mesh" parent="Scenes/Room1/Door1/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_u0squ")
+
+[node name="CollisionShape3D" parent="Scenes/Room1/Door1/MagneticBoxOnlyExtract/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_kwidi")
+
+[node name="hole" parent="Scenes/Room1/Door1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3.5, -3.5)
+flip_faces = true
+size = Vector3(3, 3, 1)
+
+[node name="Collactable" parent="Scenes/Room1/Door1" instance=ExtResource("8_lkvoa")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 3.5, -1, -5.9)
+texture = ExtResource("9_ujfqu")
+heading = "【操作提示】"
+details = "按下右键－提取磁性"
+
+[node name="MeshInstance3D" parent="Scenes/Room1/Door1/Collactable" index="2"]
+mesh = SubResource("SphereMesh_wx2vp")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxw6d")
+
+[node name="Door2" type="CSGCombiner3D" parent="Scenes/Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7.5)
+
+[node name="door_frame" type="Node3D" parent="Scenes/Room1/Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="UpBlue1" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.1, -1.5)
+initial_plority = 2
+
+[node name="UpBlue2" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 4.1, -1.5)
+initial_plority = 2
+
+[node name="UpBlue3" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.1, -1.5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic30" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic31" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic32" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic33" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic34" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic35" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic36" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic37" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic38" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic39" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic40" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic41" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic42" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic43" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic44" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic45" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic46" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic47" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic48" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -3, -1.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic49" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -3, -2.5)
+initial_plority = 1
+
+[node name="MagneticBoxStatic50" parent="Scenes/Room1/Door2/door_frame" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -3, -3.5)
+initial_plority = 1
+
+[node name="MagneticBoxOnlyExtract" parent="Scenes/Room1/Door2" instance=ExtResource("5_tud7l")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 3.5, -0.5, -3.5)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+mass = 1.5
+
+[node name="Mesh" parent="Scenes/Room1/Door2/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_n47hr")
+
+[node name="CollisionShape3D" parent="Scenes/Room1/Door2/MagneticBoxOnlyExtract/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_j0non")
+
+[node name="hole" parent="Scenes/Room1/Door2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3.5, -3.5)
+flip_faces = true
+size = Vector3(3, 1, 1)
+
+[node name="Collactable" parent="Scenes/Room1/Door2" instance=ExtResource("8_lkvoa")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 3.7, -0.8, -5.9)
+texture = ExtResource("9_ujfqu")
+heading = "【操作提示】"
+details = "按下右键－释放磁性"
+
+[node name="MeshInstance3D" parent="Scenes/Room1/Door2/Collactable" index="2"]
+mesh = SubResource("SphereMesh_wx2vp")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxw6d")
+
+[node name="Platform3" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 4)
+operation = 2
+flip_faces = true
+size = Vector3(2, 5, 1)
+
+[node name="Platform4" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 4)
+operation = 2
+flip_faces = true
+size = Vector3(2, 5, 1)
+
+[node name="Room2" parent="Scenes" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, 20.75)
+flip_faces = true
+size = Vector3(18, 5, 9.5)
+
+[node name="Platform" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3, 0, 0.0499992)
+operation = 2
+flip_faces = true
+size = Vector3(1.4, 5, 3)
+
+[node name="Platform3" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.75)
+operation = 2
+flip_faces = true
+size = Vector3(2, 5, 1)
+
+[node name="Light" type="Node3D" parent="Scenes/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5.25)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Scenes/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -8)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Scenes/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, -8)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Scenes/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, -2)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Scenes/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 2)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Scenes/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, -2.5)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 20.0
+omni_attenuation = 0.164939
+
+[node name="Side door" type="Node3D" parent="Scenes/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.35)
+
+[node name="MagneticBoxStatic" parent="Scenes/Room2/Side door" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.5, -10.5)
+initial_plority = 1
+
+[node name="Mesh" parent="Scenes/Room2/Side door/MagneticBoxStatic" index="2"]
+mesh = SubResource("BoxMesh_jyt13")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/Side door/MagneticBoxStatic/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_hsy2g")
+
+[node name="MagneticBoxStatic2" parent="Scenes/Room2/Side door" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5, -10.5)
+initial_plority = 1
+
+[node name="Magnetic" parent="Scenes/Room2/Side door/MagneticBoxStatic2" index="0" node_paths=PackedStringArray("host")]
+host = NodePath("../../MagneticBoxStatic")
+
+[node name="Mesh" parent="Scenes/Room2/Side door/MagneticBoxStatic2" index="2"]
+mesh = SubResource("BoxMesh_jyt13")
+
+[node name="MagneticField" parent="Scenes/Room2/Side door/MagneticBoxStatic2" index="3" node_paths=PackedStringArray("magnetic")]
+magnetic = NodePath("../../MagneticBoxStatic/Magnetic")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/Side door/MagneticBoxStatic2/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_hsy2g")
+
+[node name="MagneticBoxStatic3" parent="Scenes/Room2/Side door" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.5, -10.5)
+initial_plority = 1
+
+[node name="Magnetic" parent="Scenes/Room2/Side door/MagneticBoxStatic3" index="0" node_paths=PackedStringArray("host")]
+host = NodePath("../../MagneticBoxStatic")
+
+[node name="Mesh" parent="Scenes/Room2/Side door/MagneticBoxStatic3" index="2"]
+mesh = SubResource("BoxMesh_jyt13")
+
+[node name="MagneticField" parent="Scenes/Room2/Side door/MagneticBoxStatic3" index="3" node_paths=PackedStringArray("magnetic")]
+magnetic = NodePath("../../MagneticBoxStatic/Magnetic")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/Side door/MagneticBoxStatic3/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_hsy2g")
+
+[node name="MagneticBoxOnlyExtract" parent="Scenes/Room2" instance=ExtResource("5_tud7l")]
+transform = Transform3D(2, 0, 0, 0, 4.9, 0, 0, 0, 6, 0, 0.00999999, -1.25)
+collision_mask = 30
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+
+[node name="Mesh" parent="Scenes/Room2/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_qcuqp")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/MagneticBoxOnlyExtract/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, -0.5)
+shape = SubResource("BoxShape3D_ovx4y")
+
+[node name="MagneticBoxOnlyExtract2" parent="Scenes/Room2" instance=ExtResource("5_tud7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3, -0.7, -1)
+collision_layer = 4
+collision_mask = 14
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+gravity_scale = 0.0
+freeze = true
+initial_plority = 1
+
+[node name="Mesh" parent="Scenes/Room2/MagneticBoxOnlyExtract2" index="1"]
+mesh = SubResource("BoxMesh_0rlob")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/MagneticBoxOnlyExtract2/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_1crvh")
+
+[node name="MagneticBoxOnlyExtract3" parent="Scenes/Room2" instance=ExtResource("5_tud7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, -0.7, 5.1)
+collision_layer = 4
+collision_mask = 14
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+gravity_scale = 0.0
+freeze = true
+initial_plority = 2
+
+[node name="Mesh" parent="Scenes/Room2/MagneticBoxOnlyExtract3" index="1"]
+mesh = SubResource("BoxMesh_ta7mv")
+
+[node name="CollisionShape3D" parent="Scenes/Room2/MagneticBoxOnlyExtract3/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_nifgl")
+
+[node name="Glass" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0)
+operation = 2
+flip_faces = true
+size = Vector3(2.9, 4.99, 3.99)
+material = SubResource("ShaderMaterial_1maxu")
+
+[node name="Glass2" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.27329, 0, 0)
+operation = 2
+flip_faces = true
+size = Vector3(2.9, 4.99, 2.6)
+material = SubResource("ShaderMaterial_1maxu")
+
+[node name="Room3" parent="Scenes" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, 27.75)
+flip_faces = true
+size = Vector3(4, 5, 4.5)
+
+[node name="MagneticBoxStatic" parent="Scenes/Room3" instance=ExtResource("4_6ky6g")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -2.9, 0.299999)
+initial_plority = 2
+
+[node name="Mesh" parent="Scenes/Room3/MagneticBoxStatic" index="2"]
+mesh = SubResource("BoxMesh_g7i7y")
+
+[node name="MagneticField" parent="Scenes/Room3/MagneticBoxStatic" index="3"]
+linear_damp_space_override = 1
+linear_damp = 5.0
+magnetic_forces = 800
+
+[node name="CollisionShape3D" parent="Scenes/Room3/MagneticBoxStatic/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_ryua6")
+
+[node name="MagneticBoxOnlyExtract" parent="Scenes/Room3" instance=ExtResource("5_tud7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0.299999)
+collision_mask = 30
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+
+[node name="CollisionShape3D" parent="Scenes/Room3/MagneticBoxOnlyExtract" index="0"]
+shape = SubResource("BoxShape3D_6m2ww")
+
+[node name="Mesh" parent="Scenes/Room3/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_skikf")
+
+[node name="CollisionShape3D" parent="Scenes/Room3/MagneticBoxOnlyExtract/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_xlhyu")
+
+[node name="Passage" parent="Scenes/Room3" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0.300001)
+flip_faces = true
+size = Vector3(4, 6, 3.9)
+
+[node name="Passage2" parent="Scenes/Room3" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.75, -4.15)
+flip_faces = true
+size = Vector3(4, 3.5, 7)
+
+[node name="Passage3" parent="Scenes/Room3" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 6.75, -5.65)
+flip_faces = true
+size = Vector3(1, 3.5, 4)
+
+[node name="Room5" parent="Scenes" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 8.75, 22.1)
+flip_faces = true
+size = Vector3(20, 7.5, 16)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Scenes/Room5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 25.0
+omni_attenuation = 0.164939
+
+[node name="MagneticBox" parent="Scenes/Room5" instance=ExtResource("7_d8vtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -3, 2)
+initial_plority = 1
+
+[node name="MagneticDoorSuit" parent="Scenes/Room5" node_paths=PackedStringArray("left_door_trigger") instance=ExtResource("8_v0o7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6, -4, 0)
+left_door_config = SubResource("Resource_3htsj")
+left_door_trigger = NodePath("../MagneticExtractor")
+right_door_config = SubResource("Resource_jyxwn")
+
+[node name="MagneticExtractor" parent="Scenes/Room5" instance=ExtResource("10_fxil4")]
+plority = 1
+
+[node name="Button" parent="Scenes/Room5" node_paths=PackedStringArray("trigger_target") instance=ExtResource("8_ocwb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -3.5, -2.1)
+trigger_target = NodePath("../MagneticExtractor")
+
+[node name="CollisionShape3D" parent="Scenes/Room5/Button/MagneticField" index="0"]
+shape = SubResource("BoxShape3D_3qen4")
+
+[node name="MeshInstance3D" parent="Scenes/Room5/Button" index="1"]
+mesh = SubResource("BoxMesh_1tqio")
+
+[node name="MeshInstance3D2" parent="Scenes/Room5/Button" index="2"]
+material_overlay = SubResource("StandardMaterial3D_r06mc")
+mesh = SubResource("BoxMesh_ugbrv")
+
+[node name="CollisionShape3D" parent="Scenes/Room5/Button" index="4"]
+shape = SubResource("BoxShape3D_w8hp0")
+
+[node name="CollisionShape3D" parent="Scenes/Room5/Button/TriggerArea" index="0"]
+shape = SubResource("BoxShape3D_lq67p")
+
+[node name="Passage4" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 11.5, 0)
+flip_faces = true
+size = Vector3(1.2, 4.5, 5)
+
+[node name="Passage6" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, -1.25, 0)
+flip_faces = true
+size = Vector3(1.2, 5, 5)
+
+[node name="Passage5" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 12, -0.0973034)
+flip_faces = true
+size = Vector3(1, 5.5, 13.8)
+
+[node name="MagneticBoxNoExtractNoMove" parent="Scenes/Room5" instance=ExtResource("9_pcpi7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 11.8, -2.5)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+mass = 1.0
+initial_plority = 2
+
+[node name="Mesh" parent="Scenes/Room5/MagneticBoxNoExtractNoMove" index="1"]
+mesh = SubResource("BoxMesh_8moqm")
+
+[node name="MagneticField" parent="Scenes/Room5/MagneticBoxNoExtractNoMove" index="3"]
+magnetic_forces = 100
+
+[node name="CollisionShape3D" parent="Scenes/Room5/MagneticBoxNoExtractNoMove/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+shape = SubResource("BoxShape3D_j701h")
+
+[node name="MagneticExtractor" parent="Scenes/Room5/MagneticBoxNoExtractNoMove" node_paths=PackedStringArray("target") instance=ExtResource("10_fxil4")]
+target = NodePath("..")
+plority = 1
+
+[node name="MagneticBoxOnlyExtract" parent="Scenes/Room5" instance=ExtResource("5_tud7l")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 5, 10.6, 11.8, 2.4)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+
+[node name="Mesh" parent="Scenes/Room5/MagneticBoxOnlyExtract" index="1"]
+mesh = SubResource("BoxMesh_6wg6i")
+
+[node name="CollisionShape3D" parent="Scenes/Room5/MagneticBoxOnlyExtract/MagneticField" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_dj6j3")
+
+[node name="Out" parent="Scenes" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.65, 8.5, 22)
+flip_faces = true
+size = Vector3(8, 7, 10)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Scenes/Out"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299999, 2, -0.1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_range = 25.0
+omni_attenuation = 0.164939
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Scenes/Out"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.7, 0.0999985)
+shadow_enabled = true
+shadow_opacity = 0.1
+omni_attenuation = 0.164939
+
+[node name="NextLevel" parent="Scenes/Out" instance=ExtResource("18_khr5t")]
+transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 5, 2, 0, 0)
+next_level = ExtResource("19_gbkht")
+
+[editable path="Scenes/Room1/Door1/MagneticBoxOnlyExtract"]
+[editable path="Scenes/Room1/Door1/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room1/Door1/Collactable"]
+[editable path="Scenes/Room1/Door2/MagneticBoxOnlyExtract"]
+[editable path="Scenes/Room1/Door2/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room1/Door2/Collactable"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic/MagneticField"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic2"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic2/MagneticField"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic3"]
+[editable path="Scenes/Room2/Side door/MagneticBoxStatic3/MagneticField"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract2"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract2/MagneticField"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract3"]
+[editable path="Scenes/Room2/MagneticBoxOnlyExtract3/MagneticField"]
+[editable path="Scenes/Room3/MagneticBoxStatic"]
+[editable path="Scenes/Room3/MagneticBoxStatic/MagneticField"]
+[editable path="Scenes/Room3/MagneticBoxOnlyExtract"]
+[editable path="Scenes/Room3/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room5/Button"]
+[editable path="Scenes/Room5/Button/MagneticField"]
+[editable path="Scenes/Room5/MagneticBoxNoExtractNoMove"]
+[editable path="Scenes/Room5/MagneticBoxNoExtractNoMove/MagneticField"]
+[editable path="Scenes/Room5/MagneticBoxOnlyExtract"]
+[editable path="Scenes/Room5/MagneticBoxOnlyExtract/MagneticField"]

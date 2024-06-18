@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8xsskf1ktccc"]
 
 [ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="1_iftax"]
-[ext_resource type="FontFile" uid="uid://s5jfcds2lvyk" path="res://Arts/text_story/使用字体.TTF" id="2_ku0hu"]
+[ext_resource type="FontFile" uid="uid://vnvoed3rc058" path="res://Arts/text_story/used_font.TTF" id="2_ku0hu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lt4xl"]
 font = ExtResource("2_ku0hu")

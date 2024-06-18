@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crjn8t4xghk6d"
-path.s3tc="res://.godot/imported/9673f4ab7b894252596e23bf932336e.png-b0492fc924eb18599cbfb3cdc9cf9605.s3tc.ctex"
+uid="uid://8rivduklcwae"
+path.s3tc="res://.godot/imported/2210b896c194919097f929c8083d3aa.png-ab7bcf2488566aaf34e648435a54ce31.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Arts/other small things/9673f4ab7b894252596e23bf932336e.png"
-dest_files=["res://.godot/imported/9673f4ab7b894252596e23bf932336e.png-b0492fc924eb18599cbfb3cdc9cf9605.s3tc.ctex"]
+source_file="res://Prefabs/Collactable/2210b896c194919097f929c8083d3aa.png"
+dest_files=["res://.godot/imported/2210b896c194919097f929c8083d3aa.png-ab7bcf2488566aaf34e648435a54ce31.s3tc.ctex"]
 
 [params]
 

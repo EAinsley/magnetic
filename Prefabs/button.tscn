@@ -213,11 +213,6 @@ collision_mask = 11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_ocqv2")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-light_energy = 0.5
-omni_attenuation = 2.0
-
 [connection signal="plority_changed" from="Magnetic" to="MeshInstance3D2" method="_on_magnetic_plority_changed"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_area_3d_body_exited"]

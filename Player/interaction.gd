@@ -7,6 +7,7 @@ signal right_mouse_clicked(collider: Node3D)
 var _collider : Node3D
 var _is_colliding : bool = false
 var _enabled : bool = true
+var enable_extract: bool
 
 
 func _process(delta: float) -> void:
@@ -33,7 +34,7 @@ func  _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up") and _is_colliding and _collider.is_in_group("pickable"):
 		print("raycast left mouse clicked ", _collider)
 		left_mouse_clicked.emit(_collider)
-	if event.is_action_pressed("extract") and _is_colliding and _collider.is_in_group("extractable"):
+	if enable_extract and event.is_action_pressed("extract") and _is_colliding and _collider.is_in_group("extractable"):
 		print("raycast right mouse clicked", _collider)
 		right_mouse_clicked.emit(_collider)
 	

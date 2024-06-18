@@ -9,6 +9,8 @@ extends CharacterBody3D
 @export_range(0., 50.) var gravity: float = 9.8
 @export var jump_height := 1.3  ## in meter
 
+@export var enable_right: bool = true
+
 const SPEED = 5.0
 var jump_speed : float
 
@@ -16,10 +18,13 @@ var jump_speed : float
 var mouse_motion := Vector2.ZERO
 
 @onready var head: Node3D = $Head
+@onready var interaction = $Head/Cameras/Interaction
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	jump_speed = sqrt(2 * gravity * jump_height)
+	interaction.enable_extract = enable_right
+	
 
 func _physics_process(delta: float) -> void:
 	# Handle rotation
