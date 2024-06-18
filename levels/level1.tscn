@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://s4lkhmtfpddg"]
+[gd_scene load_steps=52 format=3 uid="uid://s4lkhmtfpddg"]
 
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_wilv3"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="2_unl5h"]
@@ -8,9 +8,15 @@
 [ext_resource type="Material" uid="uid://i64qgoxatwiy" path="res://Static Objects/MagneticBoxStatic/neutral_static.tres" id="6_eqt77"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_d8vtp"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="8_ocwb3"]
+[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="8_v0o7p"]
+[ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="9_bippd"]
 [ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="9_fmmgu"]
 [ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="9_pcpi7"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_fxil4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucysk"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.286275)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x3yw"]
 resource_local_to_scene = true
@@ -116,6 +122,18 @@ size = Vector3(0.95, 1, 0.95)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlhyu"]
 size = Vector3(1, 30, 1)
 
+[sub_resource type="Resource" id="Resource_3htsj"]
+script = ExtResource("9_bippd")
+is_magnetic = true
+initial_plority = 2
+is_extractable = false
+
+[sub_resource type="Resource" id="Resource_jyxwn"]
+script = ExtResource("9_bippd")
+is_magnetic = true
+initial_plority = 0
+is_extractable = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qen4"]
 resource_local_to_scene = true
 size = Vector3(2, 1, 2)
@@ -199,6 +217,13 @@ gravity = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
 flip_faces = true
 size = Vector3(16, 6, 20)
+
+[node name="Glass" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0, 2)
+operation = 2
+flip_faces = true
+size = Vector3(0.1, 5.8, 15.8)
+material = SubResource("StandardMaterial3D_ucysk")
 
 [node name="Platform" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.5, -4.25)
@@ -680,6 +705,13 @@ mesh = SubResource("BoxMesh_ta7mv")
 [node name="CollisionShape3D" parent="Scenes/Room2/MagneticBoxOnlyExtract3/MagneticField" index="0"]
 shape = SubResource("BoxShape3D_nifgl")
 
+[node name="Glass" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0.05, 0)
+operation = 2
+flip_faces = true
+size = Vector3(0.1, 4.8, 3.8)
+material = SubResource("StandardMaterial3D_ucysk")
+
 [node name="Room3" parent="Scenes" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, 27.75)
 flip_faces = true
@@ -743,9 +775,18 @@ omni_attenuation = 0.164939
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -3, 2)
 initial_plority = 1
 
+[node name="MagneticDoorSuit" parent="Scenes/Room5" node_paths=PackedStringArray("left_door_trigger") instance=ExtResource("8_v0o7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6, -4, 0)
+left_door_config = SubResource("Resource_3htsj")
+left_door_trigger = NodePath("../MagneticExtractor")
+right_door_config = SubResource("Resource_jyxwn")
+
+[node name="MagneticExtractor" parent="Scenes/Room5" instance=ExtResource("10_fxil4")]
+plority = 1
+
 [node name="Button" parent="Scenes/Room5" node_paths=PackedStringArray("trigger_target") instance=ExtResource("8_ocwb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -3.5, -2.1)
-trigger_target = NodePath("../MagneticBoxNoExtractNoMove/MagneticExtractor")
+trigger_target = NodePath("../MagneticExtractor")
 
 [node name="CollisionShape3D" parent="Scenes/Room5/Button/MagneticField" index="0"]
 shape = SubResource("BoxShape3D_3qen4")
@@ -767,17 +808,22 @@ shape = SubResource("BoxShape3D_lq67p")
 visible = false
 
 [node name="Passage4" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, -1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 11.5, 0)
 flip_faces = true
 size = Vector3(1.2, 4.5, 5)
 
+[node name="Passage6" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, -1.25, 0)
+flip_faces = true
+size = Vector3(1.2, 5, 5)
+
 [node name="Passage5" parent="Scenes/Room5" instance=ExtResource("2_unl5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, -1, -0.0973034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 12, -0.0973034)
 flip_faces = true
 size = Vector3(1, 5.5, 13.8)
 
 [node name="MagneticBoxNoExtractNoMove" parent="Scenes/Room5" instance=ExtResource("9_pcpi7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, -1.2, -2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 11.8, -2.5)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 mass = 1.0
@@ -798,7 +844,7 @@ target = NodePath("..")
 plority = 1
 
 [node name="MagneticBoxOnlyExtract" parent="Scenes/Room5" instance=ExtResource("5_tud7l")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 5, 10.6, -1.2, 2.4)
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 5, 10.6, 11.8, 2.4)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 
