@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://ch13qgb3ns0x7"]
+
+[ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="1_2eqyq"]
+[ext_resource type="PackedScene" uid="uid://cjdb1ynb2sgkk" path="res://Scenes/main_menu.tscn" id="1_851bp"]
+[ext_resource type="PackedScene" uid="uid://uvei5u3f8g4n" path="res://levels/level0.tscn" id="2_ju3s8"]
+[ext_resource type="Shader" path="res://Player/Menu/blur_background.gdshader" id="2_sei11"]
+[ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="2_yjbqk"]
+[ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="3_0sn7f"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="5_hjodr"]
+[ext_resource type="Texture2D" uid="uid://crjn8t4xghk6d" path="res://Arts/other small things/9673f4ab7b894252596e23bf932336e.png" id="6_q6shc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6laf"]
+shader = ExtResource("2_sei11")
+shader_parameter/lod = 3.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d4qi7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_unhtn"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh6dg"]
+transparency = 1
+albedo_color = Color(0.866667, 0.760784, 0.376471, 0.588235)
+rim = 0.25
+ao_light_affect = 1.0
+subsurf_scatter_strength = 0.31
+refraction_scale = -1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" parent="." instance=ExtResource("1_851bp")]
+
+[node name="VBoxContainer2" parent="Control" index="0"]
+top_level = true
+
+[node name="StartButton" parent="Control/VBoxContainer2/VBoxContainer" index="0"]
+level_start = ExtResource("2_ju3s8")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_c6laf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("PlaceholderTexture2D_d4qi7")
+
+[node name="Room1" parent="." instance=ExtResource("1_2eqyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 0)
+flip_faces = true
+size = Vector3(14, 7, 12)
+
+[node name="Platform" parent="Room1" instance=ExtResource("1_2eqyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2.5, 0)
+operation = 2
+flip_faces = true
+size = Vector3(4, 2, 12)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+light_energy = 5.0
+shadow_enabled = true
+shadow_opacity = 0.75
+omni_range = 15.0
+omni_attenuation = 0.164939
+
+[node name="MagneticBox" parent="Room1" instance=ExtResource("2_yjbqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 3)
+linear_damp_mode = 1
+initial_plority = 1
+
+[node name="MagneticBox2" parent="Room1" instance=ExtResource("2_yjbqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.5, -5)
+linear_damp_mode = 1
+initial_plority = 2
+
+[node name="MagneticBox3" parent="Room1" instance=ExtResource("2_yjbqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -2.5, 2)
+initial_plority = 2
+
+[node name="MagneticBoxStatic" parent="Room1" instance=ExtResource("3_0sn7f")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 6, -1.91, -5)
+initial_plority = 2
+
+[node name="MagneticBoxStatic2" parent="Room1" instance=ExtResource("3_0sn7f")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 5, -1.91, 3)
+initial_plority = 1
+
+[node name="Collactable" parent="." instance=ExtResource("5_hjodr")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 8, -2.72865, -0.9)
+texture = ExtResource("6_q6shc")
+heading = "【操作提示】"
+details = "按住左键－抓取磁性方块
+"
+
+[node name="MeshInstance3D" parent="Collactable" index="2"]
+mesh = SubResource("SphereMesh_unhtn")
+surface_material_override/0 = SubResource("StandardMaterial3D_sh6dg")
+
+[node name="Collactable2" parent="." instance=ExtResource("5_hjodr")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 15.3939, -1.09931, -0.548272)
+texture = ExtResource("6_q6shc")
+heading = "【提示】"
+details = "同样的颜色是同一种属性。这不是废话。"
+
+[node name="MeshInstance3D" parent="Collactable2" index="2"]
+mesh = SubResource("SphereMesh_unhtn")
+surface_material_override/0 = SubResource("StandardMaterial3D_sh6dg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, -1, 0)
+fov = 50.0
+
+[editable path="Control"]
+[editable path="Collactable"]
+[editable path="Collactable2"]
