@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var head_x_max_degree := 90.0
 
 @export_group("physics")
-@export_range(0., 50.) var gravity: float = 9.8
+@export_range(0., 50.) var gravity: float = 20
 @export var jump_height := 1.3  ## in meter
 
 @export var enable_right: bool = true

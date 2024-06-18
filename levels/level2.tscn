@@ -81,6 +81,7 @@ material = ExtResource("1_263j4")
 
 [node name="Player" parent="Scenes/Room1" instance=ExtResource("2_6t71b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 4)
+gravity = 20.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Scenes/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

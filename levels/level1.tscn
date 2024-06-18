@@ -242,7 +242,6 @@ collision_layer = 255
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
 visible = false
 head_x_max_degree = 89.0
-gravity = 20.0
 
 [node name="Room1" parent="Scenes" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
