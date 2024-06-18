@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfrt3pporfljc"]
+[gd_scene load_steps=16 format=3 uid="uid://bfrt3pporfljc"]
 
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="1_0e4pj"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="2_udfg8"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dpq8s74hiqb2y" path="res://Prefabs/magnetic_floor.tscn" id="8_37ba3"]
 [ext_resource type="PackedScene" uid="uid://dg3ktxy4sxcto" path="res://Arts/mark item.tscn" id="9_s8sm2"]
 [ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Arts/Models/collected_item.tscn" id="10_8jgb7"]
+[ext_resource type="PackedScene" uid="uid://dp1drbe8erruj" path="res://Arts/stickers/array_.tscn" id="11_dn0d4"]
+[ext_resource type="PackedScene" uid="uid://64xfnhwrtl7q" path="res://Arts/stickers/paper2.tscn" id="12_2anmj"]
+[ext_resource type="PackedScene" uid="uid://chjspfqaymlom" path="res://Arts/stickers/pen2.tscn" id="13_3dokq"]
+[ext_resource type="PackedScene" uid="uid://c3dp1wvkwr3xb" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/cont_locker_static.tscn" id="14_2pi54"]
+[ext_resource type="PackedScene" uid="uid://llo60dmtxt06" path="res://Arts/sci-fi-like Asset_Godot/sci-fi-like Asset/scenes/Props/furn_table_1.tscn" id="15_d4rbq"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -507,3 +512,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.925, 2.84739, 1.82192)
 
 [node name="a0-1" parent="." instance=ExtResource("10_8jgb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1939, 4.00032, 3.31635)
+
+[node name="Decal" parent="." instance=ExtResource("11_dn0d4")]
+transform = Transform3D(0.956049, 0, -0.293206, 0, 1, 0, 0.293206, 0, 0.956049, 18.474, -0.500001, 0.125442)
+
+[node name="Decal2" parent="." instance=ExtResource("11_dn0d4")]
+transform = Transform3D(0.455995, 0.889982, 0, 0.851348, -0.436201, -0.291437, -0.259374, 0.132894, -0.95659, 34, 1.68061, -0.104658)
+
+[node name="Decal3" parent="." instance=ExtResource("11_dn0d4")]
+transform = Transform3D(0.945865, 0, -0.324561, 0, 1, 0, 0.324561, 0, 0.945865, 47.6447, 3.5484, -0.016824)
+
+[node name="c0-1" parent="." instance=ExtResource("10_8jgb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.3495, 2.4641, -3.40625)
+
+[node name="papers" parent="." instance=ExtResource("12_2anmj")]
+transform = Transform3D(0.292892, 0, 0, 0, 1.2702, 0, 0, 0, 0.310111, 58.413, -0.423894, -2.44377)
+
+[node name="Decal4" parent="papers" instance=ExtResource("12_2anmj")]
+transform = Transform3D(1.47847, 0, 0, 0, 1.2702, 0, 0, 0, 0.740554, -1.2485, 0.413746, 0.936002)
+
+[node name="Decal5" parent="papers/Decal4" instance=ExtResource("13_3dokq")]
+transform = Transform3D(0.63818, 0, 0, 0, 0.61981, 0, 0, 0, 1.05394, -1.71194, -0.372905, -1.24106)
+
+[node name="Cont_Locker_Static" parent="." instance=ExtResource("14_2pi54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.2359, -0.5, -3.39021)
+
+[node name="Furn_Table_1" parent="." instance=ExtResource("15_d4rbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8331, -0.426906, -3.4337)
