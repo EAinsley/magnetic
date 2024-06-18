@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="11_n0puw"]
 [ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
 [ext_resource type="PackedScene" uid="uid://f0f156nv4kp7" path="res://Prefabs/Glass.tscn" id="13_hpidm"]
-[ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
+[ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0_old.tscn" id="13_w3bgq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
