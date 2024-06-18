@@ -112,6 +112,7 @@ normal_texture = ExtResource("7_vbiy8")
 negative_texture = ExtResource("11_j12wb")
 
 [node name="Menu" parent="." instance=ExtResource("7_s6trm")]
+z_index = 999
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
