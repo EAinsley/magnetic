@@ -51,7 +51,7 @@ current = true
 
 [node name="Interaction" type="RayCast3D" parent="Head/Cameras"]
 target_position = Vector3(0, 0, -3)
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("3_hff7t")
 
 [node name="Hand" type="Marker3D" parent="Head/Cameras"]

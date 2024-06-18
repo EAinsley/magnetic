@@ -11,13 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="10_ow5gb"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="11_n0puw"]
 [ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="12_ayrtq"]
+[ext_resource type="PackedScene" uid="uid://f0f156nv4kp7" path="res://Prefabs/Glass.tscn" id="13_hpidm"]
 [ext_resource type="PackedScene" uid="uid://ble0y1yirrtln" path="res://Scenes/level0.tscn" id="13_w3bgq"]
-[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="14_60cvl"]
-[ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="14_cq2yp"]
-[ext_resource type="Texture2D" uid="uid://dbr08taq4x6qu" path="res://Arts/other small things/2210b896c194919097f929c8083d3aa.png" id="15_bl278"]
-[ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="15_f4m25"]
-[ext_resource type="PackedScene" uid="uid://f0f156nv4kp7" path="res://Prefabs/Glass.tscn" id="17_tg4k1"]
-[ext_resource type="Shader" path="res://Arts/Textures/glass.gdshader" id="18_hs5x3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_faocl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -283,6 +278,12 @@ next_level = ExtResource("13_w3bgq")
 [node name="MagneticBoxOnlyExtract" parent="." instance=ExtResource("10_ow5gb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -4)
 initial_plority = 2
+
+[node name="Glass" parent="." instance=ExtResource("13_hpidm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0918, 3, -2.56934)
+collision_layer = 4
+collision_mask = 11
+size = Vector3(1, 6, 10)
 
 [editable path="ObjectsTest/Sketchfab_Scene"]
 [editable path="ObjectsTest/Sketchfab_Scene/MagneticField"]

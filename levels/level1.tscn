@@ -1,6 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://s4lkhmtfpddg"]
+[gd_scene load_steps=55 format=3 uid="uid://s4lkhmtfpddg"]
 
+[ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="1_u265x"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_wilv3"]
+[ext_resource type="Shader" uid="uid://bt1rjpoxclghc" path="res://Arts/Textures/glass_wall.tres" id="2_ksfhi"]
 [ext_resource type="PackedScene" uid="uid://qt7m5q5sefwr" path="res://Scenes/Prototype/platform.tscn" id="2_unl5h"]
 [ext_resource type="Material" uid="uid://cw345q056yq14" path="res://Arts/Textures/platform.tres" id="3_i4i5r"]
 [ext_resource type="PackedScene" uid="uid://cja4mreehald6" path="res://Prefabs/magnetic_box_static.tscn" id="4_6ky6g"]
@@ -14,9 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="9_pcpi7"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_fxil4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucysk"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.286275)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1maxu"]
+render_priority = 0
+shader = ExtResource("2_ksfhi")
+shader_parameter/albedo = Color(0, 0, 0, 0.341176)
+shader_parameter/roughness = 0.2
+shader_parameter/specular = 0.0
+shader_parameter/refraction = 0.01
+shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x3yw"]
 resource_local_to_scene = true
@@ -107,17 +114,20 @@ material = ExtResource("6_eqt77")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ryua6"]
 size = Vector3(1, 30, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6m2ww"]
+size = Vector3(3.43, 0.5, 3.43)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwa7m"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission_energy_multiplier = 3.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_7jwx2"]
+[sub_resource type="BoxMesh" id="BoxMesh_skikf"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_dwa7m")
-size = Vector3(0.95, 1, 0.95)
+size = Vector3(3.5, 0.5, 3.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlhyu"]
 size = Vector3(1, 30, 1)
@@ -203,6 +213,11 @@ size = Vector3(1, 1, 2)
 
 [node name="Level1" type="Node3D"]
 
+[node name="BlockingWall" parent="." instance=ExtResource("1_u265x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5222, 6.8, 28.1379)
+visible = false
+size = Vector3(3.86377, 0.2, 3.70608)
+
 [node name="Scenes" type="CSGCombiner3D" parent="."]
 use_collision = true
 collision_layer = 255
@@ -218,12 +233,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
 flip_faces = true
 size = Vector3(16, 6, 20)
 
-[node name="Glass" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0, 2)
+[node name="Glass" type="Node3D" parent="Scenes/Room1"]
+
+[node name="Glass" parent="Scenes/Room1/Glass" instance=ExtResource("2_unl5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 2)
 operation = 2
+collision_mask = 10
 flip_faces = true
-size = Vector3(0.1, 5.8, 15.8)
-material = SubResource("StandardMaterial3D_ucysk")
+size = Vector3(0.01, 5.99, 15.99)
+material = SubResource("ShaderMaterial_1maxu")
 
 [node name="Platform" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.5, -4.25)
@@ -292,6 +310,7 @@ omni_attenuation = 0.164939
 
 [node name="Door1" type="CSGCombiner3D" parent="Scenes/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+metadata/_edit_group_ = true
 
 [node name="door_frame" type="Node3D" parent="Scenes/Room1/Door1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
@@ -419,6 +438,7 @@ size = Vector3(3, 3, 1)
 
 [node name="Door2" type="CSGCombiner3D" parent="Scenes/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7.5)
+metadata/_edit_group_ = true
 
 [node name="door_frame" type="Node3D" parent="Scenes/Room1/Door2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
@@ -559,12 +579,6 @@ operation = 2
 flip_faces = true
 size = Vector3(4, 5, 3)
 
-[node name="Platform2" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.0499992)
-operation = 2
-flip_faces = true
-size = Vector3(4, 5, 3)
-
 [node name="Platform3" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.75)
 operation = 2
@@ -689,7 +703,7 @@ mesh = SubResource("BoxMesh_0rlob")
 shape = SubResource("BoxShape3D_1crvh")
 
 [node name="MagneticBoxOnlyExtract3" parent="Scenes/Room2" instance=ExtResource("5_tud7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, -0.7, 1.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, -0.7, 5.1)
 collision_layer = 4
 collision_mask = 14
 axis_lock_linear_x = true
@@ -706,11 +720,11 @@ mesh = SubResource("BoxMesh_ta7mv")
 shape = SubResource("BoxShape3D_nifgl")
 
 [node name="Glass" parent="Scenes/Room2" instance=ExtResource("2_unl5h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0.05, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0)
 operation = 2
 flip_faces = true
-size = Vector3(0.1, 4.8, 3.8)
-material = SubResource("StandardMaterial3D_ucysk")
+size = Vector3(0.01, 4.99, 3.99)
+material = SubResource("ShaderMaterial_1maxu")
 
 [node name="Room3" parent="Scenes" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, 27.75)
@@ -733,12 +747,16 @@ magnetic_forces = 800
 shape = SubResource("BoxShape3D_ryua6")
 
 [node name="MagneticBoxOnlyExtract" parent="Scenes/Room3" instance=ExtResource("5_tud7l")]
-transform = Transform3D(3.5, 0, 0, 0, 0.5, 0, 0, 0, 3.5, 0, -1.5, 0.299999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0.299999)
+collision_mask = 30
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 
+[node name="CollisionShape3D" parent="Scenes/Room3/MagneticBoxOnlyExtract" index="0"]
+shape = SubResource("BoxShape3D_6m2ww")
+
 [node name="Mesh" parent="Scenes/Room3/MagneticBoxOnlyExtract" index="1"]
-mesh = SubResource("BoxMesh_7jwx2")
+mesh = SubResource("BoxMesh_skikf")
 
 [node name="CollisionShape3D" parent="Scenes/Room3/MagneticBoxOnlyExtract/MagneticField" index="0"]
 shape = SubResource("BoxShape3D_xlhyu")
