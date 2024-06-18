@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://s4lkhmtfpddg"]
+[gd_scene load_steps=61 format=3 uid="uid://s4lkhmtfpddg"]
 
 [ext_resource type="PackedScene" uid="uid://bxbl8f3pvtskf" path="res://Prefabs/blocking_wall.tscn" id="1_u265x"]
 [ext_resource type="PackedScene" uid="uid://bhva1tc2tnv77" path="res://Player/player.tscn" id="1_wilv3"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://caucs88uf7tsx" path="res://Prefabs/magnetic_box_only_extract.tscn" id="5_tud7l"]
 [ext_resource type="Material" uid="uid://i64qgoxatwiy" path="res://Static Objects/MagneticBoxStatic/neutral_static.tres" id="6_eqt77"]
 [ext_resource type="PackedScene" uid="uid://d23qs8axw47tv" path="res://Prefabs/magnetic_box.tscn" id="7_d8vtp"]
+[ext_resource type="PackedScene" uid="uid://b7hihjjfyq4ev" path="res://Prefabs/Collactable/collected_item.tscn" id="8_lkvoa"]
 [ext_resource type="PackedScene" uid="uid://bcuyni0ghas6j" path="res://Prefabs/button.tscn" id="8_ocwb3"]
 [ext_resource type="PackedScene" uid="uid://bw4ge6igswy6g" path="res://Prefabs/magnetic_door_suit.tscn" id="8_v0o7p"]
 [ext_resource type="Script" path="res://Resources/magnetic_data.gd" id="9_bippd"]
 [ext_resource type="Texture2D" uid="uid://su2e1ljs3yul" path="res://Arts/other small things/button_neutral.jpg" id="9_fmmgu"]
 [ext_resource type="PackedScene" uid="uid://dl10veyw4nyug" path="res://Prefabs/magnetic_box_no_extract_no_move.tscn" id="9_pcpi7"]
+[ext_resource type="Texture2D" uid="uid://crjn8t4xghk6d" path="res://Arts/other small things/9673f4ab7b894252596e23bf932336e.png" id="9_ujfqu"]
 [ext_resource type="PackedScene" uid="uid://cxx756syagk4h" path="res://Utilities/magnetic_extractor.tscn" id="10_fxil4"]
+[ext_resource type="PackedScene" uid="uid://co1mplg130mp1" path="res://Prefabs/next_level.tscn" id="18_khr5t"]
+[ext_resource type="PackedScene" uid="uid://dktip6axvkkfb" path="res://levels/level2.tscn" id="19_gbkht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1maxu"]
 render_priority = 0
@@ -25,7 +29,7 @@ shader_parameter/specular = 0.0
 shader_parameter/refraction = 0.01
 shader_parameter/refraction_texture_channel = Vector4(1, 1, 1, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x3yw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osgud"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -34,13 +38,25 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_u0squ"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_1x3yw")
+material = SubResource("StandardMaterial3D_osgud")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwidi"]
 size = Vector3(1, 6, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbp1h"]
+[sub_resource type="SphereMesh" id="SphereMesh_wx2vp"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxw6d"]
+transparency = 1
+albedo_color = Color(0.866667, 0.760784, 0.376471, 0.588235)
+rim = 0.25
+ao_light_affect = 1.0
+subsurf_scatter_strength = 0.31
+refraction_scale = -1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lie7d"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -49,7 +65,7 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_n47hr"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_jbp1h")
+material = SubResource("StandardMaterial3D_lie7d")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0non"]
@@ -63,7 +79,7 @@ material = ExtResource("6_eqt77")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsy2g"]
 size = Vector3(1, 1, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mha5e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpf4d"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -72,13 +88,13 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_qcuqp"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_mha5e")
+material = SubResource("StandardMaterial3D_gpf4d")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovx4y"]
 size = Vector3(1, 1, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppmgu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4hxj"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -87,12 +103,12 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_0rlob"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_ppmgu")
+material = SubResource("StandardMaterial3D_n4hxj")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1crvh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge5op"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4kat"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -101,7 +117,7 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_ta7mv"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_ge5op")
+material = SubResource("StandardMaterial3D_j4kat")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nifgl"]
@@ -117,7 +133,7 @@ size = Vector3(1, 30, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6m2ww"]
 size = Vector3(3.43, 0.5, 3.43)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwa7m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1315"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -126,7 +142,7 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_skikf"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_dwa7m")
+material = SubResource("StandardMaterial3D_y1315")
 size = Vector3(3.5, 0.5, 3.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlhyu"]
@@ -148,7 +164,7 @@ is_extractable = true
 resource_local_to_scene = true
 size = Vector3(2, 1, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfwhx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhad3"]
 albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
 metallic = 1.0
 metallic_specular = 1.0
@@ -157,7 +173,7 @@ roughness = 0.1
 [sub_resource type="BoxMesh" id="BoxMesh_1tqio"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 12)
-material = SubResource("StandardMaterial3D_rfwhx")
+material = SubResource("StandardMaterial3D_uhad3")
 size = Vector3(1, 0.1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r06mc"]
@@ -181,7 +197,7 @@ size = Vector3(2, 0.2, 2)
 resource_local_to_scene = true
 size = Vector3(1.9, 0.2, 1.9)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jysb0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odpuy"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission = Color(0.870588, 0.0862745, 0.137255, 1)
@@ -190,13 +206,13 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_8moqm"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_jysb0")
+material = SubResource("StandardMaterial3D_odpuy")
 size = Vector3(0.95, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j701h"]
 size = Vector3(1, 5, 12)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axs6l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxlkx"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
@@ -205,7 +221,7 @@ emission_energy_multiplier = 3.0
 [sub_resource type="BoxMesh" id="BoxMesh_6wg6i"]
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_axs6l")
+material = SubResource("StandardMaterial3D_uxlkx")
 size = Vector3(0.95, 1, 0.95)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dj6j3"]
@@ -436,6 +452,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3.5, -3.5)
 flip_faces = true
 size = Vector3(3, 3, 1)
 
+[node name="Collactable" parent="Scenes/Room1/Door1" instance=ExtResource("8_lkvoa")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 3.5, -0.5, -5.9)
+texture = ExtResource("9_ujfqu")
+heading = "【操作提示】"
+details = "按下右键－提取磁性"
+
+[node name="MeshInstance3D" parent="Scenes/Room1/Door1/Collactable" index="2"]
+mesh = SubResource("SphereMesh_wx2vp")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxw6d")
+
 [node name="Door2" type="CSGCombiner3D" parent="Scenes/Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7.5)
 metadata/_edit_group_ = true
@@ -555,6 +581,16 @@ shape = SubResource("BoxShape3D_j0non")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3.5, -3.5)
 flip_faces = true
 size = Vector3(3, 1, 1)
+
+[node name="Collactable" parent="Scenes/Room1/Door2" instance=ExtResource("8_lkvoa")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 3.5, -0.5, -5.9)
+texture = ExtResource("9_ujfqu")
+heading = "【操作提示】"
+details = "按下右键－释放磁性"
+
+[node name="MeshInstance3D" parent="Scenes/Room1/Door2/Collactable" index="2"]
+mesh = SubResource("SphereMesh_wx2vp")
+surface_material_override/0 = SubResource("StandardMaterial3D_jxw6d")
 
 [node name="Platform3" parent="Scenes/Room1" instance=ExtResource("2_unl5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 4)
@@ -892,10 +928,16 @@ shadow_enabled = true
 shadow_opacity = 0.1
 omni_attenuation = 0.164939
 
+[node name="NextLevel" parent="Scenes/Out" instance=ExtResource("18_khr5t")]
+transform = Transform3D(2, 0, 0, 0, 3.5, 0, 0, 0, 5, 2, 0, 0)
+next_level = ExtResource("19_gbkht")
+
 [editable path="Scenes/Room1/Door1/MagneticBoxOnlyExtract"]
 [editable path="Scenes/Room1/Door1/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room1/Door1/Collactable"]
 [editable path="Scenes/Room1/Door2/MagneticBoxOnlyExtract"]
 [editable path="Scenes/Room1/Door2/MagneticBoxOnlyExtract/MagneticField"]
+[editable path="Scenes/Room1/Door2/Collactable"]
 [editable path="Scenes/Room2/Side door/MagneticBoxStatic"]
 [editable path="Scenes/Room2/Side door/MagneticBoxStatic/MagneticField"]
 [editable path="Scenes/Room2/Side door/MagneticBoxStatic2"]

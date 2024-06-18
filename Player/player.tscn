@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cu2efk6dyqge5" path="res://Utilities/magnetic.tscn" id="5_kv1sy"]
 [ext_resource type="Script" path="res://Player/magnetic_ui.gd" id="7_lcooq"]
 [ext_resource type="PackedScene" uid="uid://e85whmjdcm35" path="res://Player/Menu/menu.tscn" id="7_s6trm"]
-[ext_resource type="Texture2D" uid="uid://c72hta7b3ds5d" path="res://Arts/Prototype/Dark/texture_12.png" id="7_vbiy8"]
-[ext_resource type="Texture2D" uid="uid://crqye8g0dby72" path="res://Arts/Prototype/Red/texture_13.png" id="9_du32m"]
-[ext_resource type="Texture2D" uid="uid://ujgkil7e4o5c" path="res://Arts/Prototype/Blue/texture_13.png" id="11_j12wb"]
+[ext_resource type="Texture2D" uid="uid://dn5x281o4a63o" path="res://Arts/Prototype/Dark/texture_06.png" id="8_6qoht"]
+[ext_resource type="Texture2D" uid="uid://dfbyxnlfenyky" path="res://Arts/Prototype/Red/texture_07.png" id="10_vajog"]
+[ext_resource type="Texture2D" uid="uid://di3w3pebatgtf" path="res://Arts/Prototype/Blue/texture_03.png" id="11_yt84o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uwcpl"]
 radius = 0.3
@@ -94,32 +94,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
 
 [node name="MagneticUI" type="TextureRect" parent="UI/MarginContainer"]
-custom_minimum_size = Vector2(50, 50)
+modulate = Color(1, 1, 1, 0.392157)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("8_6qoht")
+expand_mode = 1
+script = ExtResource("7_lcooq")
+positive_texture = ExtResource("10_vajog")
+normal_texture = ExtResource("8_6qoht")
+negative_texture = ExtResource("11_yt84o")
+
+[node name="MagneticUI2" type="TextureRect" parent="UI/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
-texture = ExtResource("7_vbiy8")
+texture = ExtResource("8_6qoht")
 expand_mode = 1
-stretch_mode = 4
 script = ExtResource("7_lcooq")
-positive_texture = ExtResource("9_du32m")
-normal_texture = ExtResource("7_vbiy8")
-negative_texture = ExtResource("11_j12wb")
+positive_texture = ExtResource("10_vajog")
+normal_texture = ExtResource("8_6qoht")
+negative_texture = ExtResource("11_yt84o")
+
+[node name="MagneticUI3" type="TextureRect" parent="UI/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("8_6qoht")
+expand_mode = 1
+script = ExtResource("7_lcooq")
+positive_texture = ExtResource("10_vajog")
+normal_texture = ExtResource("8_6qoht")
+negative_texture = ExtResource("11_yt84o")
+
+[node name="MagneticUI4" type="TextureRect" parent="UI/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_6qoht")
+expand_mode = 1
+script = ExtResource("7_lcooq")
+positive_texture = ExtResource("10_vajog")
+normal_texture = ExtResource("8_6qoht")
+negative_texture = ExtResource("11_yt84o")
 
 [node name="Menu" parent="." instance=ExtResource("7_s6trm")]
 z_index = 999
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 20.0
-offset_right = 1132.0
-offset_bottom = 648.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [connection signal="colliding_state_changed" from="Head/Cameras/Interaction" to="UI/CenterContainer/Crosshair" method="_on_interaction_colliding_state_changed"]
 [connection signal="left_mouse_clicked" from="Head/Cameras/Interaction" to="Head/Cameras/Hand" method="_on_interaction_left_mouse_clicked"]
@@ -127,3 +152,6 @@ grow_vertical = 1
 [connection signal="held" from="Head/Cameras/Hand" to="Head/Cameras/Interaction" method="_on_hand_held"]
 [connection signal="released" from="Head/Cameras/Hand" to="Head/Cameras/Interaction" method="_on_hand_released"]
 [connection signal="plority_changed" from="Logic/Magnetic" to="UI/MarginContainer/MagneticUI" method="_on_magnetic_plority_changed"]
+[connection signal="plority_changed" from="Logic/Magnetic" to="UI/MarginContainer/MagneticUI2" method="_on_magnetic_plority_changed"]
+[connection signal="plority_changed" from="Logic/Magnetic" to="UI/MarginContainer/MagneticUI3" method="_on_magnetic_plority_changed"]
+[connection signal="plority_changed" from="Logic/Magnetic" to="UI/MarginContainer/MagneticUI4" method="_on_magnetic_plority_changed"]
